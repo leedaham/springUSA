@@ -1,0 +1,10 @@
+/* 마이 페이지 (공통)*/
+main > div {
+    position: relative;
+    width: 1150px;
+    margin: 0 auto;
+    min-height: 1000px;
+}
+main > div > h1 {
+    margin: 15px 70px;
+}

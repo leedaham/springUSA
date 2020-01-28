@@ -1,0 +1,266 @@
+/* 공통 */
+main > div {
+    width: 1150px;
+    height: 100%;
+    padding: 25px 40px 0px 40px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+main > div > h1 {
+    margin-left: 33px;
+    margin-bottom: 23px;
+}
+
+    /* 회원가입단계 */
+main .steper {
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+}
+main .steper .step {
+    float: left;
+    width: 33.333%;
+    height: 60%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 14px 0px;
+    border: 1px solid #808080;
+    box-sizing: border-box;
+}
+main .steper .on {
+    border: 1px solid #ffa02f;
+    font-size: 25px;
+    font-weight: 400;
+    padding: 9px 0px;
+    background: #ffa02f;
+    color: white;
+}
+
+
+/* 회원약관 및 필수정보 - step1 */
+main .register1 {
+    width: 1150px;
+    height: 100%;
+    min-height: 840px;
+    padding: 40px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+    /* 회원약관동의 */
+main > form .showTerms {
+    width: 100%;
+    height: 100%;
+}
+main > form .showTerms .terms {
+    margin-bottom: 20px;
+}
+main > form .showTerms .terms > h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+main .showTerms .termsBox {
+    overflow-y: auto;
+    height: 120px;
+    padding: 21px 25px;
+    border: 1px solid #dedede;
+    background-color: #fafafa;
+    color: #666;
+    font-size: 13px;
+}
+main .showTerms .terms .agreeArea {
+    margin-left: 12px;
+}
+main .showTerms .terms .agreeArea > label {
+    margin-right: 16px;
+}
+main .showTerms .AllagreeArea > input {
+    margin-left: 12px;
+}
+main .showTerms .AllagreeArea > label {
+    font-size: 14px;
+}
+
+    /* 필수 정보 입력란 */
+main > form .informations {
+    width: 100%;
+    height: 200px;
+    margin-top: 60px;
+    box-sizing: border-box;
+}
+main > form .informations > h3 {
+    font-size: 22px;
+    margin: 10px 0px;
+}
+main .informations > div {
+    width: 50%;
+    height: 50px;
+    border-bottom: 1px solid #dedede;
+    box-sizing: border-box;
+}
+main .informations .inf_name {
+    float: left;
+}
+main .informations .inf_sex {
+    float: right;
+}
+main .informations .inf_birth {
+    float: left;
+}
+main .informations .inf_hp {
+    float: right;
+}
+main .informations .row > span {
+    display: inline-block;
+    width: 160px;
+    height: 49px;
+    padding: 15px;
+    background-color: #fafafa;
+    box-sizing: border-box;
+}
+main .informations .row > input {
+    width: 180px;
+    height: 25px;
+    margin-left: 16px;
+}
+main .informations .row .chk {
+    width: 20px;
+    height: 15px;
+    margin-left: 15px;
+}
+main .informations .row > label {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+main > .register1 > .btn {
+    font-size: 15px;
+}
+main > .register1 > .btn_register {
+    width: 440px;
+    height: 54px;
+    margin: 10px 315px;
+    background-color: #ffa02f;
+    color: #fff;
+    border: none;
+}
+
+/* 정보입력 - step2 */
+main .register2 {
+    width: 1150px;
+    height: 100%;
+    min-height: 840px;
+    padding: 40px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+main .register2 > div > span:nth-of-type(1) {
+    display: inline-block;
+    width: 160px;
+    height: 49px;
+    padding: 15px;
+    background-color: #fafafa;
+    box-sizing: border-box;
+}
+main .register2 > div > span:nth-of-type(2) {
+    display: inline-block;
+    width: 160px;
+    height: 49px;
+    padding: 15px;
+    background-color: white;
+    box-sizing: border-box;
+}
+main .register2 > div > input {
+    width: 180px;
+    height: 25px;
+    margin-left: 16px;
+}
+main .register2 .btn {
+    width: 100px;
+    margin-left: 5px;
+    border: 1px solid #3c4968;
+    color: #3c4968;
+    background-color: white;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+main .register2 > .emailBox > input:nth-of-type(2) {
+    margin-left: 3px;
+}
+main .register2 > .emailBox > select {
+    height: 25px;
+    margin-left: 5px;
+}
+main .register2 > .emailBox > .email1 {width: 140px;}
+main .register2 > .emailBox > .email2 {width: 200px;}
+main .register2 > .addrBox {
+    position: relative;
+    height: 80px;
+}
+main .register2 > .addrBox  span {
+    height: 80px !important;
+}
+main .register2 > .addrBox > .zip {width: 100px;}
+main .register2 > .addrBox > .addr {
+    position: absolute;
+    width: 400px;
+    top: 50px;
+}
+main .register2 > .addrBox > input:nth-of-type(2) {left: 163.5px;}
+main .register2 > .addrBox > input:nth-of-type(3) {right: 70px;}
+
+main .register2 > .telBox > .tel {
+    width: 120px;
+}
+main .register2 > .receiveBox > input {
+    width: 25px;
+    height: 20px;
+    vertical-align: middle;
+}
+main .register2 .btnBox > button {
+    width: 250px;
+    height: 54px;
+    font-size: 15px;
+    margin-top: 70px;
+}
+main .register2 .btnBox > button:nth-of-type(1) {
+    background-color: #ffa02f;
+    color: #fff;
+    margin-left: 295px;
+    border: none;
+}
+
+
+/* 회원가입완료 - step3 */
+main .register3 {
+    width: 1150px;
+    height: 100%;
+    min-height: 840px;
+    padding: 40px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+main .register3 > img {
+    margin: 0 auto;
+    display: block;
+    width: 25%;
+}
+main .register3 > h1 {
+    text-align: center;
+}
+main > .register3 a {
+    display: block;
+    height: 54px;
+    padding-top: 18px;
+    font-size: 15px;
+    color: #fff;
+}
+main > .register3 > button {
+    display: block;
+    width: 440px;
+    height: 54px;
+    margin: 0 auto;
+    margin-top: 60px;
+    background-color: #ffa02f;
+    border: none;
+}

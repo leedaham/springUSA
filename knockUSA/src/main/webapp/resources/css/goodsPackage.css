@@ -1,0 +1,315 @@
+/* 여행 페이지 (공통)*/
+main > div {
+    position: relative;
+    width: 1150px;
+    margin: 0 auto;
+    min-height: 1000px;
+}
+main > div > h1 {
+    margin: 15px 70px;
+}
+main > div > a {
+    float: right;
+    font-size: 25px;
+    font-weight: 800;
+    margin-top: -50px;
+}
+
+main > .USA_CAN > .travel > .travel_info {
+    width: 100%;
+    height: 400px;
+    margin-top: 10px;
+    padding-top: 25px;
+    border-top: 1px solid #3c4968;
+    box-sizing: border-box;
+}
+main > .USA_CAN > .travel > .travel_info > .info_pic {
+    float: left;
+    width: 40%;
+    height: 340px;
+}
+main > .USA_CAN > .travel > .travel_info .info_pic_big {
+    width: 440px;
+    height: 250px;
+}
+main > .USA_CAN > .travel > .travel_info .info_pic_big > img {
+    width: 100%;
+    height: 100%;
+}
+main > .USA_CAN > .travel > .travel_info .info_pic_list > li {
+    width: 100px;
+    height: 80px;
+    margin-top: 10px;
+    margin-right: 13.4px;
+    float: left;
+}
+main > .USA_CAN > .travel > .travel_info .info_pic_list > li > img {
+    width: 100%;
+    height: 100%;
+}
+main > .USA_CAN > .travel > .travel_info .info_pic_list > li > img:last-of-type {
+    margin-right: 0px;
+}
+
+main > .USA_CAN > .travel > .travel_info > .info_txt {
+    position: relative;
+    float: right;
+    width: 60%;
+    height: 340px;
+}
+main > .USA_CAN > .travel > .travel_info > .info_txt > h3 {
+    font-size: 20px;
+    padding: 5px 15px;
+    margin-bottom: 10px;    
+    color: white;
+    background: #ffa02f;
+}
+main > .USA_CAN > .travel > .travel_info > .info_txt > table {}
+main > .USA_CAN > .travel > .travel_info > .info_txt > table > tbody {}
+main > .USA_CAN > .travel > .travel_info > .info_txt > table > tbody > tr {
+    line-height: 28px;
+    text-align: left;
+}
+main > .USA_CAN > .travel > .travel_info > .info_txt > table > tbody th {
+    font-size: 13px;
+    padding-right: 65px;
+    padding-left: 24px;
+}
+
+main > .USA_CAN > .travel > .travel_info > .info_txt > table > tbody td {
+    font-size: 13px;
+}
+main > .USA_CAN > .travel > .travel_info > .info_txt .region th {
+    font-size: 18px;
+}
+main > .USA_CAN > .travel > .travel_info > .info_txt .region td {
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffa02f;
+}
+main > .USA_CAN > .travel > .travel_info > .info_txt .price th {
+    font-size: 20px;
+}
+main > .USA_CAN > .travel > .travel_info > .info_txt .price td {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffa02f;
+}
+
+main > .USA_CAN > .travel > .travel_info > .info_txt > .btn_wrap {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+main > .USA_CAN > .travel > .travel_info > .info_txt > .btn_wrap > a {
+    display: block;
+    float: left;
+    width: 150px;
+    height: 50px;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 47px;
+}
+main > .USA_CAN > .travel > .travel_info > .info_txt > .btn_wrap > a:nth-of-type(1) {
+    border: 1px solid #dcdcdc;
+    background-color: #f3f3f3;
+    color: #666;
+}
+main > .USA_CAN > .travel > .travel_info > .info_txt > .btn_wrap > a:nth-of-type(2) {
+    color: #3c4968;
+    border: 1px solid #3c4968;
+}
+main > .USA_CAN > .travel > .travel_info > .info_txt > .btn_wrap > a:nth-of-type(3) {
+    color: white;
+    background: #ffa02f;
+    border: 1px solid #ffa02f;
+}
+
+
+
+
+/* 상세 상품 설명 - 출발 날짜 보기 */
+main .USA_CAN .travel_detail {
+    width: 100%;
+    height: 100%;
+}
+
+main .USA_CAN .travel_detail .product_schedule {
+    width: 100%;
+    height: 300px;
+    border: 1px solid blue;
+    margin-bottom: 20px;
+}
+main .USA_CAN .travel_detail .product_schedule > .calendar {
+    width: 300px;
+    height: 300px;
+    border: 1px solid green;
+    text-align: center;
+}
+main .USA_CAN .travel_detail .product_schedule > .calendar {}
+main .USA_CAN .travel_detail .product_schedule > .calendar td {
+    width: 14%;
+}
+main .USA_CAN .travel_detail .product_schedule > .calendar {}
+
+
+
+main .USA_CAN .travel_detail .product_schedule > .departure {}
+
+main .USA_CAN .travel_detail > .detail_info {
+    height: 2200px;
+}
+/* 상세 상품 설명 - 탭 */
+main .USA_CAN .travel_detail .detail_tab {
+    width: 80%;
+    height: 60px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+main .USA_CAN .travel_detail .detail_tab > div {
+    float: left;
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    color: #000000;
+    padding-top: 15px;
+    border: 1px solid #f1f1f1;
+    box-sizing: border-box;
+}
+main .USA_CAN .travel_detail .detail_tab > div h3 {
+    font-weight: 400;
+}
+main .USA_CAN .travel_detail .detail_tab > div.on {
+    background: #ffa02f;
+    border: #ffa02f;
+}
+main .USA_CAN .travel_detail .detail_tab > div.on h3 {
+    color: white;
+}
+
+/* 상세 상품 설명 - 탭에 따른 내용 */
+main .USA_CAN .travel_detail .detail_content {
+    display: none;
+    width: 100%;
+    height: 500px;
+}
+main .USA_CAN .travel_detail .detail_content.on {
+    display: block;
+}
+
+    /* 상품설명 */
+    /* 상세일정 */
+    main .USA_CAN .travel_detail #detail_schedule {}
+    main .USA_CAN .travel_detail #detail_schedule > table {
+        width: 100%;
+        border-spacing: 0;
+        padding: 10px 0px;
+        box-sizing: border-box;
+    }
+    main .USA_CAN .travel_detail #detail_schedule th {
+        width: 20%;
+    }
+    main .USA_CAN .travel_detail #detail_schedule .schedule_tit > th {
+        height: 60px;
+        font-size: 20px;
+        color: #666666;
+        background: #f1f1f1;
+        margin: 10px 0px;
+    }
+    main .USA_CAN .travel_detail #detail_schedule .schedule_tit > td {
+        color: #666666;
+        font-size: 16px;
+        font-weight: 400;
+        background: #f1f1f1;
+    }
+    main .USA_CAN .travel_detail #detail_schedule .schedule_tit > td > p {
+        float: left;
+        margin-right: 20px;
+    }
+    main .USA_CAN .travel_detail #detail_schedule .schedule_tit > td > p:first-of-type {
+        font-weight: 600;
+        color: #ffa02f;
+    }
+    main .USA_CAN .travel_detail #detail_schedule td {
+        width: 70%;
+        padding-left: 20px;
+    }
+
+    main .USA_CAN .travel_detail #detail_schedule .schedule_content > td {}
+    main .USA_CAN .travel_detail #detail_schedule .schedule_content > td > span {
+        display: block;
+        width: 700px;
+        color: white;
+        background: #ffa02f;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+    main .USA_CAN .travel_detail #detail_schedule .schedule_content > td > p {
+        line-height: 40px;
+    }
+    main .USA_CAN .travel_detail #detail_schedule .schedule_content > td > p.location {
+        background: url('../img/location_mark.png') no-repeat;
+        background-position: 5px 17px;
+        padding: 10px 0px 10px 25px;
+        font-size: 17px;
+        font-weight: 400;
+    }
+    main .USA_CAN .travel_detail #detail_schedule .schedule_content > td > p.spot_name {
+        background: url('../img/spot_mark.png') no-repeat;
+        background-position: 3px 12px;
+        padding: 5px 0px 5px 25px;
+        font-size: 17px;
+        font-weight: 400;
+    }
+    main .USA_CAN .travel_detail #detail_schedule .schedule_content > td > strong.warning {
+        font-size: 17px;
+        color: red;
+    }
+    main .USA_CAN .travel_detail #detail_schedule .additional_info > th {
+        font-size: 18px;
+        border: 1px solid #f1f1f1;
+        border-left: 0px;
+        border-top: 0px;
+    }
+    main .USA_CAN .travel_detail #detail_schedule .additional_info > td {
+        font-size: 16px;
+        border-bottom: 1px solid #f1f1f1;
+    }
+    main .USA_CAN .travel_detail #detail_schedule #accomodation > th {
+        border-top: 1px solid #f1f1f1;
+    }
+    main .USA_CAN .travel_detail #detail_schedule #accomodation > td {
+        border-top: 1px solid #f1f1f1;
+    }
+
+    /* 포함/불포함 */
+    /* 출발전 정보 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

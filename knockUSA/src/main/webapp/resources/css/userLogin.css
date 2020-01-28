@@ -1,0 +1,293 @@
+/* 공통 */
+main > div {
+    width: 1150px;
+    height: 840px;
+    padding: 40px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+main > div > h1 {
+    margin-left: 33px;
+    margin-bottom: 10px;
+}
+/* 로그인페이지 */
+main .login {
+    width: 560px;
+    height: 505px;
+    margin-top: 75px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+main .login .loginbox .row {
+    display: block;
+    padding: 0px 60px 25px;
+}
+main .login .loginbox .row:nth-of-type(2) {
+    padding-bottom: 10px;
+}
+main .login .loginbox > h3 {
+    margin-top: 30px;
+    font-size: 30px;
+    text-align: center;
+}
+main .login .loginbox .row > span {
+    float: left;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+}
+main .login .loginbox .row > input {
+    clear: left;
+    width: 427px;
+    height: 29px;
+    margin-top: 5px;
+}
+
+main .login .loginbox .id_save_row {
+        margin-left: 60px;
+}
+main .login .loginbox .btn {
+    font-size: 15px;
+}
+main .login .loginbox .btn_login {
+    width: 440px;
+    height: 54px;
+    margin: 55px 59px 0;
+    background-color: #ffa02f;
+    color: #fff;
+    border: none;
+}
+main .login .loginbox > div {
+    width: 440px;
+    margin: 0 auto;
+}
+main .login .loginbox .btn_login_other {
+    margin-top: 10px;
+    width: 215px;
+    height: 54px;
+    border: 1px solid #e6e6e6;
+    background-color: #f5f5f5;
+    color: #808080;
+}
+main .login .loginbox .btn_login_other:nth-of-type(2) {
+    float: right;
+}
+
+/*  로그인페이지 (비로그인시 예약하기(상품예약으로부터)) */
+main .login_from_resv {
+    width: 1120px;
+    height: 505px;
+    margin-top: 75px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+main .login_from_resv .member {
+    float: left;
+    width: 559px;
+    height: 505px;
+    box-sizing: border-box;
+    border-right: 1px solid black;
+}
+
+    /* 회원 로그인 */
+main .login_from_resv .loginbox_member .row {
+    display: block;
+    padding: 0px 60px 25px;
+}
+main .login_from_resv .loginbox_member .row:nth-of-type(2) {
+    padding-bottom: 10px;
+}
+main .login_from_resv .loginbox_member > h3 {
+    margin-top: 30px;
+    font-size: 30px;
+    text-align: center;
+}
+main .login_from_resv .loginbox_member .row > span {
+    float: left;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+}
+main .login_from_resv .loginbox_member .row > input {
+    clear: left;
+    width: 427px;
+    height: 29px;
+    margin-top: 5px;
+}
+main .login_from_resv .loginbox_member .id_save_row {
+        margin-left: 60px;
+}
+main .login_from_resv .loginbox_member .btn {
+    font-size: 15px;
+}
+main .login_from_resv .loginbox_member .btn_login {
+    width: 440px;
+    height: 54px;
+    margin: 55px 59px 0;
+    background-color: #ffa02f;
+    color: #fff;
+    border: none;
+}
+main .login_from_resv .loginbox_member > div {
+    width: 440px;
+    margin: 0 auto;
+}
+main .login_from_resv .loginbox_member .btn_login_other {
+    margin-top: 10px;
+    width: 215px;
+    height: 54px;
+    border: 1px solid #e6e6e6;
+    background-color: #f5f5f5;
+    color: #808080;
+}
+main .login_from_resv .loginbox_member .btn_login_other:nth-of-type(2) {
+    float: right;
+}
+
+    /* 비회원 예약탭 */
+
+main .login_from_resv .non_member {
+    float: right;
+    width: 559px;
+    height: 505px;
+}
+main .login_from_resv .non_member > h3 {
+    margin-top: 30px;
+    font-size: 30px;
+    text-align: center;
+}
+main .login_from_resv .non_member > span {
+    float: left;
+    margin-top: 25px;
+    width: 100%;
+    font-size: 17px;
+    font-weight: 400;
+    text-align: center;
+    color: #111;
+}
+main .login_from_resv .non_member .btn_login > a {
+    font-size: 15px;
+    color: #fff;
+}
+main .login_from_resv .non_member .btn_login {
+    width: 440px;
+    height: 54px;
+    margin: 149px 59px 0;
+    background-color: #ffa02f;
+    border: none;
+}
+
+/*  로그인 페이지 (예약확인탭으로부터) */
+main .login_from_resvLi {
+    width: 1120px;
+    height: 505px;
+    margin-top: 75px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+main .login_from_resvLi .member {
+    float: left;
+    width: 559px;
+    height: 505px;
+    box-sizing: border-box;
+    border-right: 1px solid black;
+}
+
+    /* 회원 로그인 */
+main .login_from_resvLi .loginbox_member .row {
+    display: block;
+    padding: 0px 60px 25px;
+}
+main .login_from_resvLi .loginbox_member .row:nth-of-type(2) {
+    padding-bottom: 10px;
+}
+main .login_from_resvLi .loginbox_member > h3 {
+    margin-top: 30px;
+    font-size: 30px;
+    text-align: center;
+}
+main .login_from_resvLi .loginbox_member .row > span {
+    float: left;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+}
+main .login_from_resvLi .loginbox_member .row > input {
+    clear: left;
+    width: 427px;
+    height: 29px;
+    margin-top: 5px;
+}
+main .login_from_resvLi .loginbox_member .id_save_row {
+        margin-left: 60px;
+}
+main .login_from_resvLi .loginbox_member .btn {
+    font-size: 15px;
+}
+main .login_from_resvLi .loginbox_member .btn_login {
+    width: 440px;
+    height: 54px;
+    margin: 55px 59px 0;
+    background-color: #ffa02f;
+    color: #fff;
+    border: none;
+}
+main .login_from_resvLi .loginbox_member > div {
+    width: 440px;
+    margin: 0 auto;
+}
+main .login_from_resvLi .loginbox_member .btn_login_other {
+    margin-top: 10px;
+    width: 215px;
+    height: 54px;
+    border: 1px solid #e6e6e6;
+    background-color: #f5f5f5;
+    color: #808080;
+}
+main .login_from_resvLi .loginbox_member .btn_login_other:nth-of-type(2) {
+    float: right;
+}
+
+    /* 비회원 예약탭 */
+
+main .login_from_resvLi .non_member {
+    float: right;
+    width: 559px;
+    height: 505px;
+}
+main .login_from_resvLi .non_member .row {
+    display: block;
+    padding: 0px 60px 25px;
+}
+main .login_from_resvLi .non_member .row:nth-of-type(2) {
+    padding-bottom: 10px;
+}
+main .login_from_resvLi .non_member > h3 {
+    margin-top: 30px;
+    font-size: 30px;
+    text-align: center;
+}
+main .login_from_resvLi .non_member .row > span {
+    float: left;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+}
+main .login_from_resvLi .non_member .row > input {
+    clear: left;
+    width: 427px;
+    height: 29px;
+    margin-top: 5px;
+}
+main .login_from_resvLi .non_member .btn_login > a {
+    font-size: 15px;
+    color: #fff;
+}
+main .login_from_resvLi .non_member .btn_login {
+    width: 440px;
+    height: 54px;
+    margin: 41px 59px 0;
+    background-color: #ffa02f;
+    border: none;
+}

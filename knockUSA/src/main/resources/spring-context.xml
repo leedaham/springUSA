@@ -27,13 +27,23 @@
 	<mvc:resources location="/resources/img/" mapping="/img/**"></mvc:resources>
 	<mvc:resources location="/resources/js/" mapping="/js/**"></mvc:resources>
 		
-	<!-- dataSource 설정(DBCP 설정) -->
+	<!-- 
+	dataSource 설정(DBCP 설정) (수업서버)
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://192.168.44.7:3306/ldh" />
 		<property name="username" value="ldh" />
 		<property name="password" value="1234" />
 	</bean>	
+	-->
+	
+	<!-- dataSource 설정(DBCP 설정) (GCP SQL)-->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://35.241.66.179/knockusa_db" />
+		<property name="username" value="root" />
+		<property name="password" value="knockknock" />
+	</bean>
 	
 	<!-- Spring JDBC 등록 -->
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">

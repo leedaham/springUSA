@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="../_header.jsp"%>
 <%@include file="./_aside_community.jsp"%>
-<h1>공지사항</h1>
+<h1>${boardCate.board_cate}</h1>
 <div id="board">
     <h3>글목록</h3>
     <!-- 리스트 -->

@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mapper.sql_member">
+<mapper namespace="mapper.sql_user">
 
 
+	<select id="SELECT_TERMS" resultType="kr.co.knockusa.vo.TermsVo">
+		SELECT * FROM `KTUT_TERMS`;
+	</select>
 
+	<insert id="INSERT_USER">
+		INSERT INTO `KTUT_USER` SET 
+		`user_id`=#{user_id},
+		`user_pw`=#{user_pw},
+		`user_name`=#{user_name},
+		`user_gender`=#{user_gender},
+		`user_birth`=#{user_birth},
+		`user_hp`=#{user_hp},
+		`user_tel`=#{user_tel},
+		`user_zip`=#{user_zip},
+		`user_addr_main`=#{user_addr_main},
+		`user_addr_detail`=#{user_addr_detail},
+		`user_agree_sms`=#{user_agree_sms},
+		`user_agree_email`=#{user_agree_email},
+		`user_regip`=#{user_regip},
+		`user_rdate`=NOW();
+	</insert>
 
-
-
-
-
+	<select id="CHECK_ID" resultType="int">
+		SELECT COUNT(*) FROM `KTUT_USER` WHERE `user_id`=#{user_id};
+	</select>
+	<select id="CHECK_HP" resultType="int">
+		SELECT COUNT(*) FROM `KTUT_USER` WHERE `user_hp`=#{user_hp};
+	</select>
 
 
 

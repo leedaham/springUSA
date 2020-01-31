@@ -13,9 +13,5 @@ public class CommunityDao {
 	@Inject
 	private SqlSessionTemplate mybatis;
 	
-	public BoardVo selectBoard(String cate) {
-		return mybatis.selectOne("mapper.sql_article.SELECT_BOARD", cate);
-	}
-	
 	
 }

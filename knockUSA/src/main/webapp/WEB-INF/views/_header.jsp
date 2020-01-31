@@ -4,31 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
-    <link rel="stylesheet" href="/knockusa/css/index.css">
-    <link rel="stylesheet" href="/knockusa/css/home.css">
-    <link rel="stylesheet" href="/knockusa/css/introduce.css">
-    <link rel="stylesheet" href="/knockusa/css/sidemenu.css">
-    <link rel="stylesheet" href="/knockusa/css/board.css">
-    <!-- 
-    <link rel="stylesheet" href="/knockusa/css/community.css">
-    <link rel="stylesheet" href="/knockusa/css/communityEvent.css">
-    <link rel="stylesheet" href="/knockusa/css/customer.css">
-    <link rel="stylesheet" href="/knockusa/css/goods.css">
-    <link rel="stylesheet" href="/knockusa/css/goodsPackage.css">
-    <link rel="stylesheet" href="/knockusa/css/terms.css">
-    <link rel="stylesheet" href="/knockusa/css/userLogin.css">
-    <link rel="stylesheet" href="/knockusa/css/userRegister.css">
-    <link rel="stylesheet" href="/knockusa/css/userList.css">
-     -->
+    <link rel="stylesheet" href="/knockusa/css/style.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-	
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <script src="/knockusa/js/home_bxslider.js"></script>
-    <script src="/knockusa/js/favorite.js"></script>
-    
 </head>
 <body>
     <!-- 사이드배너 -->
@@ -60,10 +42,10 @@
                 <ul>
                     <li><a href="/knockusa/index">first page</a></li>
                     <li><a href="/knockusa/user/login">로그인</a></li>
-                    <li><a href="/knockusa/user/registerStep1">회원가입</a></li>
+                    <li><a href="/knockusa/user/register">회원가입</a></li>
                     <li><a href="/knockusa/user/myPage/reserList">예약확인</a></li>
                     <li><a href="/knockusa/community/eventNow">이벤트</a></li>
-                    <li><a href="#" id="favorite" title="즐겨찾기 추가">즐겨찾기 +</a></li>
+                    <li><a href="">즐겨찾기 +</a></li>
                 </ul>
             </div>
         </div>
@@ -74,7 +56,7 @@
                 </div>
                 <div><a href="/knockusa/introduce/introduce"><h3>회사소개</h3></a></div>
                 <div><a href="/knockusa/goods/travelPackagesUSA"><h3>미국&캐나다</h3></a></div>
-                <div><a href="/knockusa/community/notice"><h3>커뮤니티</h3></a></div>
+                <div><a href="/knockusa/community?cate=notice"><h3>커뮤니티</h3></a></div>
                 <div><a href="/knockusa/customer/faq"><h3>고객센터</h3></a></div>
             </div>
 

@@ -1,2 +1,16 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/resources/css/board.css=UTF-8
+encoding//src/main/webapp/resources/css/community.css=UTF-8
+encoding//src/main/webapp/resources/css/communityEvent.css=UTF-8
+encoding//src/main/webapp/resources/css/customer.css=UTF-8
+encoding//src/main/webapp/resources/css/goods.css=UTF-8
+encoding//src/main/webapp/resources/css/goodsPackage.css=UTF-8
+encoding//src/main/webapp/resources/css/index.css=UTF-8
+encoding//src/main/webapp/resources/css/introduce.css=UTF-8
+encoding//src/main/webapp/resources/css/sidemenu.css=UTF-8
+encoding//src/main/webapp/resources/css/style.css=UTF-8
+encoding//src/main/webapp/resources/css/terms.css=UTF-8
+encoding//src/main/webapp/resources/css/userLogin.css=UTF-8
+encoding//src/main/webapp/resources/css/userRegister.css=UTF-8
+encoding//src/main/webapp/resources/css/userReserList.css=UTF-8
 encoding/<project>=UTF-8

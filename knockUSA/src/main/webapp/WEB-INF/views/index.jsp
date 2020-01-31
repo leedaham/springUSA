@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Knock The USA! Tour</title>
     <link rel="stylesheet" href="/knockusa/css/index.css">
-    <link rel="stylesheet" href="/knockusa/css/home.css">
+    <link rel="stylesheet" href="/knockusa/css/style.css">
 </head>
 <body>
     <div class="background">

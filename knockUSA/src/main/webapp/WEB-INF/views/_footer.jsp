@@ -1,14 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-
     <!-- 푸터 -->
     <footer>
         <div id="top_footer">
             <div>
                 <ul>
-                    <li><a href="./introduce/introduce.html">Knock The USA Tour 소개 |</a></li>
-                    <li><a href="./terms/chiefPrivacy.html"> 개인정보처리방침 |</a></li>
-                    <li><a href="./terms/standardTerm.html"> 해외여행약관 |</a></li>
-                    <li><a href="./introduce/direction.html"> 찾아오시는 길</a></li>
+                    <li><a href="/knockusa/introduce/introduce">Knock The USA Tour 소개 |</a></li>
+                    <li><a href="/knockusa/terms/chiefPrivacy"> 개인정보처리방침 |</a></li>
+                    <li><a href="/knockusa/terms/standardTerm"> 해외여행약관 |</a></li>
+                    <li><a href="/knockusa/introduce/direction"> 찾아오시는 길</a></li>
                 </ul>
             </div>
         </div>

@@ -71,14 +71,20 @@ main .showTerms .termsBox {
 main .showTerms .terms .agreeArea {
     margin-left: 12px;
 }
+main .showTerms .terms .agreeArea > label > input {
+    cursor: pointer;
+}
 main .showTerms .terms .agreeArea > label {
     margin-right: 16px;
+    cursor: pointer;
 }
 main .showTerms .AllagreeArea > input {
     margin-left: 12px;
+    cursor: pointer;
 }
 main .showTerms .AllagreeArea > label {
     font-size: 14px;
+    cursor: pointer;
 }
 
     /* 필수 정보 입력란 */
@@ -175,6 +181,11 @@ main .register2 > div > input {
     height: 25px;
     margin-left: 16px;
 }
+main .register2 > div > .chk {
+	width: 25px;
+    height: 20px;
+    vertical-align: middle;
+}
 main .register2 .btn {
     width: 100px;
     margin-left: 5px;
@@ -207,7 +218,8 @@ main .register2 > .addrBox > .addr {
     top: 50px;
 }
 main .register2 > .addrBox > input:nth-of-type(2) {left: 163.5px;}
-main .register2 > .addrBox > input:nth-of-type(3) {right: 70px;}
+main .register2 > .addrBox > input:nth-of-type(3) {right: 486px;}
+main .register2 > .addrBox > input:nth-of-type(4) {right: 70px;}
 
 main .register2 > .telBox > .tel {
     width: 120px;

@@ -122,6 +122,10 @@ header > #top_header li > a {
     font-size: 13px;
     font-weight: 400;
 }
+header > #top_header li.logInOut > a {
+    font-weight: bold;
+    color: #ffa02f;
+}
 
 header > #nav_header {
     height: 110px;

@@ -1,4 +1,4 @@
-package kr.co.knockusa.vo;
+package kr.co.knockusa.user.vo;
 
 public class UserVo {
 	private int user_no;

@@ -62,6 +62,9 @@ main .login .loginbox > div {
     width: 440px;
     margin: 0 auto;
 }
+main .login .loginbox > div > button > a{
+	display: block;
+}
 main .login .loginbox .btn_login_other {
     margin-top: 10px;
     width: 215px;

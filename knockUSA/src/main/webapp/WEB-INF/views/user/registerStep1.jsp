@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../_header.jsp"%>
 <link rel="stylesheet" href="/knockusa/css/userRegister.css">
+<script src="/knockusa/js/termsCheck.js"></script>
     <!-- 콘텐츠 -->
     <main>
         <div>
@@ -21,44 +22,34 @@
         <form action="/knockusa/user/register2" method="POST" class="register1">
             <div class="showTerms">
                 <div class="terms">
-                    <h3>회원약관</h3>
+                    <h3>인터넷 회원 약관(필수)</h3>
                     <div class="termsBox">
                         ${terms.terms_user}
                     </div>
                     <span class="agreeArea">
-                        <input type="checkbox" id="agree1" name="agreeArea" class="chk">
-                        <label for="agree1">동의합니다.</label>
-                        <input type="checkbox" id="disagree1" name="disagreeArea" class="chk">
-                        <label for="disagree1">동의하지 않습니다.</label>
+                        <label for="agree1" style="cursor: pointer"><input type="checkbox" id="agree1" name="agree1" class="chk" style="cursor: pointer"/>동의합니다.</label>
                     </span>
                 </div>
                 <div class="terms">
-                    <h3>회원약관</h3>
+                    <h3>개인정보 수집 및 이용에 대한 안내(필수)</h3>
                     <div class="termsBox">
                         ${terms.terms_privacy_agree}
                     </div>
                     <span class="agreeArea">
-                        <input type="checkbox" id="agree1" name="agreeArea" class="chk">
-                        <label for="agree1">동의합니다.</label>
-                        <input type="checkbox" id="disagree1" name="disagreeArea" class="chk">
-                        <label for="disagree1">동의하지 않습니다.</label>
+                        <label for="agree2" style="cursor: pointer"><input type="checkbox" id="agree2" name="agree2" class="chk" style="cursor: pointer"/>동의합니다.</label>
                     </span>
                 </div>
                 <div class="terms">
-                    <h3>회원약관</h3>
+                    <h3>개인정보 수집 및 이용에 대한 안내(필수)</h3>
                     <div class="termsBox">
                         ${terms.terms_own}
                     </div>
                     <span class="agreeArea">
-                        <input type="checkbox" id="agree1" name="agreeArea" class="chk">
-                        <label for="agree1">동의합니다.</label>
-                        <input type="checkbox" id="disagree1" name="disagreeArea" class="chk">
-                        <label for="disagree1">동의하지 않습니다.</label>
+                        <label for="agree3" style="cursor: pointer"><input type="checkbox" id="agree3" name="agree3" class="chk" style="cursor: pointer"/>동의합니다.</label>
                     </span>
                 </div>
                 <span class="AllagreeArea">
-                    <input type="checkbox" id="Allagree" name="AllagreeArea" class="chk">
-                    <label for="Allagree">위의 인터넷 회원 약관(필수), 개인정보 수집 및 이용에 대한 안내(필수), 개인정보 수집 및 이용에 대한 안내(선택), 개인정보 제 3자 제공 및 공유 안내(선택), 개인정보 취급위탁 제공 및 공유 안내 (선택), 서비스 홍보 및 마케팅 활용(선택) 내용을 자세히 읽었으며 모두 동의합니다.</label>
+                    <label for="allAgree" style="cursor: pointer"><input type="checkbox" id="allAgree"name="allAgree" class="chk" style="cursor: pointer">위의 인터넷 회원 약관(필수), 개인정보 수집 및 이용에 대한 안내(필수), 개인정보 수집 및 이용에 대한 안내(필수) 내용을 자세히 읽었으며 모두 동의합니다.</label>
                 </span>
             </div>
             <button type="submit" class="btn btn_register">회원가입 다음단계</button>

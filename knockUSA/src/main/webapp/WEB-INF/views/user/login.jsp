@@ -7,17 +7,17 @@
         <div>
             <h1>로그인</h1>
             <div class="login">
-                <form action="#" method="POST"> 
+                <form action="/knockusa/user/login" method="POST"> 
                     <input type="hidden" name="" value="">
                     <div class="loginbox">
                         <h3>회원 로그인</h3>
                         <span class="row">
                             <span>ID</span>
-                            <input type="text" name="userID" title="아이디">
+                            <input type="text" name="user_id" title="아이디">
                         </span>
                         <span class="row">
                             <span>PassWord</span>
-                            <input type="password" name="userPW" title="비밀번호">
+                            <input type="password" name="user_pw" title="비밀번호">
                         </span>
                         <span class="id_save_row">
                             <input type="checkbox" id="id_save" name="memoryId" class="chk">
@@ -25,8 +25,8 @@
                         </span>
                         <button type="submit" class="btn btn_login">로그인</button>
                         <div>
-                            <button type="button" class="btn btn_login_other">회원가입</button>
-                            <button type="button" class="btn btn_login_other">아이디/비밀번호 찾기</button>
+                            <button type="button" class="btn btn_login_other"><a href="/knockusa/user/register">회원가입</a></button>
+                            <button type="button" class="btn btn_login_other"><a href="#">아이디/비밀번호 찾기</a></button>
                         </div>
                     </div>
                 </form>

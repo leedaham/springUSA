@@ -3,7 +3,7 @@
 <%@include file="../_header.jsp"%>
 <link rel="stylesheet" href="/knockusa/css/userRegister.css">
 <script src="/knockusa/js/checklistRegister.js"></script>
-
+<script src="/knockusa/js/validation.js"></script>
     <!-- 콘텐츠 -->
     <main>
         <div>
@@ -23,11 +23,11 @@
         <form action="/knockusa/user/register3" method="POST" class="register2"> 
             <div>
                 <span>성명</span>
-                <input type="text" name="user_name" title="name">
+                <input type="text" name="user_name" title="name" placeholder="2자 이상 입력해주세요.">
             </div>
             <div class="emailBox">
                 <span>이메일</span>
-                <input type="text" class="email1" name="email1"> @ <input type="text" class="email2" name="email2">
+                <input type="text" class="email1" name="email1" > @ <input type="text" class="email2" name="email2" >
                 <select name="email">
                     <option value="direct">직접입력</option>
                     <option value="naver.com">naver.com</option>
@@ -38,11 +38,11 @@
                     <option value="dreamwiz.com">dreamwiz.com</option>
                     <option value="lycos.co.kr">lycos.co.kr</option>
                 </select>
-                <p></p>
+                <p class="resultEmail"></p>
             </div>
             <div>
                 <span>생년월일</span>
-                <input type="text" name="user_birth" title="birth">
+                <input type="date" name="user_birth" title="birth">
             </div>
             <div>
                 <span>성별</span>
@@ -67,14 +67,16 @@
             </div>
             <div class="addrBox">
                 <span>주소</span>
-                <input type="text" class="zip" name="user_zip">
+                <input type="text" class="zip" name="user_zip" readonly>
                 <button class="btn">우편번호찾기</button>
-                <input type="text" class="addr" name="user_addr_main">
-                <input type="text" class="addr" name="user_addr_detail">
+                <input type="checkbox" id="noAddr" name="noAddr" class="chk">
+                <label for="noAddr">주소 없음</label>
+                <input type="text" class="addr" name="user_addr_main" placeholder="주소를 입력해주세요.">
+                <input type="text" class="addr" name="user_addr_detail" placeholder="상세주소를 입력해주세요.">
             </div>
             <div>
                 <span>핸드폰</span>
-                <input type="text" name="user_hp" title="hp">
+                <input type="text" name="user_hp" title="hp" placeholder="'-'없이 입력해주세요.">
                 <p class="resultHp"></p>
             </div>
             <div class="telBox">
@@ -82,6 +84,8 @@
                 <input type="text" class="tel" name="tel1">
                 <input type="text" class="tel" name="tel2">
                 <input type="text" class="tel" name="tel3">
+                <input type="checkbox" id="noTel" name="noTel" class="chk">
+                <label for="noTel">전화번호 없음</label>
             </div>
             <div class="receiveBox">
                 <span>정보수신</span>
@@ -95,7 +99,7 @@
             <section>
                 <div class="btnBox">
                     <button type="submit" class="btn btn_next">회원가입완료</button>
-                    <button type="button" class="btn btn_back"><a href="'/knockusa/home">가입취소</a></button>
+                    <button type="button" class="btn btn_back"><a href="/home">가입취소</a></button>
                 </div>
             </section>
         </form>

@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>Knock The USA Tour</title>
     <link rel="stylesheet" href="/knockusa/css/style.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
@@ -41,11 +42,22 @@
             <div>
                 <ul>
                     <li><a href="/knockusa/index">first page</a></li>
-                    <li><a href="/knockusa/user/login">로그인</a></li>
+                    <c:choose>
+                    	<c:when test="${user eq null}">
+                    <li class="logInOut"><a href="/knockusa/user/login">로그인</a></li>
                     <li><a href="/knockusa/user/register">회원가입</a></li>
-                    <li><a href="/knockusa/user/myPage/reserList">예약확인</a></li>
+                    <li><a href="/knockusa/user/myPage/reserList_needLogin">예약확인</a></li>
                     <li><a href="/knockusa/community/eventNow">이벤트</a></li>
                     <li><a href="">즐겨찾기 +</a></li>
+                    	</c:when>
+                    	<c:otherwise>
+                   	<li><a href="/knockusa/user/myPage/">${user.user_name}님 반갑습니다!</a></li>
+                   	<li><a href="/knockusa/user/myPage/reserList">예약확인</a></li>
+                    <li><a href="/knockusa/community/eventNow">이벤트</a></li>
+                    <li><a href="">즐겨찾기 +</a></li>
+                    <li class="logInOut"><a href="/knockusa/user/logout">로그아웃</a></li>
+                    	</c:otherwise>
+                    </c:choose>
                 </ul>
             </div>
         </div>

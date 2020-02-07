@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.sql_user">
 
-
-	<select id="SELECT_TERMS" resultType="kr.co.knockusa.vo.TermsVo">
+	<!-- 회원가입 -->
+	<select id="SELECT_TERMS" resultType="kr.co.knockusa.user.vo.TermsVo">
 		SELECT * FROM `KTUT_TERMS`;
 	</select>
 
@@ -16,6 +16,7 @@
 		`user_birth`=#{user_birth},
 		`user_hp`=#{user_hp},
 		`user_tel`=#{user_tel},
+		`user_email`=#{user_email},
 		`user_zip`=#{user_zip},
 		`user_addr_main`=#{user_addr_main},
 		`user_addr_detail`=#{user_addr_detail},
@@ -31,12 +32,24 @@
 	<select id="CHECK_HP" resultType="int">
 		SELECT COUNT(*) FROM `KTUT_USER` WHERE `user_hp`=#{user_hp};
 	</select>
+	<select id="CHECK_EMAIL" resultType="int">
+		SELECT COUNT(*) FROM `KTUT_USER` WHERE `user_email`=#{user_email};
+	</select>
 
+	<!-- 로그인 -->
+	<select id="SELECT_USER" resultType="kr.co.knockusa.user.vo.UserVo">
+		SELECT * FROM `KTUT_USER` WHERE `user_id`=#{user_id} AND `user_pw`=#{user_pw};
+	</select>
+	
+	<!-- 상품 조회 -->
+	<select id="SELECT_ITEM_NONUSER" resultType="kr.co.knockusa.vo.PurchaseVo">
+		SELECT * FROM `KTUT_PURCHASE` WHERE `purchase_no`=#{purchase_no} AND `purchase_id`=#{purchase_id};
+	</select>
 
-
-
-
-
+	<!-- 비회원로그인 -->
+	<select id="SELECT_NONUSER" resultType="kr.co.knockusa.user.vo.NonUserVo">
+		SELECT * FROM `KTUT_NONUSER` WHERE `nonUser_name_kor`=#{nonUser_name_kor} AND `nonUser_purchase_no`=#{nonUser_purchase_no};
+	</select>
 
 
 

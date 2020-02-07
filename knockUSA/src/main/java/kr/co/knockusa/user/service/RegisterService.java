@@ -1,4 +1,4 @@
-package kr.co.knockusa.register.service;
+package kr.co.knockusa.user.service;
 
 import java.util.List;
 
@@ -6,15 +6,15 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import kr.co.knockusa.dao.ReigsterDao;
-import kr.co.knockusa.vo.TermsVo;
-import kr.co.knockusa.vo.UserVo;
+import kr.co.knockusa.user.dao.UserDao;
+import kr.co.knockusa.user.vo.TermsVo;
+import kr.co.knockusa.user.vo.UserVo;
 
 @Service
 public class RegisterService {
 	
 	@Inject
-	private ReigsterDao dao;
+	private UserDao dao;
 	
 	public void insertUser(UserVo vo) {
 		dao.insertUser(vo);
@@ -37,5 +37,8 @@ public class RegisterService {
 	}
 	public int checkHp(String user_hp) {
 		return dao.checkHp(user_hp);
+	}
+	public int checkEmail(String user_email) {
+		return dao.checkEmail(user_email);
 	}
 }

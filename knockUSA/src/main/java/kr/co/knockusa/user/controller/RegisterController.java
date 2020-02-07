@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
-import kr.co.knockusa.register.service.RegisterService;
-import kr.co.knockusa.vo.TermsVo;
-import kr.co.knockusa.vo.UserVo;
+import kr.co.knockusa.user.service.RegisterService;
+import kr.co.knockusa.user.vo.TermsVo;
+import kr.co.knockusa.user.vo.UserVo;
 
 @Controller
 public class RegisterController {
@@ -37,15 +37,21 @@ public class RegisterController {
 	@RequestMapping("/user/register3")
 	public String register3(UserVo vo, HttpServletRequest req) {
 		String regip = req.getRemoteAddr();
-		String email = req.getParameter("email1") + req.getParameter("email2");
+		String email = req.getParameter("email1") + "@" + req.getParameter("email2");
 		String tel = req.getParameter("tel1") + req.getParameter("tel2") + req.getParameter("tel3");
 		String checkGender = req.getParameter("gender");
 		String checkSms = req.getParameter("agreeSms");
 		String checkEmail = req.getParameter("agreeEmail");
-
+		
 		int gender = Integer.parseInt(checkGender);
 		int agreeSms = Integer.parseInt(checkSms);
 		int agreeEmail = Integer.parseInt(checkEmail);
+		
+		if(tel.equals("")) {tel = null;}
+		if(req.getParameter("user_addr_main").equals("")) {
+			vo.setUser_addr_main(null);
+			vo.setUser_addr_detail(null);
+		}
 				
 		vo.setUser_regip(regip);
 		vo.setUser_email(email);
@@ -79,10 +85,14 @@ public class RegisterController {
 		
 		return new Gson().toJson(checkhp);
 	}
+		//이메일 중복
+	@GetMapping(value="/api/checkemail", produces="text/plain;charset=UTF-8")
+	@ResponseBody
+	public String checkEmail(String user_email) {
+		
+		int checkemail = service.checkEmail(user_email);
+		
+		return new Gson().toJson(checkemail);
+	}
 	
-	
-//	@RequestMapping("/user/register3")
-//	public String registerEnd() {
-//		return "/user/registerStep3";
-//	}
 }

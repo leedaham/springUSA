@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.sql_goods">
+
+	<select id="SELECT_PACKAGES" resultType="kr.co.knockusa.vo.GoodsVo">
+		SELECT * FROM `KTUT_GOODS` WHERE goods_country =#{goods_country} AND goods_side =#{goods_side};
+	</select>
+	
+	<select id="SELECT_PACKAGE" resultType="kr.co.knockusa.vo.GoodsVo">
+		SELECT * FROM `KTUT_GOODS` WHERE goods_no =#{goods_no}
+	</select>
+	
+	<select id="SELECT_GOODS_DETAIL" resultType="kr.co.knockusa.vo.GoodsDetailVo">
+		SELECT * FROM `KTUT_GOODS_DETAIL` WHERE `detail_goods_no`=#{detail_goods_no} ORDER BY `detail_day` ASC; 
+	</select>
+	
+	<select id="SELECT_GOODS_MONTHLY_REGION" resultType="kr.co.knockusa.vo.GoodsVo">
+		SELECT * FROM `KTUT_GOODS` WHERE `goods_start` LIKE CONCAT(#{goods_start},'%') AND `goods_region` =#{goods_region} ORDER BY `goods_start` ASC;
+	</select>
+	<select id="SELECT_GOODS_MONTHLY" resultType="kr.co.knockusa.vo.GoodsVo">
+		SELECT * FROM `KTUT_GOODS` WHERE `goods_start` LIKE CONCAT(#{goods_start},'%') ORDER BY `goods_start` ASC;
+	</select>
+	
+	
+	<!-- home 페이지 -->
+	<select id="SELECT_GOODS_BEST" resultType="kr.co.knockusa.vo.GoodsVo">
+		SELECT * FROM `KTUT_GOODS` ORDER BY `goods_hit` DESC LIMIT 3;
+	</select>
+	<select id="SELECT_BY_REGION" resultType="kr.co.knockusa.vo.GoodsVo">
+		SELECT * FROM `KTUT_GOODS` WHERE `goods_region` =#{goods_region};
+	</select>
+</mapper>

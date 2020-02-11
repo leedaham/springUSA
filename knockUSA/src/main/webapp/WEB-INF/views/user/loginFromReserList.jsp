@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../_header.jsp"%>
-<link rel="stylesheet" href="/knockusa/css/userLogin.css">
+<link rel="stylesheet" href="/knockusa/css/user/userLogin.css">
     <!-- 콘텐츠 -->
     <main>
         <div>
@@ -30,20 +30,22 @@
                         </div>
                     </div>
                 </form>
-                <div class="non_member">
-                    <h3>비회원 </h3>
-                    <span class="row">
-                        <span>Name</span>
-                        <input type="text" name="nonUser_name_kor" title="이름">
-                    </span>
-                    <span class="row">
-                        <span>Reservation Number</span>
-                        <input type="text" name="nonUser_purchase_no" title="비회원예약번호">
-                    </span>
-                    <div>
-                        <button type="submit"" class="btn btn_login"><a href="/knockusa/user/nonUserLogin">조회하기</a></button>
+                <form action="/knockusa/user/nonUserLogin" method="POST" class="member"> 
+                    <div class="non_member">
+                        <h3>비회원 </h3>
+                        <span class="row">
+                            <span>Name</span>
+                            <input type="text" name="nonUser_name_kor" title="이름">
+                        </span>
+                        <span class="row">
+                            <span>Reservation Number</span>
+                            <input type="text" name="nonUser_purchase_no" title="비회원예약번호">
+                        </span>
+                        <div>
+                            <button type="submit"" class="btn btn_login">조회하기</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </main>

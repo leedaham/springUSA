@@ -3,17 +3,32 @@
 <%@include file="../_header.jsp"%>
 <jsp:include page="./_aside_${board.board_group}.jsp" /> <%-- 표현언어는 태그요소에만 적용 됨 --%>
 <link rel="stylesheet" href="/knockusa/css/board.css">
-		<c:choose>
-			<c:when test="${board.board_cate=='notice'}"><h1>공지사항</h1></c:when>
-			<c:when test="${board.board_cate=='review'}"><h1>고객후기</h1></c:when>
-			<c:when test="${board.board_cate=='newsUSA'}"><h1>NEWS USA</h1></c:when>
-			<c:when test="${board.board_cate=='newsCAN'}"><h1>NEWS CAN</h1></c:when>
-			<c:when test="${board.board_cate=='eventWin'}"><h1>이벤트 당첨자</h1></c:when>
-		</c:choose>
+<link rel="stylesheet" href="/knockusa/css/community/communityEvent.css">
+	<c:choose>
+		<c:when test="${board.board_cate=='notice'}"><h1>공지사항</h1></c:when>
+		<c:when test="${board.board_cate=='review'}"><h1>고객후기</h1></c:when>
+		<c:when test="${board.board_cate=='newsUSA'}"><h1>news USA</h1></c:when>
+		<c:when test="${board.board_cate=='newsCAN'}"><h1>news CAN</h1></c:when>
+		<c:when test="${board.board_cate=='eventWin'}">
+			<h1>이벤트</h1>
+	        <div class="event_tit">
+	            <div class="tab">
+	                <div class="now">
+	                    <a href="/knockusa/community/event?when=now"><h3>진행중인 이벤트</h3></a>
+	                </div>
+	                <div class="past">
+	                    <a href="/knockusa/community/event?when=past"><h3>지난 이벤트</h3></a>
+	                </div>
+	                <div class="win on">
+	                    <a href="#"><h3>당첨자 발표</h3></a>
+	                </div>
+	            </div>
+	        </div>
+        </c:when>
+    </c:choose>
 		<div id="board">
 			<div class="write">
 				<form action="/knockusa/${board.board_group}/write?cate=${board.board_cate}" method="post">
-					<input type="hidden" name="cate" value="${board.board_cate}"/>
 					<table>
 						<tr>
 							<td>제목</td>

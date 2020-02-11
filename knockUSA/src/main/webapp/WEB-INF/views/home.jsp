@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="./_header.jsp"%>
 <script src="/knockusa/js/home_bxslider.js"></script>
     <!-- 콘텐츠 -->
@@ -21,12 +22,12 @@
             <p>Knock The USA Tour와 함께하는 지역들을 살펴보세요!</p>
             <div>
                 <ul>
-                    <li><a href=""><img src="/knockusa/img/sc_la.png" alt="LA">Los Angeles</a></li>
-                    <li><a href=""><img src="/knockusa/img/sc_lv.png" alt="LV">Las Vegas</a></li>
-                    <li><a href=""><img src="/knockusa/img/sc_sf.png" alt="SF">San Francisco</a></li>
-                    <li><a href=""><img src="/knockusa/img/sc_pt.png" alt="PT">PortLand</a></li>
-                    <li><a href=""><img src="/knockusa/img/sc_st.png" alt="ST">Seattle</a></li>
-                    <li><a href=""><img src="/knockusa/img/sc_ny.png" alt="NY">New York</a></li>
+                    <li><a href="/knockusa/goods/packagesByRegion?goods_region=losangeles"><img src="/knockusa/img/sc_la.png" alt="LA">Los Angeles</a></li>
+                    <li><a href="/knockusa/goods/packagesByRegion?goods_region=lasvegas"><img src="/knockusa/img/sc_lv.png" alt="LV">Las Vegas</a></li>
+                    <li><a href="/knockusa/goods/packagesByRegion?goods_region=sanfrancisco"><img src="/knockusa/img/sc_sf.png" alt="SF">San Francisco</a></li>
+                    <li><a href="/knockusa/goods/packagesByRegion?goods_region=portland"><img src="/knockusa/img/sc_pt.png" alt="PT">PortLand</a></li>
+                    <li><a href="/knockusa/goods/packagesByRegion?goods_region=seattle"><img src="/knockusa/img/sc_st.png" alt="ST">Seattle</a></li>
+                    <li><a href="/knockusa/goods/packagesByRegion?goods_region=newyork"><img src="/knockusa/img/sc_ny.png" alt="NY">New York</a></li>
                 </ul>
             </div>
         </div>
@@ -35,51 +36,25 @@
             <p>가게된다면 절대 잊을 수 없을거에요!</p>
             <div class="list1">
                 <ul>
+                    <c:forEach var="hotItems" items="${hotItems}">
                     <li>
-                        <a href="">
+                        <a href="/knockusa/goods/travelPackage?goods_no=${hotItems.goods_no}">
                             <div class="imgbox">
-                                <img src="/knockusa/img/example_la.png" alt="여행예시 LA">
+                                <img src="/knockusa/img/${hotItems.goods_thumbnail}" alt="${hotItems.goods_title}">
                             </div>
                             <div class="txtbox">
-                                <span class="area">[서부] 서부의 대명사 Los Angeles</span>
+                                <span class="area">[${hotItems.goods_side}] ${hotItems.goods_title}</span>
                                 <span class="depature1">여행지역:</span>
-                                <span class="subtxt1">LA</span>
+                                <span class="subtxt1">${hotItems.goods_region}</span>
                                 <span class="depature2">여행기간:</span>
-                                <span class="subtxt2">4박5일</span>
-                                <span class="txtprice">1,000,000원~</span>
+                                <span class="subtxt2">${hotItems.goods_night}박 ${hotItems.goods_night+1}일</span>
+                                <span class="txtprice">${hotItems.goods_price}원~</span>
                                 <a href="" class="depbtn">출발일보기</a>
                             </div>
                         </a>
-                        
                     </li>
-                    <li>
-                        <div class="imgbox">
-                            <img src="/knockusa/img/example_ny.png" alt="여행예시 LA">
-                        </div>
-                        <div class="txtbox">
-                            <span class="area">[동부] 우리도 뉴요커 New York</span>
-                            <span class="depature1">여행지역:</span>
-                            <span class="subtxt1">New york</span>
-                            <span class="depature2">여행기간:</span>
-                            <span class="subtxt2">4박5일</span>
-                            <span class="txtprice">1,260,000원~</span>
-                            <a href="" class="depbtn">출발일보기</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="imgbox">
-                            <img src="/knockusa/img/example_portland.png" alt="여행예시 PortLand">
-                        </div>
-                        <div class="txtbox">
-                            <span class="area">[서부] 힙스터들의 성지 PortLand</span>
-                            <span class="depature1">여행지역:</span>
-                            <span class="subtxt1">PortLand</span>
-                            <span class="depature2">여행기간:</span>
-                            <span class="subtxt2">3박4일</span>
-                            <span class="txtprice">860,000원~</span>
-                            <a href="" class="depbtn">출발일보기</a>
-                        </div>
-                    </li>
+                    </c:forEach>
+                    
                 </ul>
             </div>
         </div>
@@ -128,14 +103,14 @@
                 </div>
                 <div class="review">
                     <h3>고객리뷰</h3>
-                    <span>더보기</span>
+                    <span><a href="/knockusa/community?cate=review">더보기</a></span>
                     <ul>
                         <li class="img">
-                            <img src="/knockusa/img/review.jpg" alt="리뷰 예시 사진">
+                            <img src="/knockusa/img/${bestReview.article_img}" alt="리뷰 사진">
                         </li>
                         <li class="txt">
-                            <span class="title">2019-12-26</span>
-                            <span class="content">너무 재밌는 여행이었어요!</span>
+                            <span class="title">${bestReview.article_rdate}</span>
+                            <span class="content">${bestReview.article_title}</span>
                         </li>
                     </ul>
                 </div>
@@ -158,7 +133,7 @@
                     <h3>제휴업체</h3>
                     <ul>
                         <li>
-                            <a href="#"><img src="/knockusa/img/banner_sponsor.png" alt="캠핑카USA"></a>
+                            <a href=""><img src="/knockusa/img/banner_sponsor.png" alt="캠핑카USA"></a>
                         </li>
                     </ul>
                 </div>

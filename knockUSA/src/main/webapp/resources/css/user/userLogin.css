@@ -169,15 +169,14 @@ main .login_from_resv .non_member > span {
     text-align: center;
     color: #111;
 }
-main .login_from_resv .non_member .btn_login > a {
-    font-size: 15px;
-    color: #fff;
-}
+
 main .login_from_resv .non_member .btn_login {
     width: 440px;
     height: 54px;
     margin: 149px 59px 0;
     background-color: #ffa02f;
+    font-size: 15px;
+    color: #fff;
     border: none;
 }
 

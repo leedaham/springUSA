@@ -1,16 +1,16 @@
 /* 이벤트페이지 (공통)*/
-main > .event {
+main > div {
     position: relative;
     width: 1150px;
     margin: 0 auto;
     min-height: 1000px;
 }
-main > .event > h1 {
+main > div > h1 {
     margin: 15px 70px;
 }
 
 /* 왼쪽 사이드 바 (공통)*/
-main > .event > .side_nav {
+main > div > .side_nav {
     position: absolute;
     width: 160px;
     height: auto;
@@ -20,7 +20,7 @@ main > .event > .side_nav {
     border-bottom: 2px solid #ffa02f;
     box-sizing: border-box;
 }
-main > .event > .side_nav .side_nav_title {
+main > div > .side_nav .side_nav_title {
     width: 100%;
     height: 65px;
     padding-top: 18px;
@@ -31,33 +31,33 @@ main > .event > .side_nav .side_nav_title {
     background-color: #ffa02f;
     box-sizing: border-box;
 }
-main > .event > .side_nav li {
+main > div > .side_nav li {
     width: 100%;
     height: 50px;
     padding-top: 12px;
     box-sizing: border-box;
 }
-main > .event > .side_nav li.on > a {
+main > div > .side_nav li.on > a {
     color: #ffa02f;
 }
-main > .event > .side_nav li > a {
+main > div > .side_nav li > a {
     font-size: 14px;
     text-align: center;
 }
 
 /* 진행중인 이벤트 */
-main > .event > .event_tit {
+main > div > .event_tit {
     width: 100%;
     height: 100%;
     margin-bottom: 50px;
     box-sizing: border-box;
 }
-main > .event > .event_tit > .tab {
+main > div > .event_tit > .tab {
     width: 80%;
     height: 60px;
     margin: 0 auto;
 }
-main > .event > .event_tit > .tab > div {
+main > div > .event_tit > .tab > div {
     float: left;
     width: 33%;
     height: 100%;
@@ -67,98 +67,98 @@ main > .event > .event_tit > .tab > div {
     border: 1px solid #f1f1f1;
     box-sizing: border-box;
 }
-main > .event > .event_tit > .tab > div > h3 {
+main > div > .event_tit > .tab > div > h3 {
     font-weight: 400;
 }
-main > .event > .event_tit > .tab > div.on {
+main > div > .event_tit > .tab > div.on {
     background: #ffa02f;
     border: #ffa02f;;
 }
-main > .event > .event_tit > .tab > div.on  h3 {
+main > div > .event_tit > .tab > div.on  h3 {
     color: white;
 }
 
-main .event > .content > div {
+main div > .content > div {
     display: none;
     width: 80%;
     height: 100%;
     margin: 0 auto;
 }
-main .event > .content > div {}
-main .event > .content > div.on {
+main div > .content > div {}
+main div > .content > div.on {
     display: block;
 }
-main .event > .content > div > ul {}
-main .event > .content > div > ul > li {
+main div > .content > div > ul {}
+main div > .content > div > ul > li {
 }
-main .event > .content > div > ul > li > a {
+main div > .content > div > ul > li > a {
     display: block;
     float: left;
     width: 49%;
     
 }
-main .event > .content > div > ul > li:nth-child(odd) > a {
+main div > .content > div > ul > li:nth-child(odd) > a {
     margin-right: 18.4px;
 }
-main .event > .content > div > ul > li > a > div {
+main div > .content > div > ul > li > a > div {
     
 }
-main .event > .content > div > ul > li > a > .imgbox {
+main div > .content > div > ul > li > a > .imgbox {
 }
-main .event > .content > div > ul > li > a > .imgbox > img {
+main div > .content > div > ul > li > a > .imgbox > img {
     width: 450.8px;
     height: 240.49px;
 }
-main .event > .content > div > ul > li > a > .txtbox {
+main div > .content > div > ul > li > a > .txtbox {
     text-align: center;
     margin-top: -5px;
     border: 1px solid #f1f1f1;
     box-sizing: border-box;
 }
-main .event > .content > div > ul > li > a > .txtbox > .txt_tit {
+main div > .content > div > ul > li > a > .txtbox > .txt_tit {
     display: block;
     font-size: 16px;
     font-weight: 500;
 }
-main .event > .content > div > ul > li > a > .txtbox > .txt_date {
+main div > .content > div > ul > li > a > .txtbox > .txt_date {
 }
 
-main .event > .content > div {}
-main .event > .content > div.on {
+main div > .content > div {}
+main div > .content > div.on {
     display: block;
 }
-main .event > .content > div > ul {}
-main .event > .content > div > ul > li {
+main div > .content > div > ul {}
+main div > .content > div > ul > li {
 }
-main .event > .content > div > ul > li > a {
+main div > .content > div > ul > li > a {
     display: block;
     float: left;
     width: 49%;
     
 }
-main .event > .content > div > ul > li:nth-child(odd) > a {
+main div > .content > div > ul > li:nth-child(odd) > a {
     margin-right: 18.4px;
 }
-main .event > .content > div > ul > li > a > div {
+main div > .content > div > ul > li > a > div {
     
 }
-main .event > .content > div > ul > li > a > .imgbox {
+main div > .content > div > ul > li > a > .imgbox {
 }
-main .event > .content > div > ul > li > a > .imgbox > img {
+main div > .content > div > ul > li > a > .imgbox > img {
     width: 450.8px;
     height: 240.49px;
 }
-main .event > .content > div > ul > li > a > .txtbox {
+main div > .content > div > ul > li > a > .txtbox {
     text-align: center;
     margin-top: -5px;
     margin-bottom: 40px;
     border: 1px solid #f1f1f1;
     box-sizing: border-box;
 }
-main .event > .content > div > ul > li > a > .txtbox > .txt_tit {
+main div > .content > div > ul > li > a > .txtbox > .txt_tit {
     display: block;
     font-size: 16px;
     font-weight: 500;
 }
-main .event > .content > div > ul > li > a > .txtbox > .txt_date {
+main div > .content > div > ul > li > a > .txtbox > .txt_date {
 }

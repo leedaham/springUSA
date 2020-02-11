@@ -7,14 +7,24 @@ public class ArticleVo {
 	private String article_cate;
 	private String article_title;
 	private String article_content;
-	private int article_file;
+	private String article_img;
 	private int article_hit;
 	private String article_id;
 	private String article_regip;
 	private String article_rdate;
 	
 //	// 추가 필드
+	private String user_name;
+	
 //	private int board_grade;
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
 
 	public int getArticle_no() {
 		return article_no;
@@ -64,12 +74,12 @@ public class ArticleVo {
 		this.article_content = article_content;
 	}
 
-	public int getArticle_file() {
-		return article_file;
+	public String getArticle_img() {
+		return article_img;
 	}
 
-	public void setArticle_file(int article_file) {
-		this.article_file = article_file;
+	public void setArticle_img(String article_img) {
+		this.article_img = article_img;
 	}
 
 	public int getArticle_hit() {

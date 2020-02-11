@@ -7,81 +7,42 @@
 	</select>
 	
 	<select id="SELECT_ARTICLES" resultType="kr.co.knockusa.vo.ArticleVo">
-		SELECT * FROM `KTUT_ARTICLE` WHERE `article_cate`=#{cate} AND `article_parent`=0;
+		SELECT a.*, b.user_name FROM
+		`KTUT_ARTICLE` AS a, 
+		`KTUT_USER` AS b
+		WHERE a.article_id = b.user_id
+		AND a.article_cate=#{cate}
+		AND a.article_parent =0;
 	</select>
 
 	<select id="SELECT_ARTICLE" resultType="kr.co.knockusa.vo.ArticleVo">
-		SELECT * FROM `KTUT_ARTICLE` WHERE `article_no`=#{article_no};
+		SELECT a.*, b.user_name FROM
+		`KTUT_ARTICLE` AS a, 
+		`KTUT_USER` AS b
+		WHERE a.article_id = b.user_id
+		AND a.article_no =#{article_no}; 
 	</select>
 
 	<insert id="INSERT_ARTICLE">
 		INSERT INTO `KTUT_ARTICLE` SET 
-		`article_cate`=#{article_cate}
-		`article_title`=#{article_title}
-		`article_content`=#{article_content}
-		`article_id`=#{article_id}
-		`article_regip`=#{article_regip}
+		`article_cate`=#{article_cate},
+		`article_title`=#{article_title},
+		`article_content`=#{article_content},
+		`article_id`=#{article_id},
+		`article_regip`=#{article_regip},
 		`article_rdate`=NOW();
 	</insert>
-
-
-
-
-
-	<!-- 기존 sboard 쿼리들 
-	<insert id="INSERT_ARTICLE">
-		INSERT INTO `BOARD_ARTICLE` SET  
-		`cate`=#{cate}, 
-		`title`=#{title}, 
-		`content`=#{content}, 
-		`uid`=#{uid}, 
-		`regip`=#{regip}, 
-		`rdate`=NOW();
-	</insert>
-	 -->
-	<!-- 
-	<select id="SELECT_ARTICLES" resultType="kr.co.sboard.vo.BoardArticleVO">
-		SELECT a.*, b.nick FROM `BOARD_ARTICLE` AS a
-		JOIN `BOARD_MEMBER` AS b ON a.uid = b.uid 
-		WHERE `parent`=0 
-		ORDER BY `seq` DESC
-		LIMIT #{start}, 10;
-	</select>
 	
-	<select id="SELECT_ARTICLE" resultType="kr.co.sboard.vo.BoardArticleVO">
-		SELECT * FROM `BOARD_ARTICLE` WHERE `seq`=#{seq};	
-	</select>
-	
-	<select id="SELECT_TOTAL_ARTICLES" resultType="int">
-		SELECT COUNT(*) FROM `BOARD_ARTICLE` WHERE `parent`=0;
-	</select>
-	
-	
-	<update id="UPDATE_ARTICLE">
-		UPDATE `BOARD_ARTICLE` SET 
-		`title`=#{subject},
-		`content`=#{content}
-		WHERE `seq`=#{seq};
-		
-	</update>
 	<delete id="DELETE_ARTICLE">
-		DELETE FROM `BOARD_ARTICLE` WHERE `seq`=#{seq} OR `parent`=#{seq};
+		DELETE FROM `KTUT_ARTICLE` WHERE `article_no`=#{article_no};
 	</delete>
-	 -->
-	
-	<!-- Comment area -->
-	<!-- 
-	<insert id="INSERT_COMMENT">
-		INSERT INTO `BOARD_ARTICLE` SET 
-		`parent`=#{parent},
-		`content`=#{content},
-		`uid`=#{uid},
-		`regip`=#{regip},
-		`rdate`=NOW();
-	</insert>
-	
-	<select id="SELECT_COMMENTS" resultType="kr.co.sboard.vo.BoardArticleVO">
-		SELECT * FROM `BOARD_ARTICLE` WHERE `parent`=#{parent} ORDER BY `seq` ASC;
+
+	<update id="UPDATE_ARTICLE_HIT">
+		UPDATE `KTUT_ARTICLE` SET `article_hit` = `article_hit`+1 WHERE article_no =#{article_no};
+	</update>
+
+	<select id="SELECT_REVIEW_BEST" resultType="kr.co.knockusa.vo.ArticleVo">
+		SELECT * FROM `KTUT_ARTICLE` WHERE `article_cate`='review' AND `article_parent`= 0 ORDER BY `article_hit` DESC LIMIT 1;		
 	</select>
-	 -->
+	
 </mapper>

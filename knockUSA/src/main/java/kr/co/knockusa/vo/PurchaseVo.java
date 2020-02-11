@@ -2,7 +2,7 @@ package kr.co.knockusa.vo;
 
 public class PurchaseVo {
 	private String purchase_no;
-	private String purchase_goods;
+	private int purchase_goods_no;
 	private String purchase_id;
 	private int purchase_amount;
 	private int purchase_price;
@@ -15,11 +15,11 @@ public class PurchaseVo {
 	public void setPurchase_no(String purchase_no) {
 		this.purchase_no = purchase_no;
 	}
-	public String getPurchase_goods() {
-		return purchase_goods;
+	public int getPurchase_goods() {
+		return purchase_goods_no;
 	}
-	public void setPurchase_goods(String purchase_goods) {
-		this.purchase_goods = purchase_goods;
+	public void setPurchase_goods(int purchase_goods_no) {
+		this.purchase_goods_no = purchase_goods_no;
 	}
 	public String getPurchase_id() {
 		return purchase_id;

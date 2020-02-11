@@ -28,7 +28,18 @@ public class ArticleService {
 	public void insertArticle(ArticleVo vo) {
 		articleDao.insertArticle(vo);
 	}
-
+	public void deleteArticle(String article_no) {
+		articleDao.deleteArticle(article_no);
+	}
+	public void updateArticleHit(String article_no) {
+		articleDao.updateArticleHit(article_no);
+	}
+	
+	// home 베스트 리뷰 
+	public ArticleVo selectBestReview() {
+		return articleDao.selectBestReview();
+	}
+	
 //	/* 기존방법 */
 //	public BoardVo selectEventWinBoard() {
 //		String cate = "eventWin";

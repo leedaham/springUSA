@@ -28,13 +28,19 @@ public class ArticleDao {
 	public void updateArticle () {
 		mybatis.update("mapper.sql_article.UPDATE_ARTICLE");
 	}
-	public void deleteArticle () {
-		mybatis.delete("mapper.sql_article.DELETE_ARTICLE");
+	public void deleteArticle (String article_no) {
+		mybatis.delete("mapper.sql_article.DELETE_ARTICLE", article_no);
 	}
 	
 	public BoardVo selectBoard(String cate) {
 		return mybatis.selectOne("mapper.sql_article.SELECT_BOARD", cate);
 	}
+	public void updateArticleHit(String article_no) {
+		mybatis.update("mapper.sql_article.UPDATE_ARTICLE_HIT", article_no);
+	}
 	
-	
+	// home 베스트 리뷰
+	public ArticleVo selectBestReview() {
+		return mybatis.selectOne("mapper.sql_article.SELECT_REVIEW_BEST");
+	}
 }

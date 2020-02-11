@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.knockusa.service.ArticleService;
+import kr.co.knockusa.user.vo.UserVo;
 import kr.co.knockusa.vo.ArticleVo;
 import kr.co.knockusa.vo.BoardVo;
 
@@ -36,6 +37,7 @@ public class CommunityController {
 	public String communityView(String article_no, String cate, Model model) {
 		ArticleVo article = service.selectArticle(article_no);
 		BoardVo board = service.selectBoard(cate);
+		service.updateArticleHit(article_no);
 		
 		model.addAttribute("board", board);
 		model.addAttribute("article", article);
@@ -52,20 +54,34 @@ public class CommunityController {
 	@PostMapping("/community/write")
 	public String communityWriteDone(String title, String content, String cate, HttpServletRequest req) {
 		HttpSession session = req.getSession();
+		UserVo user = (UserVo) session.getAttribute("user");
+		
 		BoardVo board = service.selectBoard(cate);
 		
 		ArticleVo vo = new ArticleVo();
 		vo.setArticle_cate(cate);
 		vo.setArticle_title(title);
 		vo.setArticle_content(content);
-		// vo.setArticle_id(?); 로그인 구현 먼저
+		vo.setArticle_id(user.getUser_id());
 		vo.setArticle_regip(req.getRemoteAddr());
 		
 		service.insertArticle(vo);
 		
-		return "redirect:/community/view?cate="+cate;
+		return "redirect:/community?cate="+cate;
+	}
+	@RequestMapping("/community/delete")
+	public String communityDelete(String cate, String article_no) {
+		service.deleteArticle(article_no);
+		return "redirect:/community?cate="+cate;
 	}
 	
+	
+	// event page
+	@RequestMapping(value= {"/community/event", "/community/eventNow"})
+	public String eventNow(String when, Model model) {
+		model.addAttribute("when", when);
+		return "/community/eventNow";
+	}
 	
 	
 //	/* 기존방법 */

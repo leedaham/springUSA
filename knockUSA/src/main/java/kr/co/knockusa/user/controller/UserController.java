@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.knockusa.service.PurchaseService;
 import kr.co.knockusa.user.service.LoginService;
+import kr.co.knockusa.user.service.UserService;
 import kr.co.knockusa.user.vo.UserVo;
+import kr.co.knockusa.user.vo.WishVo;
 import kr.co.knockusa.vo.PurchaseVo;
 
 @Controller
@@ -22,6 +24,8 @@ public class UserController {
 
 	@Inject
 	private PurchaseService service;
+	@Inject
+	private UserService userService;
 	@Inject
 	private LoginService loginService;
 	
@@ -31,6 +35,7 @@ public class UserController {
 		
 		return "/user/mypage/reservationList";
 	}
+	
 	// 예약 상품 페이지
 	@RequestMapping("/user/myPage/reservationOne")
 	public String reserveOne(String purchase_no, Model model) {
@@ -39,6 +44,7 @@ public class UserController {
 		model.addAttribute("purchase", purchase);
 		return "/user/myPage/reservationOne";
 	}
+	
 	// 예약확인 클릭시 로그인페이지로 이동
 	@GetMapping("/user/myPage/reserList_needLogin")
 	public String loginFromReserList() {
@@ -71,12 +77,19 @@ public class UserController {
 			// 회원은 유저 정보로 예약내역 셀렉트해오기
 			String purchase_id = user.getUser_id();
 			List<PurchaseVo> purchaseList = service.selectPurchasesUser(purchase_id);
+			String userNonUser = "user";
+			String sort = "reservation";
 			
 			model.addAttribute("purchaseList", purchaseList);
+			model.addAttribute("userNonUser", userNonUser);
+			model.addAttribute("sort", sort);
+			
 			return "/user/myPage/reservationList";
 						
 		}
 	}
+	
+	// 로그인이 된 상태에서 예약확인 클릭
 	@RequestMapping("/user/ByReservationList")
 	public String reservationAlreadyLogin(HttpServletRequest req, Model model) {
 		HttpSession session = req.getSession();
@@ -84,10 +97,101 @@ public class UserController {
 		
 		String purchase_id = user.getUser_id();
 		List<PurchaseVo> purchaseList = service.selectPurchasesUser(purchase_id);
+		String userNonUser = "user";
+		String sort = "reservation";
+		
 		
 		model.addAttribute("purchaseList", purchaseList);
+		model.addAttribute("userNonUser", userNonUser);
+		model.addAttribute("sort", sort);
 		return "/user/myPage/reservationList";
+	}
+	
+	// 마이페이지 클릭시
+	@RequestMapping("/user/myPage")
+	public String myPage(HttpServletRequest req, Model model) {
+		HttpSession session = req.getSession();
+		UserVo user = (UserVo)session.getAttribute("user");
+		String sort = "myPage";
+		String userNonUser = "user";
 		
+		model.addAttribute("sort", sort);
+		model.addAttribute("userNonUser", userNonUser);
+		model.addAttribute("user", user);
+		
+		return "/user/myPage/myPage";
+	}
+	
+	// 비밀번호 변경 클릭시
+	@GetMapping("/user/myPage/changePw")
+	public String changePW(HttpServletRequest req, Model model) {
+		String sort = "changePw";
+		String userNonUser = "user";
+		
+		model.addAttribute("sort", sort);
+		model.addAttribute("userNonUser", userNonUser);
+		
+		return "/user/myPage/changePw";
+	}
+	@PostMapping("/user/myPage/changePw")
+	public String changePW(String user_pw, String user_pw_new, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		UserVo user = (UserVo)session.getAttribute("user");
+		if(user.getUser_pw().equals(user_pw)) {
+			user.setUser_pw(user_pw_new);
+			userService.updatePW(user);
+			
+			return "redirect:/user/myPage";
+		}else {
+			// alert 현재 비밀번호가 틀렸습니다.
+			return "redirect:/user/myPage/changePw";
+		}
 		
 	}
+	
+	@RequestMapping("/user/myPage/wishList")
+	public String wishList(HttpServletRequest req, Model model) {
+		HttpSession session = req.getSession();
+		UserVo user = (UserVo)session.getAttribute("user");
+		
+		List<WishVo> wishList = userService.selectWish(user);
+		String sort = "wishList";
+		String userNonUser = "user";
+		
+		model.addAttribute("sort", sort);
+		model.addAttribute("userNonUser", userNonUser);
+		model.addAttribute("wishList", wishList);
+		
+		return "/user/myPage/wishList";
+	}
+	@RequestMapping("/user/myPage/wishList/delete")
+	public String wishListDelete(String wish_no) {
+		userService.deleteWish(wish_no);
+		
+		return "redirect:/user/myPage/wishList";
+	}
+	@RequestMapping("/user/myPage/wishList/addWish")
+	public String addWish(String goods_no, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		UserVo user = (UserVo)session.getAttribute("user");
+		
+		WishVo wish = new WishVo();
+		wish.setWish_goods_no(Integer.parseInt(goods_no));
+		wish.setWish_id(user.getUser_id());
+		
+		userService.insertWish(wish);
+		
+		return "redirect:/goods/travelPackage?goods_no="+goods_no;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

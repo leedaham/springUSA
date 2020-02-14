@@ -38,6 +38,9 @@ public class GoodsService {
 	public void updateGoodsPeople(PurchaseVo vo) {
 		dao.updateGoodsPeople(vo);
 	}
+	public void updateGoodsPeopleDown(PurchaseVo vo) {
+		dao.updateGoodsPeopleDown(vo);
+	}
 	
 	// home 핫 아이템 
 	public List<GoodsVo> selectGoodsBest(){

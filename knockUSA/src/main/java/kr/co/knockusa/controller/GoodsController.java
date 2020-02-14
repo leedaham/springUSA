@@ -97,6 +97,7 @@ public class GoodsController {
 		return "redirect:/goods/resersvationSuccess?purchase_no="+purchase_no+"&purchase_name="+purchase_name;
 
 	}
+	// 예약 성공
 	@RequestMapping(value="/goods/resersvationSuccess", produces="text/plain;charset=UTF-8")
 	public String resersvationSuccess(HttpServletRequest req, String purchase_no, String purchase_name, Model model) {
 		PurchaseVo purchase = new PurchaseVo();
@@ -106,6 +107,14 @@ public class GoodsController {
 		model.addAttribute("purchase", purchase);
 		
 		return "/goods/goods_resersvationSuccess";
+	}
+	//예약 삭제
+	@RequestMapping("/goods/reservation/cancle")
+	public String reservationCancle(PurchaseVo vo) {
+		purchaseService.deletePurchase(vo);
+		service.updateGoodsPeopleDown(vo);
+		
+		return "redirect:/home";
 	}
 	
 	// home 지역별 여행보기

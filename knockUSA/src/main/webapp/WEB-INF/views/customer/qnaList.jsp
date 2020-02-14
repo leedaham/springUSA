@@ -14,15 +14,15 @@
                     <button type="submit">${qnaList.qna_rdate}</button>
                     <c:choose>
                         <c:when test="${qnaList.qna_parent == 0}">
-                            <span>문의중</span>
+                            <span>문의중</span><br>
                         </c:when>
                         <c:otherwise>
-                            <span>답변 완료!</span>
+                            <span>답변 완료!</span><br>
                         </c:otherwise>
                     </c:choose>
             	</form>
             </c:forEach>
-            
+            <br>
             <a href="/knockusa/customer/qnaToInquire">문의 하기</a>
         </div>
     </main>

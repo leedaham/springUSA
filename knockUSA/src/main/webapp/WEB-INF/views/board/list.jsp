@@ -58,12 +58,13 @@
             </span>
         </nav>
         <c:choose>
-        	<c:when test="${user eq null}">
-         	<a href="/knockusa/user/login" class="btnWrite">글쓰기</a>
-         </c:when>
-         <c:otherwise>
-         	<a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}" class="btnWrite">글쓰기</a>
-         </c:otherwise>
+       		<c:when test="${board.board_cate=='notice' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}" class="btnWrite">글쓰기</a></c:when>
+       		<c:when test="${board.board_cate=='review' && user eq null}"><a href="/knockusa/user/login" class="btnWrite">글쓰기</a></c:when>
+       		<c:when test="${board.board_cate=='review' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}" class="btnWrite">글쓰기</a></c:when>
+       		<c:when test="${board.board_cate=='review' && user.user_grade == '1'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}" class="btnWrite">글쓰기</a></c:when>
+       		<c:when test="${board.board_cate=='newsUSA' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}" class="btnWrite">글쓰기</a></c:when>
+       		<c:when test="${board.board_cate=='newsCAN' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}" class="btnWrite">글쓰기</a></c:when>
+       		<c:when test="${board.board_cate=='eventWin' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}" class="btnWrite">글쓰기</a></c:when>
         </c:choose>
     </div>
 </div>

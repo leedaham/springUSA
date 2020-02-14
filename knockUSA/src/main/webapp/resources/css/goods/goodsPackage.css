@@ -32,7 +32,7 @@ main > .USA_CAN > .travel > .travel_info .info_pic_big {
     width: 440px;
     height: 250px;
 }
-main > .USA_CAN > .travel > .travel_info .info_pic_big > img {
+main > .USA_CAN > .travel > .travel_info .info_pic_big img {
     width: 100%;
     height: 100%;
 }
@@ -43,7 +43,7 @@ main > .USA_CAN > .travel > .travel_info .info_pic_list > li {
     margin-right: 13.4px;
     float: left;
 }
-main > .USA_CAN > .travel > .travel_info .info_pic_list > li > img {
+main > .USA_CAN > .travel > .travel_info .info_pic_list > li img {
     width: 100%;
     height: 100%;
 }

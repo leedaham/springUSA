@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="./_header.jsp"%>
 <script src="/knockusa/js/home_bxslider.js"></script>
+<script src="/knockusa/js/sidebar.js"></script>
     <!-- 콘텐츠 -->
     <main>
         <div class="adbanner1">

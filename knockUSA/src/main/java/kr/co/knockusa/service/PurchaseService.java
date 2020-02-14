@@ -32,4 +32,9 @@ public class PurchaseService {
 	public PurchaseVo selectPurchaseUser(String purcahse_no) {
 		return dao.selectPurchaseUser(purcahse_no);
 	}
+	
+	// 구매 취소하기
+	public void deletePurchase(PurchaseVo vo) {
+		dao.deletePurchase(vo);
+	}
 }

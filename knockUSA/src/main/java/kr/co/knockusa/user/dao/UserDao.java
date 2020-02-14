@@ -7,9 +7,9 @@ import javax.inject.Inject;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import kr.co.knockusa.user.vo.NonUserVo;
 import kr.co.knockusa.user.vo.TermsVo;
 import kr.co.knockusa.user.vo.UserVo;
+import kr.co.knockusa.user.vo.WishVo;
 import kr.co.knockusa.vo.PurchaseVo;
 
 @Repository
@@ -33,11 +33,23 @@ public class UserDao {
 		return mybatis.selectOne("mapper.sql_user.SELECT_TERMS");
 	}
 
+	// 비밀번호 변경
+	public void updatePW(UserVo vo) {
+		mybatis.update("mapper.sql_user.UPDATE_PASSWORD", vo);
+	}
 	
-//	// 비회원 로그인
-//	public NonUserVo selectNonUser(NonUserVo vo) {
-//		return mybatis.selectOne("mapper.sql_user.SELECT_NONUSER", vo);
-//	}
+	// 관심상품 등록하기
+	public void insertWish(WishVo vo) {
+		mybatis.insert("mapper.sql_user.INSERT_WISH", vo);
+	}
+	// 관심상품 불러오기
+	public List<WishVo> selectWish(UserVo vo) {
+		return mybatis.selectList("mapper.sql_user.SELECT_WISHLIST", vo);
+	}
+	// 관심상품 삭제하기
+	public void deleteWish(String wish_no) {
+		mybatis.delete("mapper.sql_user.DELETE_WISHITEM", wish_no);
+	}
 	
 	// 중복확인
 	public int checkId(String user_id) {

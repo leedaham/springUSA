@@ -23,6 +23,9 @@
 	<update id="UPDATE_GOODS_PEOPLE">
 		UPDATE `KTUT_GOODS` SET `goods_current_personnel` = `goods_current_personnel` +#{purchase_how_many} WHERE `goods_no`=#{purchase_goods_no};
 	</update>
+	<update id="UPDATE_GOODS_PEOPLE_DOWN">
+		UPDATE `KTUT_GOODS` SET `goods_current_personnel` = `goods_current_personnel` -#{purchase_how_many} WHERE `goods_no`=#{purchase_goods_no};
+	</update>
 	
 	<!-- 구매내역  -->
 	<insert id="INSERT_PURCHASE">
@@ -55,6 +58,9 @@
 		`purchase_traveler_name_gender_3`=#{purchase_traveler_name_gender_3},
 		`purchase_traveler_name_hp_3`=#{purchase_traveler_name_hp_3};
 	</insert>
+	<delete id="DELETE_PURCHASE">
+		DELETE FROM `KTUT_PURCHASE` WHERE `purchase_id`=#{purchase_id};
+	</delete>
 	<!-- 상품 조회 -->
 	<select id="SELECT_PURCHASE_NONUSER" resultType="kr.co.knockusa.vo.PurchaseVo">
 		SELECT * FROM `KTUT_PURCHASE` WHERE `purchase_no`=#{purchase_no} AND `purchase_name_kor`=#{purchase_name_kor};

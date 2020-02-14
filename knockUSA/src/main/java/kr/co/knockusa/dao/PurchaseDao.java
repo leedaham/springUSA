@@ -32,5 +32,9 @@ public class PurchaseDao {
 		return mybatis.selectOne("mapper.sql_goods.SELECT_PURCHASE_USER", purcahse_no);
 	}
 	public void update() {}
-	public void delete() {}
+	
+	// 구매 취소하기
+	public void deletePurchase(PurchaseVo vo) {
+		mybatis.delete("mapper.sql_goods.DELETE_PURCHASE", vo);
+	}
 }

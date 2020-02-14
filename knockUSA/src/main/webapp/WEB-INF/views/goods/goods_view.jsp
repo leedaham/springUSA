@@ -5,6 +5,30 @@
 <link rel="stylesheet" href="/knockusa/css/goods/goodsPackage.css">
 <script src="/knockusa/js/goods/goodsCalendar.js"></script>
 <script src="/knockusa/js/goods/goodsDetailTab.js"></script>
+<script>
+$(function(){
+    var reservation = $('.btn_wrap .reservation');
+    if((${goods.goods_max_personnel - goods.goods_current_personnel}) == 0){
+        alert('죄송합니다. 예약인원이 찼습니다. 다른 상품을 이용해주세요 !');
+    }
+    reservation.click(function(e){
+        if((${goods.goods_max_personnel - goods.goods_current_personnel}) == 0){
+        e.preventDefault();
+        alert('죄송합니다. 예약인원이 찼습니다. 다른 상품을 이용해주세요 !');
+        }   
+    });
+});
+</script>
+<script>
+$(function(){
+    var smallImg = $('.info_pic_list > li');
+    smallImg.click(function(e){
+        e.preventDefault();
+        $(this).detach();
+    });
+
+});
+</script>
 <!-- 콘텐츠 -->
 <main>
     <div class="USA_CAN">
@@ -17,13 +41,15 @@
             <div class="travel_info">
                 <div class="info_pic">
                     <div class="info_pic_big">
-                        <img src="../img/info_1.jpg" alt="info_1">
+                        <ul>
+                            <li><a href="#"><img src="/knockusa/img/info_1.jpg" alt="info_1"></a></li>
+                        </ul>
                     </div>
                     <ul class="info_pic_list">
-                        <li><img src="../img/info_2.jpg" alt="info_2"></li>
-                        <li><img src="../img/info_3.jpg" alt="info_3"></li>
-                        <li><img src="../img/info_4.jpg" alt="info_4"></li>
-                        <li><img src="../img/info_5.jpg" alt="info_5"></li>
+                        <li><a href="#"><img src="/knockusa/img/info_2.jpg" alt="info_2"></a></li>
+                        <li><a href="#"><img src="/knockusa/img/info_3.jpg" alt="info_3"></a></li>
+                        <li><a href="#"><img src="/knockusa/img/info_4.jpg" alt="info_4"></a></li>
+                        <li><a href="#"><img src="/knockusa/img/info_5.jpg" alt="info_5"></a></li>
                     </ul>
                 </div>
                 <div class="info_txt">
@@ -50,6 +76,10 @@
                                 <th>도착날짜</th>
                                 <td>${goods.goods_end}</td>
                             </tr>
+                            <tr>
+                                <th>여행가능인원</th>
+                                <td>${goods.goods_max_personnel - goods.goods_current_personnel}</td>
+                            </tr>
                             <tr class="price">
                                 <th>상품가격</th>
                                 <td>${goods.goods_price} 원</td>
@@ -61,12 +91,12 @@
                     		<c:when test="${user eq null}">
 		                        <a href="/knockusa/user/loginFromReservation?goods_no=${goods.goods_no}">찜하기</a>
 		                        <a href="/knockusa/user/loginFromReservation?goods_no=${goods.goods_no}">문의하기</a>
-		                        <a href="/knockusa/user/loginFromReservation?goods_no=${goods.goods_no}">예약하기</a>
+		                        <a href="/knockusa/user/loginFromReservation?goods_no=${goods.goods_no}" class="reservation">예약하기</a>
 	                        </c:when>
 	                        <c:otherwise>
-                        	    <a href="#">찜하기</a>
+                        	    <a href="/knockusa/user/myPage/wishList/addWish?goods_no=${goods.goods_no}">찜하기</a>
 		                        <a href="/knockusa/customer/qna?goods_no=${goods.goods_no}">문의하기</a>
-		                        <a href="/knockusa/goods/reservation?goods_no=${goods.goods_no}">예약하기</a>
+		                        <a href="/knockusa/goods/reservation?goods_no=${goods.goods_no}" class="reservation">예약하기</a>
 	                        </c:otherwise>
                        	</c:choose>
                     </div>

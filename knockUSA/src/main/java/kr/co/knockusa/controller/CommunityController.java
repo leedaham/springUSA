@@ -25,12 +25,15 @@ public class CommunityController {
 	
 	// 커뮤니티 메뉴 진입 - cate로 게시판 파악 후 게시물 리스트 보여주기
 	@GetMapping("/community")
-	public String communityList(String cate, Model model) {
+	public String communityList(String cate, Model model, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		UserVo user = (UserVo)session.getAttribute("user");
 		List<ArticleVo> articles = service.selectArticles(cate);
 		BoardVo board = service.selectBoard(cate);
 		
 		model.addAttribute("board", board);
 		model.addAttribute("articles", articles);
+		model.addAttribute("user", user);
 		
 		return "/board/list";
 	}

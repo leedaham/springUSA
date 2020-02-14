@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.knockusa.user.service.LoginService;
-import kr.co.knockusa.user.vo.NonUserVo;
 import kr.co.knockusa.user.vo.UserVo;
 import kr.co.knockusa.vo.GoodsVo;
 import kr.co.knockusa.vo.PurchaseVo;

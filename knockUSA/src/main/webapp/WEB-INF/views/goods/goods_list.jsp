@@ -8,7 +8,7 @@
             <div class="travel">
                 <div class="travel_tit">
                     <div class="tab_tit_img">
-                        <img src="../img/goods_ca.png" alt="미국서부배너">
+                        <img src="/knockusa/img/${page.goods_country}${page.goods_side}.png" alt="${page.goods_country}${page.goods_side} banner">
                     </div>
                     <c:choose>
                     	<c:when test="${page.goods_country == null}">

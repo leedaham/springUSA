@@ -35,6 +35,9 @@ public class GoodsDao {
 	public void updateGoodsPeople(PurchaseVo vo) {
 		mybatis.update("mapper.sql_goods.UPDATE_GOODS_PEOPLE", vo);
 	}
+	public void updateGoodsPeopleDown(PurchaseVo vo) {
+		mybatis.update("mapper.sql_goods.UPDATE_GOODS_PEOPLE_DOWN", vo);
+	}
 	
 	// /home 핫 아이템 3
 	public List<GoodsVo> selectGoodsBest(){

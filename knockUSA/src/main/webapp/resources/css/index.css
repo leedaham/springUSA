@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 .background {
-    min-width: 2000px;
-    min-height: 1150px;
+    min-width: 1920px;
+    min-height: 937px;
     background: url('../img/ny_idx2.jpg') no-repeat center local;
-    background-size: 120%;
+    background-size: cover;
 }
 .navbar {
     position: absolute;
     width: 1200px;
     margin-left: 50%;
     left: -566px;
-    margin-top: 665px;
+    margin-top: 490px;
     height: 150px;
     box-sizing: border-box;
 }

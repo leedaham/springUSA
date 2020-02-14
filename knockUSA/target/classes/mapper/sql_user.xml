@@ -41,11 +41,28 @@
 		SELECT * FROM `KTUT_USER` WHERE `user_id`=#{user_id} AND `user_pw`=#{user_pw};
 	</select>
 
-
-	<!-- 비회원로그인 
-	<select id="SELECT_NONUSER" resultType="kr.co.knockusa.user.vo.NonUserVo">
-		SELECT * FROM `KTUT_NONUSER` WHERE `nonUser_name_kor`=#{nonUser_name_kor} AND `nonUser_purchase_no`=#{nonUser_purchase_no};
+	<!-- 비밀번호 변경 -->
+	<update id="UPDATE_PASSWORD">
+		UPDATE `KTUT_USER` SET `user_pw`=#{user_pw} WHERE `user_id`=#{user_id};
+	</update>
+	
+	<!-- 위시리스트 등록/불러오기/삭제 -->
+	<insert id="INSERT_WISH">
+		INSERT INTO `KTUT_WISHLIST` SET
+		`wish_goods_no`=#{wish_goods_no},
+		`wish_id`=#{wish_id};
+	</insert>
+	<select id="SELECT_WISHLIST" resultType="kr.co.knockusa.user.vo.WishVo">
+		SELECT 
+		`KTUT_WISHLIST`.*, 
+		`KTUT_GOODS`.goods_title, 
+		`KTUT_GOODS`.goods_price 
+		FROM `KTUT_WISHLIST` INNER JOIN `KTUT_GOODS` ON 
+		`KTUT_WISHLIST`.wish_goods_no = `KTUT_GOODS`.goods_no
+		WHERE `wish_id`=#{user_id};
 	</select>
-	-->
+	<delete id="DELETE_WISHITEM">
+		DELETE FROM `KTUT_WISHLIST` WHERE `wish_no`=#{wish_no};
+	</delete>
 
 </mapper>

@@ -41,7 +41,7 @@
         	<c:forEach var="vo" items="${articles}">
             <tr>
                 <td>${vo.article_no}</td>
-                <td><a href="/knockusa/${board.board_group}/view?article_no=${vo.article_no}&cate=${board.board_cate}">${vo.article_title}</a>&nbsp;[${vo.article_comment}]</td>
+                <td><a href="/knockusa/${board.board_group}/view?article_no=${vo.article_no}&cate=${board.board_cate}">${vo.article_title}&nbsp;[${vo.article_comment}]</a></td>
                 <td>${vo.user_name}</td>
                 <td>${vo.article_rdate}</td>
                 <td>${vo.article_hit}</td>

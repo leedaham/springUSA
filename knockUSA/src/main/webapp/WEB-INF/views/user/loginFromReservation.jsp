@@ -25,8 +25,8 @@
                         </span>
                         <button type="submit" class="btn btn_login">로그인</button>
                         <div>
-                            <button type="button" class="btn btn_login_other">회원가입</button>
-                            <button type="button" class="btn btn_login_other">아이디/비밀번호 찾기</button>
+                            <button type="button" class="btn btn_login_other"><a href="/knockusa/user/register">회원가입</button>
+                            <button type="button" class="btn btn_login_other"><a href="#">아이디/비밀번호 찾기</button>
                         </div>
                     </div>
                 </form>
@@ -38,7 +38,7 @@
                         이용하실 수 있습니다.
                     </span>
                     <div>
-                        <button type="button" class="btn btn_login"><a href="#">비회원 예약하기</a></button>
+                        <button type="button" class="btn btn_login"><a href="/knockusa/goods/reservation?goods_no=${goods_number}">비회원 예약하기</a></button>
                     </div>
                 </div>
             </div>

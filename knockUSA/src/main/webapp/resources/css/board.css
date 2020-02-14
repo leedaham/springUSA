@@ -25,12 +25,11 @@
 	float: right;
 	padding: 7px;
 	margin-top: -50px;
-	background: #f2f2f2;
-    border: 1px solid #d7d7d7;
 }
 
 #board .btns { float: right; margin-top: 10px; }
 #board .submit {
+    margin: 20px -15px 0px 0px;
 	padding: 7px;
 	border: 1px solid #3b3c3f;
 	background: #4b545e;
@@ -39,9 +38,8 @@
 
 #board .cancel {
 	padding: 7px;
-	border: 1px solid #d9ded9;
-	background: #f2f5f9;
 	color: #000;
+    font-weight: 300;
 }
 
 /* 글쓰기 */
@@ -79,7 +77,6 @@
 	padding: 12px;
 	border-top: 1px solid #d1dee2;
 	border-bottom: 1px solid #d1dee2;
-	background: #e5ecef;
 	color: #383838;
 }
 
@@ -103,8 +100,6 @@
 	padding: 0 8px;
 	height: 25px;
 	color: #000;
-	background: #f2f2f2;
-	border: 1px solid #d7d7d7;
 	line-height: 25px;
 }
 
@@ -141,8 +136,6 @@
 
 #board > .view .cancel {
 	padding: 7px;
-	border: 1px solid #d9ded9;
-	background: #f2f5f9;
 	color: #000;
 }
 /* 댓글 창*/

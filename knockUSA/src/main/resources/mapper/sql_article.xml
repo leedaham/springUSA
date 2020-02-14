@@ -32,15 +32,81 @@
 		`article_regip`=#{article_regip},
 		`article_rdate`=NOW();
 	</insert>
-	
+	<update id="UPDATE_ARTICLE">
+		UPDATE `KTUT_ARTICLE` SET 
+		`article_title`=#{article_title}, 
+		`article_content`=#{article_content}, 
+		`article_modify_regip`=#{article_modify_regip}, 
+		`article_modify_rdate`=NOW() 
+		WHERE `article_no`=#{article_no}; 
+	</update>
 	<delete id="DELETE_ARTICLE">
 		DELETE FROM `KTUT_ARTICLE` WHERE `article_no`=#{article_no};
 	</delete>
 
 	<update id="UPDATE_ARTICLE_HIT">
-		UPDATE `KTUT_ARTICLE` SET `article_hit` = `article_hit`+1 WHERE article_no =#{article_no};
+		UPDATE `KTUT_ARTICLE` SET `article_hit` = `article_hit`+1 WHERE `article_no` =#{article_no};
 	</update>
+	<update id="UPDATE_COMMENT_COUNT_UP">
+		UPDATE `KTUT_ARTICLE` SET `article_comment` = `article_comment`+1 WHERE `article_no` =#{article_no};
+	</update>
+	<update id="UPDATE_COMMENT_COUNT_DOWN">
+		UPDATE `KTUT_ARTICLE` SET `article_comment` = `article_comment`-1 WHERE `article_no` =#{article_no};
+	</update>
+	
+	<select id="SELECT_COMMENTS" resultType="kr.co.knockusa.vo.ArticleVo">
+		SELECT * FROM `KTUT_ARTICLE` WHERE `article_parent`=#{article_no} ORDER BY `article_no` ASC;
+	</select>
+	<insert id="INSERT_COMMENT">
+		INSERT INTO `KTUT_ARTICLE` SET 
+		`article_parent`=#{article_parent},
+		`article_content`=#{article_content},
+		`article_cate`=#{article_cate},
+		`article_id`=#{article_id},
+		`article_regip`=#{article_regip},
+		`article_rdate`=NOW();
+	</insert>
 
+	<delete id="DELETE_COMMENT">
+		DELETE FROM `KTUT_ARTICLE` WHERE `article_no`=#{comment_no};
+	</delete>
+	<!-- Customer -->
+	<select id="SELECT_FAQS" resultType="kr.co.knockusa.vo.ArticleVo">
+		SELECT * FROM `KTUT_ARTICLE` WHERE `article_cate`='faq' ORDER BY `article_title` ASC;  
+	</select>
+	<select id="SELECT_QNA" resultType="kr.co.knockusa.vo.QnaVo">
+		SELECT * FROM `KTUT_QNA` WHERE `qna_no`=#{qna_no};
+	</select>
+	
+	<select id="SELECT_QNAS" resultType="kr.co.knockusa.vo.QnaVo">
+		SELECT `qna_parent`, `qna_rdate`, `qna_no` FROM `KTUT_QNA` WHERE `qna_id`=#{user_id};  
+	</select>
+	<insert id="INSERT_QNA">
+		INSERT INTO `KTUT_QNA` SET 
+		`qna_name`=#{qna_name},
+		`qna_id`=#{qna_id},
+		`qna_pw`=#{qna_pw},
+		`qna_region`=#{qna_region},
+		`qna_email`=#{qna_email},
+		`qna_hp`=#{qna_hp},
+		`qna_how_many`=#{qna_how_many},
+		`qna_start_date`=#{qna_start_date},
+		`qna_end_date`=#{qna_end_date},
+		`qna_cost_per_head`=#{qna_cost_per_head},
+		`qna_extra`=#{qna_extra},
+		`qna_regip`=#{qna_regip},
+		`qna_rdate`=NOW();
+	</insert>
+	
+	<select id="SELECT_QNAS_NON_USER" resultType="kr.co.knockusa.vo.QnaVo">
+		SELECT `qna_parent`, `qna_rdate`, `qna_no` FROM `KTUT_QNA` WHERE `qna_email`=#{qna_email} AND `qna_pw` =#{qna_pw};  
+	</select>
+	
+	<!-- Home -->	
+	<select id="SELECT_HOME_NOTICE" resultType="kr.co.knockusa.vo.ArticleVo">
+		SELECT * FROM `KTUT_ARTICLE` WHERE `article_cate`='notice' AND `article_parent`=0 ORDER BY `article_rdate` DESC LIMIT 4;
+	</select>
+	
 	<select id="SELECT_REVIEW_BEST" resultType="kr.co.knockusa.vo.ArticleVo">
 		SELECT * FROM `KTUT_ARTICLE` WHERE `article_cate`='review' AND `article_parent`= 0 ORDER BY `article_hit` DESC LIMIT 1;		
 	</select>

@@ -7,7 +7,7 @@
         <div>
             <h1>로그인</h1>
             <div class="login_from_resvLi">
-                <form action="/knockusa/user/login" method="POST" class="member"> 
+                <form action="/knockusa/user/LoginByReservationList" method="POST" class="member"> 
                     <input type="hidden" name="" value="">
                     <div class="loginbox_member">
                         <h3>회원 로그인</h3>
@@ -30,16 +30,16 @@
                         </div>
                     </div>
                 </form>
-                <form action="/knockusa/user/nonUserLogin" method="POST" class="member"> 
+                <form action="/knockusa/user/LoginByReservationList" method="POST" class="member"> 
                     <div class="non_member">
                         <h3>비회원 </h3>
                         <span class="row">
                             <span>Name</span>
-                            <input type="text" name="nonUser_name_kor" title="이름">
+                            <input type="text" name="purchase_name_kor" title="이름">
                         </span>
                         <span class="row">
                             <span>Reservation Number</span>
-                            <input type="text" name="nonUser_purchase_no" title="비회원예약번호">
+                            <input type="text" name="purchase_no" title="비회원예약번호">
                         </span>
                         <div>
                             <button type="submit"" class="btn btn_login">조회하기</button>

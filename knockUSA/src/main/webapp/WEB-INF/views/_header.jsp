@@ -53,7 +53,7 @@
                     	</c:when>
                     	<c:otherwise>
                    	<li><a href="/knockusa/user/myPage/">${user.user_name}님 반갑습니다!</a></li>
-                   	<li><a href="/knockusa/user/myPage/reserList">예약확인</a></li>
+                   	<li><a href="/knockusa/user/ByReservationList">예약확인</a></li>
                     <li><a href="/knockusa/community/eventNow">이벤트</a></li>
                     <li><a href="" id="favorite">즐겨찾기 +</a></li>
                     <li class="logInOut"><a href="/knockusa/user/logout">로그아웃</a></li>

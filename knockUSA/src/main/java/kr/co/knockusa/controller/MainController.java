@@ -31,6 +31,9 @@ public class MainController {
 		List<GoodsVo> hotItems = goodsService.selectGoodsBest();
 		model.addAttribute("hotItems", hotItems);
 		
+		List<ArticleVo> notice = articleService.selectNotice();
+		model.addAttribute("notice", notice);
+		
 		ArticleVo bestReview = articleService.selectBestReview();
 		model.addAttribute("bestReview", bestReview);
 		

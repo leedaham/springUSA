@@ -18,11 +18,9 @@ public class LoginService {
 		return dao.selectUser(vo);
 	}
 	
-	public NonUserVo selectNonUser(NonUserVo vo) {
-		return dao.selectNonUser(vo);
-	}
-	
-	public PurchaseVo selectItem(PurchaseVo vo) {
-		return dao.selectItem(vo);
-	}
+//	public NonUserVo selectNonUser(NonUserVo vo) {
+//		return dao.selectNonUser(vo);
+//	}
+//	
+
 }

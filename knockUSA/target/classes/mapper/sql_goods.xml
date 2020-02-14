@@ -20,6 +20,55 @@
 	<select id="SELECT_GOODS_MONTHLY" resultType="kr.co.knockusa.vo.GoodsVo">
 		SELECT * FROM `KTUT_GOODS` WHERE `goods_start` LIKE CONCAT(#{goods_start},'%') ORDER BY `goods_start` ASC;
 	</select>
+	<update id="UPDATE_GOODS_PEOPLE">
+		UPDATE `KTUT_GOODS` SET `goods_current_personnel` = `goods_current_personnel` +#{purchase_how_many} WHERE `goods_no`=#{purchase_goods_no};
+	</update>
+	
+	<!-- 구매내역  -->
+	<insert id="INSERT_PURCHASE">
+		INSERT INTO `KTUT_PURCHASE` SET
+		`purchase_no`=#{purchase_no},
+		`purchase_goods_no`=#{purchase_goods_no},
+		`purchase_id`=#{purchase_id},
+		`purchase_price`=#{purchase_price},
+		`purchase_goods_status`=#{purchase_goods_status},
+		`purchase_rdate`=NOW(),
+		`purchase_regip`=#{purchase_regip},
+		`purchase_name_kor`=#{purchase_name_kor},
+		`purchase_name_eng`=#{purchase_name_eng},
+		`purchase_gender`=#{purchase_gender},
+		`purchase_hp`=#{purchase_hp},
+		`purchase_email`=#{purchase_email},
+		`purchase_extra`=#{purchase_extra},
+		`purchase_how_many`=#{purchase_how_many},
+		`purchase_accompany`=#{purchase_accompany},
+		`purchase_traveler_name_kor_1`=#{purchase_traveler_name_kor_1},
+		`purchase_traveler_name_eng_1`=#{purchase_traveler_name_eng_1},
+		`purchase_traveler_name_gender_1`=#{purchase_traveler_name_gender_1},
+		`purchase_traveler_name_hp_1`=#{purchase_traveler_name_hp_1},
+		`purchase_traveler_name_kor_2`=#{purchase_traveler_name_kor_2},
+		`purchase_traveler_name_eng_2`=#{purchase_traveler_name_eng_2},
+		`purchase_traveler_name_gender_2`=#{purchase_traveler_name_gender_2},
+		`purchase_traveler_name_hp_2`=#{purchase_traveler_name_hp_2},
+		`purchase_traveler_name_kor_3`=#{purchase_traveler_name_kor_3},
+		`purchase_traveler_name_eng_3`=#{purchase_traveler_name_eng_3},
+		`purchase_traveler_name_gender_3`=#{purchase_traveler_name_gender_3},
+		`purchase_traveler_name_hp_3`=#{purchase_traveler_name_hp_3};
+	</insert>
+	<!-- 상품 조회 -->
+	<select id="SELECT_PURCHASE_NONUSER" resultType="kr.co.knockusa.vo.PurchaseVo">
+		SELECT * FROM `KTUT_PURCHASE` WHERE `purchase_no`=#{purchase_no} AND `purchase_name_kor`=#{purchase_name_kor};
+	</select>
+	<select id="SELECT_PURCHASE_LIST_USER" resultType="kr.co.knockusa.vo.PurchaseVo">
+		SELECT `KTUT_PURCHASE`.`*`, `KTUT_GOODS`.goods_title FROM `KTUT_PURCHASE` 
+		INNER JOIN `KTUT_GOODS` ON `KTUT_PURCHASE`.purchase_goods_no = `KTUT_GOODS`.goods_no
+		WHERE `purchase_id`=#{purchase_id};
+	</select>
+	<select id="SELECT_PURCHASE_USER" resultType="kr.co.knockusa.vo.PurchaseVo">
+		SELECT `KTUT_PURCHASE`.`*`, `KTUT_GOODS`.goods_title FROM `KTUT_PURCHASE` 
+		INNER JOIN `KTUT_GOODS` ON `KTUT_PURCHASE`.purchase_goods_no = `KTUT_GOODS`.goods_no
+		WHERE `purchase_no`=#{purchase_no};
+	</select>
 	
 	
 	<!-- home 페이지 -->

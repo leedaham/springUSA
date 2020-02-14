@@ -1,29 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../_header.jsp"%>
-<link rel="stylesheet" href="/knockusa/css/introduce/introduce.css">
-<link rel="stylesheet" href="/knockusa/css/sidemenu.css">
-    <!-- 콘텐츠 -->
-    <main>
-        <div class="introduce introduce3">
-            <!-- 사이드메뉴 -->
-            <div class="side_nav">
-                <ul>
-                    <li class="side_nav_title">
-                        <h2>Introduce</h2>
-                    </li>
-                    <li>
-                        <a href="./introduce.html"><h4>About Us</h4></a>
-                    </li>
-                    <li>
-                        <a href="./why.html"><h4>Why u will be with us</h4></a>
-                    </li>
-                    <li class="on">
-                        <a href="./direction.html"><h4>Direction</h4></a>
-                    </li>
-                </ul>
-            </div>
-            <!-- 사이드메뉴 끝-->
+<%@include file="./_aside_introduce.jsp"%>
             <h1>찾아오시는 길</h1>
             <div class="content">
                 <h3>

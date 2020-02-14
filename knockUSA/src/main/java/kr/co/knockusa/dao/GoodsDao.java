@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.knockusa.vo.GoodsDetailVo;
 import kr.co.knockusa.vo.GoodsVo;
+import kr.co.knockusa.vo.PurchaseVo;
 
 @Repository
 public class GoodsDao {
@@ -29,6 +30,10 @@ public class GoodsDao {
 	// 상품 상세
 	public List<GoodsDetailVo> selectGoodsDetail(int detail_goods_no) {
 		return mybatis.selectList("mapper.sql_goods.SELECT_GOODS_DETAIL", detail_goods_no);
+	}
+	// 상품 현재인원 업데이트
+	public void updateGoodsPeople(PurchaseVo vo) {
+		mybatis.update("mapper.sql_goods.UPDATE_GOODS_PEOPLE", vo);
 	}
 	
 	// /home 핫 아이템 3

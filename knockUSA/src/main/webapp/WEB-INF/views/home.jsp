@@ -93,12 +93,11 @@
             <div>
                 <div class="notice">
                     <h3>공지사항</h3>
-                    <span>더보기</span>
+                    <span><a href="/knockusa/community?cate=notice">더보기</a></span>
                     <ul>
-                        <li>2020 연휴안내</li>
-                        <li>2019 연휴안내</li>
-                        <li>2018 연휴안내</li>
-                        <li>2017 연휴안내</li>
+                   		<c:forEach var="notice" items="${notice}">
+	                        <li>${notice.article_title}</li>
+                    	</c:forEach>
                     </ul>
                 </div>
                 <div class="review">
@@ -116,7 +115,7 @@
                 </div>
                 <div class="customer">
                     <h3>고객센터</h3>
-                    <span>더보기</span>
+                    <span><a href="/knockusa/customer/faq">더보기</a></span>
                     <ul>
                         <li class="tel">
                             <h2>051.123.1234</h2>

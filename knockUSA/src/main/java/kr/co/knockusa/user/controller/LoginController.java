@@ -41,30 +41,7 @@ public class LoginController {
 		session.invalidate();
 		return "redirect:/home";
 	}
-	@GetMapping("/user/myPage/reserList_needLogin")
-	public String loginFromReserList() {
-		return "/user/loginFromReserList";
-	}
-	@PostMapping("/user/nonUserLogin")
-	public String nonUserLogin(String nonUser_name_kor, String nonUser_purchase_no, HttpSession session) {
-		NonUserVo nonUser = new NonUserVo();
-		nonUser.setNonUser_name_kor(nonUser_name_kor);
-		nonUser.setNonUser_purchase_no(nonUser_purchase_no);
-		
-		NonUserVo non = service.selectNonUser(nonUser);
-		
-		if(non.getNonUser_id() == null) {
-			return "redirect:/user/loginFromReserList";
-		}else {
-			PurchaseVo vo = new PurchaseVo();
-			vo.setPurchase_no(non.getNonUser_purchase_no());
-			vo.setPurchase_id(non.getNonUser_id());
-			
-			PurchaseVo rsList = service.selectItem(vo);
-			session.setAttribute("rsList", rsList);
-			return "redirect:/user/myPage/reserList";
-		}
-	}
+
 	@GetMapping("/user/loginFromReservation")
 	public String LoginFromReservation(String goods_no, HttpServletRequest req) {
 		req.setAttribute("goods_number", goods_no);

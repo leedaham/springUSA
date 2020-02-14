@@ -32,20 +32,12 @@ public class UserDao {
 	public TermsVo selectTerms() {
 		return mybatis.selectOne("mapper.sql_user.SELECT_TERMS");
 	}
+
 	
-	// 구매내역, 구매정보
-	public void insert() {}
-	public PurchaseVo selectItem(PurchaseVo vo) {
-		return mybatis.selectOne("mapper.sql_user.SELECT_ITEM_NONUSER", vo);
-	}
-	public void selectItems() {}
-	public void update() {}
-	public void delete() {}
-	
-	// 비회원 로그인
-	public NonUserVo selectNonUser(NonUserVo vo) {
-		return mybatis.selectOne("mapper.sql_user.SELECT_NONUSER", vo);
-	}
+//	// 비회원 로그인
+//	public NonUserVo selectNonUser(NonUserVo vo) {
+//		return mybatis.selectOne("mapper.sql_user.SELECT_NONUSER", vo);
+//	}
 	
 	// 중복확인
 	public int checkId(String user_id) {

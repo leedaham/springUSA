@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import kr.co.knockusa.dao.GoodsDao;
 import kr.co.knockusa.vo.GoodsDetailVo;
 import kr.co.knockusa.vo.GoodsVo;
+import kr.co.knockusa.vo.PurchaseVo;
 
 @Service
 public class GoodsService {
@@ -32,6 +33,10 @@ public class GoodsService {
 	// 상품 상세
 	public List<GoodsDetailVo> selectGoodsDetail(int detail_goods_no) {
 		return dao.selectGoodsDetail(detail_goods_no);
+	}
+	// 상품 현재인원 업데이트
+	public void updateGoodsPeople(PurchaseVo vo) {
+		dao.updateGoodsPeople(vo);
 	}
 	
 	// home 핫 아이템 

@@ -12,8 +12,8 @@
         <div class="navbar">
             <ul>
                 <li><a href="/knockusa/home"><h3>Go to</h3><h2>HOME</h2></a></li>
-                <li><a href="/knockusa/goods/travelPackagesUSA"><h3>Let 's</h3><h2>USA & CANADA</h2></a></li>
-                <li><a href="/knockusa/community/notice"><h3>Go to</h3><h2>COMMUNITY</h2></a></li>
+                <li><a href="/knockusa/goods/travelPackages?where=USA&side=west"><h3>Let 's</h3><h2>USA & CANADA</h2></a></li>
+                <li><a href="/knockusa/community?cate=notice"><h3>Go to</h3><h2>COMMUNITY</h2></a></li>
             </ul>
         </div>
     </div>

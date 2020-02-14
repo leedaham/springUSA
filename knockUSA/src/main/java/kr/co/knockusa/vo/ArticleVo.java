@@ -12,14 +12,33 @@ public class ArticleVo {
 	private String article_id;
 	private String article_regip;
 	private String article_rdate;
-	
+	private String article_modify_regip;
+	private String article_modify_rdate;
 //	// 추가 필드
 	private String user_name;
 	
 //	private int board_grade;
 
+	
+	
 	public String getUser_name() {
 		return user_name;
+	}
+
+	public String getArticle_modify_regip() {
+		return article_modify_regip;
+	}
+
+	public void setArticle_modify_regip(String article_modify_regip) {
+		this.article_modify_regip = article_modify_regip;
+	}
+
+	public String getArticle_modify_rdate() {
+		return article_modify_rdate;
+	}
+
+	public void setArticle_modify_rdate(String article_modify_rdate) {
+		this.article_modify_rdate = article_modify_rdate;
 	}
 
 	public void setUser_name(String user_name) {

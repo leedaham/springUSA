@@ -66,38 +66,44 @@
 		<!-- 댓글리스트 -->
 		<section class="comments">
 			<h3>댓글목록</h3>
-			
-			<div class="comment">
-				<span>
-					<span>홍길동</span>
-					<span>18-03-01</span>
-				</span>
-				<textarea>테스트 댓글입니다.</textarea>
-				<div>
-					<a href="#" class="del">삭제</a>
-					<a href="#" class="mod">수정</a>
+			<c:forEach var="comments" items="${comments}">
+				<div class="comment">
+					<span>
+						<span>${comments.article_id}</span>
+						<span>${comments.article_rdate.substring(0,10)}</span>
+					</span>
+					<textarea>${comments.article_content}</textarea>
+					<div>
+					<c:choose>
+	            		<c:when test="${user.user_id == comments.article_id}">	
+							<a href="/knockusa/community/comment/delete?cate=${board.board_cate}&article_no=${article.article_no}&comment_no=${comments.article_no}" class="del">삭제</a>
+						</c:when>
+					</c:choose>
+					</div>
 				</div>
-			</div>
-		
-			<p class="empty">
-				등록된 댓글이 없습니다.
-			</p>
-			
+			</c:forEach>
+			<c:if test="${empty comments}">
+				<p class="empty">
+					등록된 댓글이 없습니다.
+				</p>
+			</c:if>
 		</section>
-		
+			
+		<c:if test="${user.user_id != null}">	
 		<!-- 댓글쓰기 -->
 		<section class="comment_write">
 			<h3>댓글쓰기</h3>
 			<div>
-				<form action="#" method="post">
-					<textarea name="comment" rows="5"></textarea>
+				<form action="/knockusa/community/comment/write?cate=${board.board_cate}&article_no=${article.article_no}" method="post">
+					<input type="hidden" name="article_parent" value="${article.article_no}" />
+					<textarea name="article_content" rows="5"></textarea>
 					<div class="btns">
-						<a href="#" class="cancel">취소</a>
 						<input type="submit" class="submit" value="작성완료" />
 					</div>
 				</form>
 			</div>
 		</section>
+		</c:if>
 	</div><!-- board 끝 -->
 </main>
 <jsp:include page="../_footer.jsp" />

@@ -3,6 +3,7 @@
 #board {
 	width: 900px;
 	margin: 60px auto;
+	display: flow-root;
 }
 
 #board > .user { float: right; margin-bottom: 10px; }

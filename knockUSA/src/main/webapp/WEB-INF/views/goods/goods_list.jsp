@@ -8,7 +8,10 @@
             <div class="travel">
                 <div class="travel_tit">
                     <div class="tab_tit_img">
-                        <img src="/knockusa/img/${page.goods_country}${page.goods_side}.png" alt="${page.goods_country}${page.goods_side} banner">
+                    	<c:if test="${page.goods_country ne null}">
+                        <img src="/knockusa/img/${page.goods_country}${page.goods_side}.png" alt="${page.goods_country}${page.goods_side} ">
+                        </c:if>
+                        <img src="/knockusa/img/goods_${region}.png" alt="${region}">
                     </div>
                     <c:choose>
                     	<c:when test="${page.goods_country == null}">
@@ -46,28 +49,32 @@
                 <div class="travel_content">
                     <div class="travels" id="west">
                         <div class="goods_list">
-                            <div class="list_tit_img"></div>
-                            <ul>
-                            	<c:forEach var="goods" items="${packages}">
-                                <li>
-                                    <a href="/knockusa/goods/travelPackage?goods_no=${goods.goods_no}">
-                                        <div class="imgbox">
-                                            <img src="/knockusa/img/${goods.goods_thumbnail}" alt="${goods.goods_title}">
-                                        </div>
-                                        <div class="txtbox">
-                                            <span class="area">[${goods.goods_side}] ${goods.goods_title}</span>
-                                            <span class="depature1">여행지역:</span>
-                                            <span class="subtxt1">${goods.goods_region}</span>
-                                            <span class="depature2">여행기간:</span>
-                                            <span class="subtxt2">${goods.goods_night}박 ${goods.goods_night+1}일</span>
-                                            <span class="txtprice">${goods.goods_price}원~</span>
-                                            <a href="" class="depbtn">출발일보기</a>
-                                        </div>
-                                    </a>
-                                </li>
-                                </c:forEach>
-                                
-                            </ul>
+							<c:choose> 
+							<c:when test="${!empty packages}">          
+	                            <ul>
+	                            	<c:forEach var="goods" items="${packages}">
+	                                <li>
+	                                    <a href="/knockusa/goods/travelPackage?goods_no=${goods.goods_no}">
+	                                        <div class="imgbox">
+	                                            <img src="/knockusa/img/${goods.goods_thumbnail}" alt="${goods.goods_title}">
+	                                        </div>
+	                                        <div class="txtbox">
+	                                            <span class="area">${goods.goods_title}</span>
+	                                            <span class="depature1">여행지역:</span>
+	                                            <span class="subtxt1">${goods.goods_region}</span>
+	                                            <span class="depature2">여행기간:</span>
+	                                            <span class="subtxt2">${goods.goods_night}박 ${goods.goods_night+1}일</span>
+	                                            <span class="txtprice">${goods.goods_price}원~</span>
+	                                        </div>
+	                                    </a>
+	                                </li>
+	                                </c:forEach>
+                            	</ul>	
+                            </c:when>
+                            <c:otherwise>
+                            	<div class="noItem_img"><img src="/knockusa/img/noItem.png"></div>
+                            </c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
                 </div>

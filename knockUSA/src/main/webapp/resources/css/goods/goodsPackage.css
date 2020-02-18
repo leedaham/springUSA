@@ -33,8 +33,8 @@ main > .USA_CAN > .travel > .travel_info .info_pic_big {
     height: 250px;
 }
 main > .USA_CAN > .travel > .travel_info .info_pic_big img {
-    width: 100%;
-    height: 100%;
+    width: 440px;
+    height: 250px;
 }
 main > .USA_CAN > .travel > .travel_info .info_pic_list > li {
     width: 100px;
@@ -131,6 +131,10 @@ main > .USA_CAN > .travel > .travel_info > .info_txt > .btn_wrap > a:nth-of-type
 
 
 /* 상세 상품 설명 - 출발 날짜 보기 */
+main .monthly_start {
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
 main .USA_CAN .travel_detail {
     width: 100%;
     height: 100%;

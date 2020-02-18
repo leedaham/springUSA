@@ -29,6 +29,7 @@
 		<div id="board">
 			<div class="write">
 				<form action="/knockusa/community/modify?cate=${board.board_cate}&article_no=${article.article_no}" method="post">
+				<input type="hidden" name="pg" value="${pg}"/>
 					<table>
 						<tr>
 							<td>제목</td>
@@ -40,15 +41,27 @@
 								<textarea name="article_content" rows="20" required>${article.article_content}</textarea>
 							</td>
 						</tr>
+						<c:choose>
+						<c:when test="${user.user_grade eq 1} && ${board.board_cate eq 'review'}">
 						<tr>
 							<td>첨부</td>
 							<td>
 								<input type="file" name="file" />
 							</td>
 						</tr>
+						</c:when>
+						<c:when test="${user.user_grade eq 0}">
+						<tr>
+							<td>첨부</td>
+							<td>
+								<input type="file" name="file" />
+							</td>
+						</tr>
+						</c:when>
+						</c:choose>
 					</table>
 					<div class="btns">
-						<a href="/knockusa/${board.board_group}/list?cate=${board.board_cate}" class="cancel">취소</a>
+						<a href="/knockusa/${board.board_group}/view?cate=${board.board_cate}&pg=${pg}&article_no=${article.article_no}" class="cancel">취소</a>
 						<input type="submit" class="submit" value="수정완료" />
 					</div>
 				</form>

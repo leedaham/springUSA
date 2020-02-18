@@ -61,4 +61,16 @@ public class UserDao {
 	public int checkEmail(String user_email) {
 		return mybatis.selectOne("mapper.sql_user.CHECK_EMAIL", user_email);
 	}
+	
+	// 아이디 / 비밀번호 찾기
+	public UserVo findId(UserVo vo) {
+		return mybatis.selectOne("mapper.sql_user.FIND_ID", vo);
+	}
+	public UserVo findPw(UserVo vo) {
+		return mybatis.selectOne("mapper.sql_user.FIND_PW", vo);
+	}
+		// 새로운 비밀번호 설정
+	public void newPwSet(UserVo vo) {
+		mybatis.update("mapper.sql_user.NEW_PW_SET", vo);
+	}
 }

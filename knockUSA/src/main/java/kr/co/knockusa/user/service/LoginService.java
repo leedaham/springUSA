@@ -16,6 +16,16 @@ public class LoginService {
 	public UserVo selectUser(UserVo vo) {
 		return dao.selectUser(vo);
 	}
-
 	
+	// 아이디 / 비밀번호 찾기
+	public UserVo findId(UserVo vo) {
+		return dao.findId(vo);
+	}
+	public UserVo findPw(UserVo vo) {
+		return dao.findPw(vo);
+	}
+		// 새로운 비밀번호 설정
+	public void newPwSet(UserVo vo) {
+		dao.newPwSet(vo);
+	}
 }

@@ -65,7 +65,7 @@ public class UserController {
 			nonUser.setPurchase_no(purchase_no);
 			PurchaseVo purchase= service.selectPurchaseNonUser(nonUser);
 				if(purchase == null) {
-					return "/user/loginFromReserList";
+					return "redirect:/user/myPage/reserList_needLogin?user=no";
 				}else {
 					model.addAttribute("purchase", purchase);
 					return "/user/myPage/reservationOne";

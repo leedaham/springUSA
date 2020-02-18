@@ -14,60 +14,60 @@
                 <c:choose>
 	                <c:when test="${board.board_cate=='notice'}">
 		                <li class="on">
-		                    <a href="/knockusa/community?cate=notice"><h4>Notice</h4></a>
+		                    <a href="/knockusa/community?cate=notice&pg=1"><h4>Notice</h4></a>
 		                </li>
 	                </c:when>
 	                <c:otherwise>
 	                	<li>
-		                    <a href="/knockusa/community?cate=notice"><h4>Notice</h4></a>
+		                    <a href="/knockusa/community?cate=notice&pg=1"><h4>Notice</h4></a>
 		                </li>
 	                </c:otherwise>
                 </c:choose>
                 <c:choose>
                 	<c:when test="${board.board_cate=='review'}">
 		                <li class="on">
-		                    <a href="/knockusa/community?cate=review"><h4>Review</h4></a>
+		                    <a href="/knockusa/community?cate=review&pg=1"><h4>Review</h4></a>
 		                </li>
                 	</c:when>
                 	<c:otherwise> 
                 		<li>
-		                    <a href="/knockusa/community?cate=review"><h4>Review</h4></a>
+		                    <a href="/knockusa/community?cate=review&pg=1"><h4>Review</h4></a>
 		                </li>
 	                </c:otherwise>
                 </c:choose>
                 <c:choose>
 	                <c:when test="${board.board_cate=='newsUSA'}">
 		                <li class="on">
-		                    <a href="/knockusa/community?cate=newsUSA"><h4>News USA</h4></a>
+		                    <a href="/knockusa/community?cate=newsUSA&pg=1"><h4>News USA</h4></a>
 		                </li>
                 	</c:when>
                 	<c:otherwise> 
 	               		<li>
-	                    	<a href="/knockusa/community?cate=newsUSA"><h4>News USA</h4></a>
+	                    	<a href="/knockusa/community?cate=newsUSA&pg=1"><h4>News USA</h4></a>
 	                	</li>
                 	</c:otherwise>
                	</c:choose>
                	<c:choose>
 	                <c:when test="${board.board_cate=='newsCAN'}">
 		                <li class="on">
-		                    <a href="/knockusa/community?cate=newsCAN"><h4>News CANADA</h4></a>
+		                    <a href="/knockusa/community?cate=newsCAN&pg=1"><h4>News CANADA</h4></a>
 		                </li>
 	                </c:when>
 	               	<c:otherwise>
 		               	<li>
-	                    	<a href="/knockusa/community?cate=newsCAN"><h4>News CANADA</h4></a>
+	                    	<a href="/knockusa/community?cate=newsCAN&pg=1"><h4>News CANADA</h4></a>
 	                	</li>
                 	</c:otherwise>
                	</c:choose>
                	<c:choose>
-	                <c:when test="${board.board_cate == null || board.board_cate == 'eventWin'}">
+	                <c:when test="${board.board_cate == 'eventNow' || board.board_cate == 'eventWin'}">
 		                <li class="on">
-		                    <a href="/knockusa/community/event"><h4>Event</h4></a>
+		                    <a href="/knockusa/community/event?cate=eventNow"><h4>Event</h4></a>
 		                </li>
 	                </c:when>
 	                <c:otherwise>
 	                    <li>
-		                    <a href="/knockusa/community/event"><h4>Event</h4></a>
+		                    <a href="/knockusa/community/event?cate=eventNow"><h4>Event</h4></a>
 		                </li>
 	                </c:otherwise>
                 </c:choose>

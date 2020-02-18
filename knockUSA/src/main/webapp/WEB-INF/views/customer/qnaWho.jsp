@@ -2,10 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../_header.jsp"%>
 <%@include file="./_aside_customer.jsp"%>
-<link rel="stylesheet" href="/knockusa/css/user/userLogin.css">
+<link rel="stylesheet" href="/knockusa/css/customer/qna.css">
+
+<script src="/knockusa/js/user/wrongIdPw.js"></script>
     <!-- 콘텐츠 -->
-    <main>
-        <div>
+    
+        <div class="qnaWho">
             <h1>문의하기</h1>
             <div class="login_from_resv">
                 <form action="/knockusa/customer/qnaLogin" method="POST" class="member"> 
@@ -26,8 +28,10 @@
                         </span>
                         <button type="submit" class="btn btn_login">로그인</button>
                         <div>
-                            <button type="button" class="btn btn_login_other"><a href="/knockusa/user/register">회원가입</button>
-                            <button type="button" class="btn btn_login_other"><a href="#">아이디/비밀번호 찾기</button>
+                            <button type="button" class="btn btn_other"><a href="/knockusa/user/register">회원가입</a></button>
+                            <button type="button" class="btn btn_other" onclick="window.open('/knockusa/user/idpw','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">
+                                    	아이디/비밀번호 찾기
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -48,13 +52,14 @@
 	                        <input type="password" name="qna_pw" title="비회원 비밀번호">
 	                    </span>
 	                   	<div>
-	                        <button type="submit" class="btn btn_login">비회원 조회하기</a></button>
+	                        <button type="submit" class="btn btn_login">비회원 조회하기</button>
 	                        <button type="button" class="btn btn_login"><a href="/knockusa/customer/qnaToInquire">비회원 문의하기</a></button>
 	                    </div>
                     </form>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>        
      <!-- 콘텐츠 끝 -->
 <%@include file="../_footer.jsp"%>  

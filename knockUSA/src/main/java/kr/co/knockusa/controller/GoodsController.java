@@ -124,7 +124,7 @@ public class GoodsController {
 		List<GoodsVo> packages = service.selectByRegion(goods_region);
 		
 		model.addAttribute("packages", packages);
-		
+		model.addAttribute("region", goods_region);
 		return "/goods/goods_list";
 	}
 	

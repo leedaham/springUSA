@@ -29,7 +29,7 @@ public class LoginController {
 	public String login(UserVo vo, HttpSession session) {
 		UserVo user = service.selectUser(vo);
 		if(user == null) {
-			return "redirect:/user/login";
+			return "redirect:/user/login?user=no";
 		}else {
 			session.setAttribute("user", user);
 			return "redirect:/home";
@@ -49,12 +49,41 @@ public class LoginController {
 	@PostMapping("/user/loginFromReservation")
 	public String LoginFromReservation(UserVo vo, String goods_number, HttpSession session) {
 		UserVo user = service.selectUser(vo);
-		int goods_no = Integer.parseInt(goods_number);
 		if(user == null) {
-			return "redirect:/user/loginFromReservation";
+			session.setAttribute("goods_number", goods_number);
+			return "redirect:/user/loginFromReservation?goods_number="+goods_number+"&user=no";
 		}else {
+			int goods_no = Integer.parseInt(goods_number);
 			session.setAttribute("user", user);
 			return "redirect:/goods/travelPackage?goods_no="+goods_no;
 		}
+	}
+	
+	// 아이디 비밀번호 찾기
+	@GetMapping("/user/idpw")
+	public String idpw() {
+		return "/user/idpw";
+	}
+	@PostMapping("/user/findId")
+	public String findId(UserVo user, Model model) {
+		//아이디 찾기
+		UserVo findId = service.findId(user);
+		
+		model.addAttribute("findId", findId);
+		
+		return "/user/idRs";
+	}
+	@PostMapping("/user/findPw")
+	public String findPw(UserVo user, Model model) {
+		//비밀번호 찾기
+		UserVo findPw = service.findPw(user);
+		
+		model.addAttribute("findPw", findPw);
+		
+		return "/user/pwRs";
+	}
+	@PostMapping("/user/newPwRs")
+	public void setNewPw(UserVo vo) {
+		service.newPwSet(vo);
 	}
 }

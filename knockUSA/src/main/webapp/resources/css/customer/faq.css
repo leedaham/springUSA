@@ -1,0 +1,15 @@
+.faq {
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.faq_tit {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+}
+.faq_answer {
+    display: none;
+}

@@ -21,31 +21,44 @@ $(function(){
 </script>
 <script>
 $(function(){
+    var Detach;
+    var DetachSmall;
+    var DetachBig;
     var smallImg = $('.info_pic_list > li');
-    smallImg.click(function(e){
+
+    Detach = $('.info_pic_list > li:nth-child(1)').detach();
+    $('.info_pic_big > ul').append(Detach);
+    
+    smallImg.on("click", function(e){
         e.preventDefault();
-        $(this).detach();
+        DetachSmall = $(this).detach();
+        $('.info_pic_big > ul').append(DetachSmall);
+        DetachBig = $('.info_pic_big > ul > li:nth-child(1)').detach();
+        $('.info_pic_list').append(DetachBig);
     });
 
 });
+
 </script>
+
 <!-- 콘텐츠 -->
 <main>
     <div class="USA_CAN">
         <h1>${goods.goods_title}</h1>
         <a href="/knockusa/goods/travelPackages?where=${goods.goods_country}&side=${goods.goods_side}">BACK→</a>
         <div class="package_tit_img">
-            <img src="../img/goods_la.png" alt="la 타이틀 이미지">
+            <img src="/knockusa/img/goods_${goods.goods_region}.png" alt="${goods.goods_region}">
         </div>
         <div class="travel">
             <div class="travel_info">
                 <div class="info_pic">
                     <div class="info_pic_big">
                         <ul>
-                            <li><a href="#"><img src="/knockusa/img/info_1.jpg" alt="info_1"></a></li>
+                            
                         </ul>
                     </div>
                     <ul class="info_pic_list">
+                        <li><a href="#"><img src="/knockusa/img/info_1.jpg" alt="info_1"></a></li>
                         <li><a href="#"><img src="/knockusa/img/info_2.jpg" alt="info_2"></a></li>
                         <li><a href="#"><img src="/knockusa/img/info_3.jpg" alt="info_3"></a></li>
                         <li><a href="#"><img src="/knockusa/img/info_4.jpg" alt="info_4"></a></li>
@@ -102,6 +115,7 @@ $(function(){
                     </div>
                 </div>
             </div>
+            <h2 class="monthly_start">월별 출발일 보기</h2>
             <div class="travel_detail">
                 <div class="product_schedule">
                     <div class="calendar">

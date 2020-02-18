@@ -46,6 +46,17 @@
 		UPDATE `KTUT_USER` SET `user_pw`=#{user_pw} WHERE `user_id`=#{user_id};
 	</update>
 	
+	<!-- 아이디 / 비밀번호 찾기 -->
+	<select id="FIND_ID" resultType="kr.co.knockusa.user.vo.UserVo">
+		SELECT * FROM `KTUT_USER` WHERE `user_name`=#{user_name} AND `user_email`=#{user_email};
+	</select>
+	<select id="FIND_PW" resultType="kr.co.knockusa.user.vo.UserVo">
+		SELECT * FROM `KTUT_USER` WHERE `user_id`=#{user_id} AND `user_email`=#{user_email} AND `user_hp`=#{user_hp};
+	</select>
+	<update id="NEW_PW_SET">
+		UPDATE `KTUT_USER` SET `user_pw`=#{user_pw} WHERE `user_no`=#{user_no}; 
+	</update>
+		
 	<!-- 위시리스트 등록/불러오기/삭제 -->
 	<insert id="INSERT_WISH">
 		INSERT INTO `KTUT_WISHLIST` SET

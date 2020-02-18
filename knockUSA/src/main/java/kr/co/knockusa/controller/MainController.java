@@ -37,6 +37,9 @@ public class MainController {
 		ArticleVo bestReview = articleService.selectBestReview();
 		model.addAttribute("bestReview", bestReview);
 		
+		List<ArticleVo> events = articleService.selectRecentEvent();
+		model.addAttribute("events", events);
+		
 		return "/home";
 	}
 

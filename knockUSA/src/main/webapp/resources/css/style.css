@@ -305,12 +305,12 @@ main > .bestgoods .txtbox .subtxt2 {
     line-height: 1.6;
 }
 main > .bestgoods .txtbox .txtprice {
-    float: left;
+    float: right;
     bottom: 15px;
     margin-top: 30px;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 20px;
-    margin-left: 19px;
+    margin-right: 25px;
     color: #f18100;
     font-weight: 400;
 }

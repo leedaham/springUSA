@@ -4,6 +4,9 @@
 <jsp:include page="./_aside_${board.board_group}.jsp" /> <%-- 표현언어는 태그요소에만 적용 됨 --%>
 <link rel="stylesheet" href="/knockusa/css/board.css">
 <link rel="stylesheet" href="/knockusa/css/community/communityEvent.css">
+<script src="/knockusa/js/community/currentPg.js"></script>
+
+</script>
 	<c:choose>
 		<c:when test="${board.board_cate=='notice'}"><h1>공지사항</h1></c:when>
 		<c:when test="${board.board_cate=='review'}"><h1>고객후기</h1></c:when>
@@ -14,10 +17,10 @@
 	        <div class="event_tit">
 	            <div class="tab">
 	                <div class="now">
-	                    <a href="/knockusa/community/event?when=now"><h3>진행중인 이벤트</h3></a>
+	                    <a href="/knockusa/community/event?cate=eventNow&when=now"><h3>진행중인 이벤트</h3></a>
 	                </div>
 	                <div class="past">
-	                    <a href="/knockusa/community/event?when=past"><h3>지난 이벤트</h3></a>
+	                    <a href="/knockusa/community/event?cate=eventNow&when=past"><h3>지난 이벤트</h3></a>
 	                </div>
 	                <div class="win on">
 	                    <a href="#"><h3>당첨자 발표</h3></a>
@@ -40,8 +43,8 @@
         	
         	<c:forEach var="vo" items="${articles}">
             <tr>
-                <td>${vo.article_no}</td>
-                <td><a href="/knockusa/${board.board_group}/view?article_no=${vo.article_no}&cate=${board.board_cate}">${vo.article_title}&nbsp;[${vo.article_comment}]</a></td>
+                <td>${count=count-1}</td>
+                <td><a href="/knockusa/${board.board_group}/view?article_no=${vo.article_no}&cate=${board.board_cate}&pg=${pg}">${vo.article_title}&nbsp;[${vo.article_comment}]</a></td>
                 <td>${vo.user_name}</td>
                 <td>${vo.article_rdate}</td>
                 <td>${vo.article_hit}</td>
@@ -52,19 +55,25 @@
     <!-- 페이징 -->
         <nav class="paging">
             <span> 
-            <a href="#" class="prev">이전</a>
-            <a href="#" class="num">1</a>
-            <a href="#" class="next">다음</a>
+            <c:if test="${prevBtn != 1}">
+           	<a href="/knockusa/community?cate=${board.board_cate}&pg=${pg-10}" class="prev">이전</a>
+           	</c:if>
+         		<c:forEach var="n" begin="${startPg}" end="${endPage}">
+			<a href="/knockusa/community?cate=${board.board_cate}&pg=${n}" class="num">${n}</a>
+				</c:forEach>
+			<c:if test="${nextBtn != 1}">	
+           	<a href="/knockusa/community?cate=${board.board_cate}&pg=${pg+10}" class="next">다음</a>
+           	</c:if>
             </span>
         </nav>
         <c:choose>
-       		<c:when test="${board.board_cate=='notice' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}" class="btnWrite">글쓰기</a></c:when>
+       		<c:when test="${board.board_cate=='notice' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}&pg=${pg}" class="btnWrite">글쓰기</a></c:when>
        		<c:when test="${board.board_cate=='review' && user eq null}"><a href="/knockusa/user/login" class="btnWrite">글쓰기</a></c:when>
-       		<c:when test="${board.board_cate=='review' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}" class="btnWrite">글쓰기</a></c:when>
-       		<c:when test="${board.board_cate=='review' && user.user_grade == '1'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}" class="btnWrite">글쓰기</a></c:when>
-       		<c:when test="${board.board_cate=='newsUSA' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}" class="btnWrite">글쓰기</a></c:when>
-       		<c:when test="${board.board_cate=='newsCAN' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}" class="btnWrite">글쓰기</a></c:when>
-       		<c:when test="${board.board_cate=='eventWin' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}" class="btnWrite">글쓰기</a></c:when>
+       		<c:when test="${board.board_cate=='review' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}&pg=${pg}" class="btnWrite">글쓰기</a></c:when>
+       		<c:when test="${board.board_cate=='review' && user.user_grade == '1'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}&pg=${pg}" class="btnWrite">글쓰기</a></c:when>
+       		<c:when test="${board.board_cate=='newsUSA' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}&pg=${pg}" class="btnWrite">글쓰기</a></c:when>
+       		<c:when test="${board.board_cate=='newsCAN' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}&pg=${pg}" class="btnWrite">글쓰기</a></c:when>
+       		<c:when test="${board.board_cate=='eventWin' && user.user_grade == '0'}"><a href="/knockusa/${board.board_group}/write?cate=${board.board_cate}&pg=${pg}" class="btnWrite">글쓰기</a></c:when>
         </c:choose>
     </div>
 </div>

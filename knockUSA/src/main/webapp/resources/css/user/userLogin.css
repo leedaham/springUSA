@@ -112,12 +112,7 @@ main .login_from_resv .loginbox_member .row > span {
     font-size: 20px;
     font-weight: 400;
 }
-main .login_from_resv .loginbox_member .row > input {
-    clear: left;
-    width: 427px;
-    height: 29px;
-    margin-top: 5px;
-}
+
 main .login_from_resv .loginbox_member .id_save_row {
         margin-left: 60px;
 }
@@ -144,6 +139,7 @@ main .login_from_resv .loginbox_member .btn_login_other {
     background-color: #f5f5f5;
     color: #808080;
 }
+
 main .login_from_resv .loginbox_member .btn_login_other:nth-of-type(2) {
     float: right;
 }
@@ -193,9 +189,10 @@ main .login_from_resvLi .member {
     width: 559px;
     height: 505px;
     box-sizing: border-box;
+}
+main .login_from_resvLi .user {
     border-right: 1px solid black;
 }
-
     /* 회원 로그인 */
 main .login_from_resvLi .loginbox_member .row {
     display: block;
@@ -289,7 +286,11 @@ main .login_from_resvLi .non_member .btn_login > a {
 main .login_from_resvLi .non_member .btn_login {
     width: 440px;
     height: 54px;
-    margin: 41px 59px 0;
+    margin: 79px 59px 0;
     background-color: #ffa02f;
+    color: #fff;
     border: none;
+}
+main .login_from_resvLi .loginbox_member a {
+    color: #808080;
 }

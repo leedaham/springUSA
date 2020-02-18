@@ -2,19 +2,74 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.sql_article">
 
+<!-- 게시판 -->
+	<!-- 보드 카테고리 가져오기 -->
 	<select id="SELECT_BOARD" resultType="kr.co.knockusa.vo.BoardVo">
 		SELECT * FROM `KTUT_BOARD` WHERE `board_cate`=#{cate};
 	</select>
-	
+	<!-- 카테고리별 게시물 가져오기 -->
 	<select id="SELECT_ARTICLES" resultType="kr.co.knockusa.vo.ArticleVo">
 		SELECT a.*, b.user_name FROM
 		`KTUT_ARTICLE` AS a, 
 		`KTUT_USER` AS b
 		WHERE a.article_id = b.user_id
-		AND a.article_cate=#{cate}
-		AND a.article_parent =0;
+		AND a.article_cate=#{article_cate}
+		AND a.article_parent =0
+		ORDER BY `article_no` DESC;
 	</select>
-
+	<select id="SELECT_NOTICE_ARTICLES" resultType="kr.co.knockusa.vo.ArticleVo">
+		SELECT a.*, b.user_name FROM
+		`KTUT_ARTICLE` AS a, 
+		`KTUT_USER` AS b
+		WHERE a.article_id = b.user_id
+		AND a.article_cate='notice'
+		AND a.article_parent =0
+		ORDER BY `article_no` DESC
+		LIMIT #{start}, 10;
+	</select>
+	<select id="SELECT_REVIEW_ARTICLES" resultType="kr.co.knockusa.vo.ArticleVo">
+		SELECT a.*, b.user_name FROM
+		`KTUT_ARTICLE` AS a, 
+		`KTUT_USER` AS b
+		WHERE a.article_id = b.user_id
+		AND a.article_cate='review'
+		AND a.article_parent =0
+		ORDER BY `article_no` DESC
+		LIMIT #{start}, 10;
+	</select>
+	<select id="SELECT_NEWSUSA_ARTICLES" resultType="kr.co.knockusa.vo.ArticleVo">
+		SELECT a.*, b.user_name FROM
+		`KTUT_ARTICLE` AS a, 
+		`KTUT_USER` AS b
+		WHERE a.article_id = b.user_id
+		AND a.article_cate='newsUSA'
+		AND a.article_parent =0
+		ORDER BY `article_no` DESC
+		LIMIT #{start}, 10;
+	</select>
+	<select id="SELECT_NEWSCAN_ARTICLES" resultType="kr.co.knockusa.vo.ArticleVo">
+		SELECT a.*, b.user_name FROM
+		`KTUT_ARTICLE` AS a, 
+		`KTUT_USER` AS b
+		WHERE a.article_id = b.user_id
+		AND a.article_cate='newsCAN'
+		AND a.article_parent =0
+		ORDER BY `article_no` DESC
+		LIMIT #{start}, 10;
+	</select>
+	<select id="SELECT_EVENTWIN_ARTICLES" resultType="kr.co.knockusa.vo.ArticleVo">
+		SELECT a.*, b.user_name FROM
+		`KTUT_ARTICLE` AS a, 
+		`KTUT_USER` AS b
+		WHERE a.article_id = b.user_id
+		AND a.article_cate='eventWin'
+		AND a.article_parent =0
+		ORDER BY `article_no` DESC
+		LIMIT #{start}, 10;
+	</select>
+	
+<!-- 게시물 기본  -->	
+	<!-- 게시물 가져오기 -->
 	<select id="SELECT_ARTICLE" resultType="kr.co.knockusa.vo.ArticleVo">
 		SELECT a.*, b.user_name FROM
 		`KTUT_ARTICLE` AS a, 
@@ -22,7 +77,7 @@
 		WHERE a.article_id = b.user_id
 		AND a.article_no =#{article_no}; 
 	</select>
-
+	<!-- 게시물 입력하기 -->
 	<insert id="INSERT_ARTICLE">
 		INSERT INTO `KTUT_ARTICLE` SET 
 		`article_cate`=#{article_cate},
@@ -32,6 +87,7 @@
 		`article_regip`=#{article_regip},
 		`article_rdate`=NOW();
 	</insert>
+	<!-- 게시물 수정하기 -->
 	<update id="UPDATE_ARTICLE">
 		UPDATE `KTUT_ARTICLE` SET 
 		`article_title`=#{article_title}, 
@@ -40,23 +96,37 @@
 		`article_modify_rdate`=NOW() 
 		WHERE `article_no`=#{article_no}; 
 	</update>
+	<!-- 게시물 삭제하기 -->
 	<delete id="DELETE_ARTICLE">
 		DELETE FROM `KTUT_ARTICLE` WHERE `article_no`=#{article_no};
 	</delete>
-
+	
+<!-- 게시물 페이징 -->
+	<!-- 게시판 총 게시물 수 가져오기 -->
+	<select id="SELECT_TOTAL_ARTICLES" resultType="int">
+		SELECT COUNT(*) FROM `KTUT_ARTICLE` WHERE `article_parent`=0 AND `article_cate`=#{article_cate};
+	</select>
+	
+<!-- 게시물 조회수, 댓글 수 카운트 -->
+	<!-- 조회수 올리기 -->
 	<update id="UPDATE_ARTICLE_HIT">
 		UPDATE `KTUT_ARTICLE` SET `article_hit` = `article_hit`+1 WHERE `article_no` =#{article_no};
 	</update>
+	<!-- 댓글수 올리기 -->
 	<update id="UPDATE_COMMENT_COUNT_UP">
 		UPDATE `KTUT_ARTICLE` SET `article_comment` = `article_comment`+1 WHERE `article_no` =#{article_no};
 	</update>
+	<!-- 댓글수 내리기 -->
 	<update id="UPDATE_COMMENT_COUNT_DOWN">
 		UPDATE `KTUT_ARTICLE` SET `article_comment` = `article_comment`-1 WHERE `article_no` =#{article_no};
 	</update>
 	
+<!-- 댓글 기본 -->
+	<!-- 댓글 가져오기 -->
 	<select id="SELECT_COMMENTS" resultType="kr.co.knockusa.vo.ArticleVo">
 		SELECT * FROM `KTUT_ARTICLE` WHERE `article_parent`=#{article_no} ORDER BY `article_no` ASC;
 	</select>
+	<!-- 댓글 입력하기 -->
 	<insert id="INSERT_COMMENT">
 		INSERT INTO `KTUT_ARTICLE` SET 
 		`article_parent`=#{article_parent},
@@ -66,21 +136,25 @@
 		`article_regip`=#{article_regip},
 		`article_rdate`=NOW();
 	</insert>
-
+	<!-- 댓글 삭제하기 -->
 	<delete id="DELETE_COMMENT">
 		DELETE FROM `KTUT_ARTICLE` WHERE `article_no`=#{comment_no};
 	</delete>
-	<!-- Customer -->
+	
+<!-- Customer -->
+	<!-- FAQ 가져오기 -->
 	<select id="SELECT_FAQS" resultType="kr.co.knockusa.vo.ArticleVo">
 		SELECT * FROM `KTUT_ARTICLE` WHERE `article_cate`='faq' ORDER BY `article_title` ASC;  
 	</select>
+	<!-- QNA 가져오기 -->
 	<select id="SELECT_QNA" resultType="kr.co.knockusa.vo.QnaVo">
 		SELECT * FROM `KTUT_QNA` WHERE `qna_no`=#{qna_no};
 	</select>
-	
+	<!-- QNA 목록 가져오기(회원) -->
 	<select id="SELECT_QNAS" resultType="kr.co.knockusa.vo.QnaVo">
 		SELECT `qna_parent`, `qna_rdate`, `qna_no` FROM `KTUT_QNA` WHERE `qna_id`=#{user_id};  
 	</select>
+	<!-- QNA 입력하기 -->
 	<insert id="INSERT_QNA">
 		INSERT INTO `KTUT_QNA` SET 
 		`qna_name`=#{qna_name},
@@ -97,18 +171,21 @@
 		`qna_regip`=#{qna_regip},
 		`qna_rdate`=NOW();
 	</insert>
-	
+	<!-- QNA 목록 가져오기(비회원) -->
 	<select id="SELECT_QNAS_NON_USER" resultType="kr.co.knockusa.vo.QnaVo">
 		SELECT `qna_parent`, `qna_rdate`, `qna_no` FROM `KTUT_QNA` WHERE `qna_email`=#{qna_email} AND `qna_pw` =#{qna_pw};  
 	</select>
 	
-	<!-- Home -->	
+<!-- Home -->
+	<!-- 최신 공지사항 불러오기 -->	
 	<select id="SELECT_HOME_NOTICE" resultType="kr.co.knockusa.vo.ArticleVo">
 		SELECT * FROM `KTUT_ARTICLE` WHERE `article_cate`='notice' AND `article_parent`=0 ORDER BY `article_rdate` DESC LIMIT 4;
 	</select>
-	
+	<!-- 조회수 높은 리뷰 가져오기 -->
 	<select id="SELECT_REVIEW_BEST" resultType="kr.co.knockusa.vo.ArticleVo">
 		SELECT * FROM `KTUT_ARTICLE` WHERE `article_cate`='review' AND `article_parent`= 0 ORDER BY `article_hit` DESC LIMIT 1;		
 	</select>
-	
+	<select id="SELECT_RECENT_EVENT" resultType="kr.co.knockusa.vo.ArticleVo">
+		SELECT * FROM `KTUT_ARTICLE` WHERE `article_cate` ='eventNow' ORDER BY `article_no` DESC LIMIT 2;
+	</select>
 </mapper>

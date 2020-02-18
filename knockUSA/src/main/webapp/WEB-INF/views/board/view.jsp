@@ -20,7 +20,7 @@
 	                    <a href="/knockusa/community/event?when=past"><h3>지난 이벤트</h3></a>
 	                </div>
 	                <div class="win on">
-	                    <a href="#"><h3>당첨자 발표</h3></a>
+	                    <a href="/knockusa/community?cate=eventWin&pg=1"><h3>당첨자 발표</h3></a>
 	                </div>
 	            </div>
 	        </div>
@@ -36,14 +36,15 @@
 						</td>
 					</tr>
 					
-					<tr>
-						<td>첨부파일</td>
-						<td>
-							<a href="#">테스트.hwp</a>
-							<span>3회 다운로드</span>
-						</td>
-					</tr>
-					
+					<c:if test="${article.article_file == 1 }">
+						<tr>
+							<td>첨부파일</td>
+							<td>
+								<a href="#">테스트.hwp</a>
+								<span>3회 다운로드</span>
+							</td>
+						</tr>
+					</c:if>
 					<tr>
 						<td>내용</td>
 						<td>
@@ -54,11 +55,11 @@
 				<div class="btns">
 				<c:choose>
 	            	<c:when test="${user.user_id == article.article_id}">
-						<a href="/knockusa/${board.board_group}/delete?cate=${board.board_cate}&article_no=${article.article_no}" class="cancel del">삭제</a>
-						<a href="/knockusa/${board.board_group}/modify?cate=${board.board_cate}&article_no=${article.article_no}" class="cancel mod">수정</a>
+						<a href="/knockusa/${board.board_group}/delete?cate=${board.board_cate}&article_no=${article.article_no}&pg=${pg}" class="cancel del">삭제</a>
+						<a href="/knockusa/${board.board_group}/modify?cate=${board.board_cate}&article_no=${article.article_no}&pg=${pg}" class="cancel mod">수정</a>
 					</c:when>
 				</c:choose>
-					<a href="/knockusa/${board.board_group}?cate=${board.board_cate}" class="cancel">목록</a>
+					<a href="/knockusa/${board.board_group}?cate=${board.board_cate}&pg=${pg}" class="cancel">목록</a>
 				</div>
 			</form>
 		</div><!-- view 끝 -->
@@ -76,7 +77,7 @@
 					<div>
 					<c:choose>
 	            		<c:when test="${user.user_id == comments.article_id}">	
-							<a href="/knockusa/community/comment/delete?cate=${board.board_cate}&article_no=${article.article_no}&comment_no=${comments.article_no}" class="del">삭제</a>
+							<a href="/knockusa/community/comment/delete?cate=${board.board_cate}&article_no=${article.article_no}&comment_no=${comments.article_no}&pg=${pg}" class="del">삭제</a>
 						</c:when>
 					</c:choose>
 					</div>
@@ -94,7 +95,7 @@
 		<section class="comment_write">
 			<h3>댓글쓰기</h3>
 			<div>
-				<form action="/knockusa/community/comment/write?cate=${board.board_cate}&article_no=${article.article_no}" method="post">
+				<form action="/knockusa/community/comment/write?cate=${board.board_cate}&article_no=${article.article_no}&pg=${pg}" method="post">
 					<input type="hidden" name="article_parent" value="${article.article_no}" />
 					<textarea name="article_content" rows="5"></textarea>
 					<div class="btns">

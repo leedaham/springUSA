@@ -55,7 +55,7 @@ public class CustomerController {
 	public String qnaLogin(UserVo vo, HttpSession session) {
 		UserVo user = loginService.selectUser(vo);
 		if(user == null) {
-			return "redirect:/customer/qna";
+			return "redirect:/customer/qna?user=no";
 		}else {
 			session.setAttribute("user", user);
 			return "redirect:/customer/qnaList";
@@ -110,10 +110,14 @@ public class CustomerController {
 		String sort = "alreadyLogin";
 		
 		List<QnaVo> qnaList = customerService.selectQnaListNonUser(vo);
-		model.addAttribute("qnaList", qnaList);
-		model.addAttribute("sort", sort);
-		
-		return "/customer/qnaList";
+		if(qnaList.isEmpty()) {
+			return "redirect:/customer/qna?nonUser=no";
+		}else {
+			model.addAttribute("qnaList", qnaList);
+			model.addAttribute("sort", sort);
+			
+			return "/customer/qnaList";
+		}
 	}
 	
 	// 질문, 답변 보기

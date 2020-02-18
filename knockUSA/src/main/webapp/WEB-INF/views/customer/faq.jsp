@@ -2,10 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../_header.jsp"%>
 <%@include file="./_aside_customer.jsp"%>
-            <h1>자주 묻는 질문</h1>
-            <div class="">
+<link rel="stylesheet" href="/knockusa/css/customer/faq.css">
+<script src="/knockusa/js/customer/faq.js"></script>
+            <div class="faq">
             	<c:forEach var="faqs" items="${faqs}">
-            	<span>${faqs.article_title}</span>
+                    <div class="faq_box">
+            		    <a href="#" class="faq_tit">Q. ${faqs.article_title}</a> <br>
+                        <span class="faq_answer"><strong>A.</strong> ${faqs.article_content}</span> <br>
+                    </div>
             	</c:forEach>
             </div>
         </div>

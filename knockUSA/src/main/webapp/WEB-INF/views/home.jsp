@@ -50,7 +50,6 @@
                                 <span class="depature2">여행기간:</span>
                                 <span class="subtxt2">${hotItems.goods_night}박 ${hotItems.goods_night+1}일</span>
                                 <span class="txtprice">${hotItems.goods_price}원~</span>
-                                <a href="" class="depbtn">출발일보기</a>
                             </div>
                         </a>
                     </li>
@@ -62,8 +61,9 @@
         <div class="adbanner2">
             <div>
                 <ul>
-                    <li><img src="/knockusa/img/adbanner2_1.jpg" alt="ad2-2"></li>
-                    <li><img src="/knockusa/img/adbanner2_2.jpg" alt="ad2-2"></li>
+                	<c:forEach var="events" items="${events}">
+                    <li><a href="/knockusa/community/eventItem?cate=${events.article_cate}&event_no=${events.article_no}"><img src="/knockusa/img/${events.article_thumbnail}" alt="${events.article_title.substring(23)}"></a></li>
+                    </c:forEach>
                 </ul>
             </div>
         </div>

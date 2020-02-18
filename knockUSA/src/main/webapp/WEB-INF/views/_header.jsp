@@ -48,13 +48,21 @@
                     <li class="logInOut"><a href="/knockusa/user/login">로그인</a></li>
                     <li><a href="/knockusa/user/register">회원가입</a></li>
                     <li><a href="/knockusa/user/myPage/reserList_needLogin">예약확인</a></li>
-                    <li><a href="/knockusa/community/eventNow">이벤트</a></li>
+                    <li><a href="/knockusa/community/event?cate=eventNow">이벤트</a></li>
                     <li><a href="" id="favorite">즐겨찾기 +</a></li>
+                    	</c:when>
+                    	<c:when test="${user.user_grade == 0}">
+                   	<li class="logInOut"><a href="/knockusa/admin/">관리자페이지</a></li>
+                    <li><a href="/knockusa/user/myPage">${user.user_name}님 반갑습니다!</a></li>
+                   	<li><a href="/knockusa/user/ByReservationList">예약확인</a></li>
+                    <li><a href="/knockusa/community/event?cate=eventNow">이벤트</a></li>
+                    <li><a href="" id="favorite">즐겨찾기 +</a></li>
+                    <li class="logInOut"><a href="/knockusa/user/logout">로그아웃</a></li>	
                     	</c:when>
                     	<c:otherwise>
                    	<li><a href="/knockusa/user/myPage">${user.user_name}님 반갑습니다!</a></li>
                    	<li><a href="/knockusa/user/ByReservationList">예약확인</a></li>
-                    <li><a href="/knockusa/community/eventNow">이벤트</a></li>
+                    <li><a href="/knockusa/community/event?cate=eventNow">이벤트</a></li>
                     <li><a href="" id="favorite">즐겨찾기 +</a></li>
                     <li class="logInOut"><a href="/knockusa/user/logout">로그아웃</a></li>
                     	</c:otherwise>
@@ -69,7 +77,7 @@
                 </div>
                 <div><a href="/knockusa/introduce/introduce"><h3>회사소개</h3></a></div>
                 <div><a href="/knockusa/goods/travelPackages?where=USA&side=west"><h3>미국&캐나다</h3></a></div>
-                <div><a href="/knockusa/community?cate=notice"><h3>커뮤니티</h3></a></div>
+                <div><a href="/knockusa/community?cate=notice&pg=1"><h3>커뮤니티</h3></a></div>
                 <div><a href="/knockusa/customer/faq"><h3>고객센터</h3></a></div>
             </div>
 

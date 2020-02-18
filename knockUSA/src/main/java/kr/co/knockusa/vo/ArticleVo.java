@@ -8,6 +8,8 @@ public class ArticleVo {
 	private String article_title;
 	private String article_content;
 	private String article_img;
+	private String article_thumbnail;
+	private String article_file;
 	private int article_hit;
 	private String article_id;
 	private String article_regip;
@@ -23,6 +25,23 @@ public class ArticleVo {
 	
 	public String getUser_name() {
 		return user_name;
+	}
+	public String getArticle_thumbnail() {
+		return article_thumbnail;
+	}
+	public void setArticle_thumbnail(String article_thumbnail) {
+		this.article_thumbnail = article_thumbnail;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public String getArticle_file() {
+		return article_file;
+	}
+
+	public void setArticle_file(String article_file) {
+		this.article_file = article_file;
 	}
 
 	public String getArticle_modify_regip() {
@@ -41,9 +60,7 @@ public class ArticleVo {
 		this.article_modify_rdate = article_modify_rdate;
 	}
 
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
-	}
+	
 
 	public int getArticle_no() {
 		return article_no;

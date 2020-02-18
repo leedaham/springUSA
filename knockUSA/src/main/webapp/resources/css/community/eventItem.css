@@ -1,0 +1,31 @@
+.eventItem {
+    width: 900px;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.eventItem .txt_box {
+    text-align: center;
+}
+.eventItem .txt_box span.title {
+    font-size: 40px;
+    font-weight: 600;
+}
+.eventItem .txt_box span.period {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffa02f;
+}
+.eventItem img {
+    margin-top: 15px;
+    width: 100%;
+}
+.eventItem #back_btn {
+    background: none;
+    border: 0px;
+    float: right;
+    font-size: 20px;
+    font-weight: 600;
+    width: 115px;
+    cursor: pointer;
+}

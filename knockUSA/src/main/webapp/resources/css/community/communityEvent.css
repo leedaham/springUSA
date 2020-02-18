@@ -77,7 +77,9 @@ main > div > .event_tit > .tab > div.on {
 main > div > .event_tit > .tab > div.on  h3 {
     color: white;
 }
-
+main div > .content{
+	display: flow-root;	
+}
 main div > .content > div {
     display: none;
     width: 80%;

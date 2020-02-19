@@ -3,7 +3,7 @@
 <%@include file="../_header.jsp"%>
 <%@include file="./_aside_terms.jsp"%>
             <h1>이메일 수집거부</h1>
-            <div class="">
+            <div class="footerTerm">
             	<p>${terms.terms_email}</p>
             </div>
         </div>

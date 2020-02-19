@@ -426,7 +426,8 @@ main > .recentlist .notice > ul {
 main > .recentlist .notice > ul > li {
     padding-bottom: 5px;
 }
-main > .recentlist .review > ul {
+main > .recentlist .review >  {}
+main > .recentlist .review  > ul {
     clear: left;
     padding-top: 20px;
 }

@@ -43,3 +43,10 @@ main > .terms > .side_nav li > a {
     font-size: 14px;
     text-align: center;
 }
+
+
+/* 회원가입 X footer term page */
+main .footerTerm {
+    width: 90%;
+    margin: 0 auto;
+}

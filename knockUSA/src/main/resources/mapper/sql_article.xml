@@ -124,7 +124,12 @@
 <!-- 댓글 기본 -->
 	<!-- 댓글 가져오기 -->
 	<select id="SELECT_COMMENTS" resultType="kr.co.knockusa.vo.ArticleVo">
-		SELECT * FROM `KTUT_ARTICLE` WHERE `article_parent`=#{article_no} ORDER BY `article_no` ASC;
+		SELECT a.*, b.user_name FROM
+		`KTUT_ARTICLE` AS a, 
+		`KTUT_USER` AS b
+		WHERE a.article_id = b.user_id
+		AND a.article_parent=#{article_no}
+		ORDER BY `article_no` ASC;
 	</select>
 	<!-- 댓글 입력하기 -->
 	<insert id="INSERT_COMMENT">
@@ -179,7 +184,7 @@
 <!-- Home -->
 	<!-- 최신 공지사항 불러오기 -->	
 	<select id="SELECT_HOME_NOTICE" resultType="kr.co.knockusa.vo.ArticleVo">
-		SELECT * FROM `KTUT_ARTICLE` WHERE `article_cate`='notice' AND `article_parent`=0 ORDER BY `article_rdate` DESC LIMIT 4;
+		SELECT * FROM `KTUT_ARTICLE` WHERE `article_cate`='notice' AND `article_parent`=0 ORDER BY `article_no` DESC LIMIT 4;
 	</select>
 	<!-- 조회수 높은 리뷰 가져오기 -->
 	<select id="SELECT_REVIEW_BEST" resultType="kr.co.knockusa.vo.ArticleVo">

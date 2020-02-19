@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>ID / PW 찾기</title>
-    <link rel="stylesheet" href="/knockusa/css/user.idpw.css">
+    <link rel="stylesheet" href="/knockusa/css/user/idpw.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -13,7 +13,7 @@
 <body>
     <main>
         <div>
-            <h1>아이디 / 비밀번호 찾기</h1>
+            <h3>아이디 / 비밀번호 찾기</h3>
             <div class="idpw">
             	<div class="findId">
                     <form action="/knockusa/user/findId" method="POST">

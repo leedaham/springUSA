@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../_header.jsp"%>
 <%@include file="./_aside_customer.jsp"%>
-<link rel="stylesheet" href="/knockusa/css/user/userLogin.css">
+
     <!-- 콘텐츠 -->
     <main>
         <div>

@@ -70,7 +70,7 @@
 			<c:forEach var="comments" items="${comments}">
 				<div class="comment">
 					<span>
-						<span>${comments.article_id}</span>
+						<span>${comments.user_name}</span>
 						<span>${comments.article_rdate.substring(0,10)}</span>
 					</span>
 					<textarea>${comments.article_content}</textarea>

@@ -136,7 +136,7 @@ public class CommunityController {
 	
 	// 글 쓰기 프로세스 - INSERT 후 글 쓴 게시판으로 이동
 	@PostMapping("/community/write")
-	public String communityWriteDone(String title, String content, String cate, HttpServletRequest req) {
+	public String communityWriteDone(String title, String content, String cate, String pg, HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		UserVo user = (UserVo) session.getAttribute("user");
 		
@@ -151,7 +151,7 @@ public class CommunityController {
 		
 		service.insertArticle(vo);
 		
-		return "redirect:/community?cate="+cate;
+		return "redirect:/community?cate="+cate+"&pg="+pg;
 	}
 	
 	// 글 수정하기 - 글 수정 페이지 진입

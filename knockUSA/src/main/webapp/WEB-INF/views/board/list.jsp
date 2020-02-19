@@ -5,7 +5,13 @@
 <link rel="stylesheet" href="/knockusa/css/board.css">
 <link rel="stylesheet" href="/knockusa/css/community/communityEvent.css">
 <script src="/knockusa/js/community/currentPg.js"></script>
-
+<script>	
+	$(function(){
+		var page = $('.paging .num${pg}');
+		page.css('color', '#ffa02f').css('font-weight', '600');
+	});
+	
+	
 </script>
 	<c:choose>
 		<c:when test="${board.board_cate=='notice'}"><h1>공지사항</h1></c:when>
@@ -56,14 +62,20 @@
         <nav class="paging">
             <span> 
             <c:if test="${prevBtn != 1}">
-           	<a href="/knockusa/community?cate=${board.board_cate}&pg=${pg-10}" class="prev">이전</a>
+           	<a href="/knockusa/community?cate=${board.board_cate}&pg=${startPg-10}" class="prev">이전</a>
            	</c:if>
          		<c:forEach var="n" begin="${startPg}" end="${endPage}">
-			<a href="/knockusa/community?cate=${board.board_cate}&pg=${n}" class="num">${n}</a>
+			<a href="/knockusa/community?cate=${board.board_cate}&pg=${n}" class="num num${n}">${n}</a>
 				</c:forEach>
-			<c:if test="${nextBtn != 1}">	
-           	<a href="/knockusa/community?cate=${board.board_cate}&pg=${pg+10}" class="next">다음</a>
-           	</c:if>
+			<c:choose>
+				<c:when test="${nextBtn != 1}">
+					<a href="/knockusa/community?cate=${board.board_cate}&pg=${startPg+10}" class="next">다음</a>
+				</c:when>
+				<c:when test="">
+				</c:when>
+				<c:otherwise>
+				</c:otherwise>
+			</c:choose>
             </span>
         </nav>
         <c:choose>

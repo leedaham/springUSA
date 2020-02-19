@@ -94,17 +94,19 @@
             <div>
                 <div class="notice">
                     <h3>공지사항</h3>
-                    <span><a href="/knockusa/community?cate=notice">더보기</a></span>
+                    <span><a href="/knockusa/community?cate=notice&pg=1">더보기</a></span>
                     <ul>
                    		<c:forEach var="notice" items="${notice}">
-	                        <li>${notice.article_title}</li>
+	                        <li><a href="/knockusa/community/view?cate=notice&pg=1&article_no=${notice.article_no}">${notice.article_title}</a></li>
                     	</c:forEach>
                     </ul>
                 </div>
                 <div class="review">
                     <h3>고객리뷰</h3>
-                    <span><a href="/knockusa/community?cate=review">더보기</a></span>
+                    <span><a href="/knockusa/community?cate=review&pg=1">더보기</a></span>
+                    
                     <ul>
+                    	<a href="/knockusa/community/view?cate=review&pg=1&article_no=${bestReview.article_no}">
                         <li class="img">
                             <img src="/knockusa/img/${bestReview.article_img}" alt="리뷰 사진">
                         </li>
@@ -112,7 +114,9 @@
                             <span class="title">${bestReview.article_rdate}</span>
                             <span class="content">${bestReview.article_title}</span>
                         </li>
+                        </a>
                     </ul>
+                    
                 </div>
                 <div class="customer">
                     <h3>고객센터</h3>

@@ -3,8 +3,8 @@
 <%@include file="../_header.jsp"%>
 <%@include file="./_aside_terms.jsp"%>
             <h1>국외여행 표준약관</h1>
-            <div class="">
-            	<p>${terms.terms_abroad}</p>
+            <div class="footerTerm">
+            	<div>${terms.terms_abroad}</div>
             </div>
         </div>
     </main>

@@ -19,10 +19,6 @@ public class ArticleVo {
 //	// 추가 필드
 	private String user_name;
 	
-//	private int board_grade;
-
-	
-	
 	public String getUser_name() {
 		return user_name;
 	}

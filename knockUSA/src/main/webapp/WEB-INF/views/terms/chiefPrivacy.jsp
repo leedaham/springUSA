@@ -3,7 +3,7 @@
 <%@include file="../_header.jsp"%>
 <%@include file="./_aside_terms.jsp"%>
             <h1>개인정보 처리방침</h1>
-            <div class="">
+            <div class="footerTerm">
             	<p>${terms.terms_privacy}</p>
             </div>
         </div>

@@ -28,7 +28,7 @@
     </c:choose>
 		<div id="board">
 			<div class="write">
-				<form action="/knockusa/${board.board_group}/write?cate=${board.board_cate}" method="post">
+				<form action="/knockusa/${board.board_group}/write?cate=${board.board_cate}&pg=${pg}" method="post">
 					<table>
 						<tr>
 							<td>제목</td>

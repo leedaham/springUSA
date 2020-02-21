@@ -29,7 +29,10 @@ public class GoodsService {
 	}
 	public void updateGoods() {}
 	public void deleteGoods() {}
-	
+	// 동일상품 예약 금지
+	public int selectAlready(PurchaseVo vo) {
+		return dao.selectAlready(vo);
+	}
 	// 상품 상세
 	public List<GoodsDetailVo> selectGoodsDetail(int detail_goods_no) {
 		return dao.selectGoodsDetail(detail_goods_no);

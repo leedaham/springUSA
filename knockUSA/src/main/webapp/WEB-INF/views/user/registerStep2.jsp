@@ -67,12 +67,14 @@
             </div>
             <div class="addrBox">
                 <span>주소</span>
-                <input type="text" class="zip" name="user_zip" readonly>
-                <button class="btn">우편번호찾기</button>
-                <input type="checkbox" id="noAddr" name="noAddr" class="chk">
+                <input type="text" class="zip" name="user_zip"  value="0" readonly>
+                <!-- <button class="btn">우편번호찾기</button> -->
+                <input type="checkbox" id="noAddr" name="noAddr" class="chk" checked onclick="return false;">
                 <label for="noAddr">주소 없음</label>
-                <input type="text" class="addr" name="user_addr_main" placeholder="주소를 입력해주세요.">
-                <input type="text" class="addr" name="user_addr_detail" placeholder="상세주소를 입력해주세요.">
+                <!-- <input type="text" class="addr" name="user_addr_main" placeholder="주소를 입력해주세요.">
+                <input type="text" class="addr" name="user_addr_detail" placeholder="상세주소를 입력해주세요."> -->
+                <input type="text" class="addr" name="user_addr_main" placeholder="주소 찾기 기능 구현중입니다." readonly>
+                <input type="text" class="addr" name="user_addr_detail" readonly>
             </div>
             <div>
                 <span>핸드폰</span>

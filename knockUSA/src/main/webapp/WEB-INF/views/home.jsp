@@ -44,9 +44,11 @@
                                 <img src="/knockusa/img/${hotItems.goods_thumbnail}" alt="${hotItems.goods_title}">
                             </div>
                             <div class="txtbox">
-                                <span class="area">[${hotItems.goods_side}] ${hotItems.goods_title}</span>
+                                <span class="area">${hotItems.goods_title}</span>
                                 <span class="depature1">여행지역:</span>
                                 <span class="subtxt1">${hotItems.goods_region}</span>
+                                <span class="depature2">여행날짜:</span>
+                                <span class="subtxt2">${hotItems.goods_start} ~ ${hotItems.goods_end}</span>
                                 <span class="depature2">여행기간:</span>
                                 <span class="subtxt2">${hotItems.goods_night}박 ${hotItems.goods_night+1}일</span>
                                 <span class="txtprice">${hotItems.goods_price}원~</span>

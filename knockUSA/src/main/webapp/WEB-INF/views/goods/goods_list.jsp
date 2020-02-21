@@ -62,6 +62,8 @@
 	                                            <span class="area">${goods.goods_title}</span>
 	                                            <span class="depature1">여행지역:</span>
 	                                            <span class="subtxt1">${goods.goods_region}</span>
+	                                            <span class="depature2">여행날짜:</span>
+	                                            <span class="subtxt2">${goods.goods_start} ~ ${goods.goods_end}</span>
 	                                            <span class="depature2">여행기간:</span>
 	                                            <span class="subtxt2">${goods.goods_night}박 ${goods.goods_night+1}일</span>
 	                                            <span class="txtprice">${goods.goods_price}원~</span>

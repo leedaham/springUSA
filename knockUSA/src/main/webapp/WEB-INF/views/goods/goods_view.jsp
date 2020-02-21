@@ -17,6 +17,20 @@ $(function(){
         alert('죄송합니다. 예약인원이 찼습니다. 다른 상품을 이용해주세요 !');
         }   
     });
+    // url 파라미터 가져오는 소스
+    $.urlParam = function(name){
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results==null){
+        return null;
+        }
+        else{
+        return results[1] || 0;
+        }
+    }
+    var already = $.urlParam('already');
+    if(already != null){
+        alert('\n                              이미 예약하신 상품입니다. \n      여행인원 변경을 원하시면 예약확인 페이지에서 부탁드립니다.');
+    }
 });
 </script>
 <script>

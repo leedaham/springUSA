@@ -151,7 +151,7 @@ main .USA_CAN .goods_list .txtbox .subtxt2 {
 main .USA_CAN .goods_list .txtbox .txtprice {
     float: right;
     bottom: 15px;
-    margin-top: 30px;
+    margin-top: 10px;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 20px;
     margin-right: 25px;

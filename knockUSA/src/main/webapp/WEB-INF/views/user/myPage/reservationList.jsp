@@ -16,6 +16,7 @@
                 <span>${purchaseList.purchase_traveler_name_kor_1}</span>
                 <span>${purchaseList.purchase_traveler_name_kor_2}</span>
                 <span>${purchaseList.purchase_traveler_name_kor_3}</span>
+                <span>${purchaseList.purchase_traveler_name_kor_4}</span>
                 <span>${purchaseList.purchase_goods_status}</span>
                 <span>${purchaseList.purchase_rdate}</span>
                 <button><a href="/knockusa/user/myPage/reservationOne?purchase_no=${purchaseList.purchase_no}">상세보기</a></button>

@@ -26,6 +26,11 @@ public class GoodsDao {
 	}
 	public void updateGoods() {}
 	public void deleteGoods() {}
+	// 동일상품 예약 금지
+	public int selectAlready(PurchaseVo vo) {
+		return mybatis.selectOne("mapper.sql_goods.SELECT_ALREADY_PURCHASE", vo);
+	}
+	
 	
 	// 상품 상세
 	public List<GoodsDetailVo> selectGoodsDetail(int detail_goods_no) {

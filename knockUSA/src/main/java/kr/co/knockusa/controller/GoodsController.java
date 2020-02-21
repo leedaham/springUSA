@@ -49,6 +49,7 @@ public class GoodsController {
 		
 		GoodsVo goods = service.selectPackage(goods_no);
 		List<GoodsDetailVo> detail = service.selectGoodsDetail(goods_no);
+
 		
 		model.addAttribute("goods", goods);
 		model.addAttribute("detail", detail);
@@ -66,16 +67,27 @@ public class GoodsController {
 	public String reservation(String goods_no, HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		UserVo user = (UserVo)session.getAttribute("user");
-		
 		int goods_number = Integer.parseInt(goods_no);
-		GoodsVo goods = service.selectPackage(goods_number);
 		
-		req.setAttribute("user", user);
-		req.setAttribute("goods", goods);
-		
-		return "/goods/goods_reservation";
+		PurchaseVo vo = new PurchaseVo();
+		vo.setPurchase_goods_no(goods_number);
+		if(user != null) {
+			vo.setPurchase_id(user.getUser_id());
+		}
+		int already = service.selectAlready(vo);
+		if(already == 1) {
+			return "redirect:/goods/travelPackage?goods_no="+goods_no+"&already=1";
+		}else {
+
+			GoodsVo goods = service.selectPackage(goods_number);
+			
+			req.setAttribute("user", user);
+			req.setAttribute("goods", goods);
+			
+			return "/goods/goods_reservation";
+		}
 	}
-	// 예약하기 프로세스 - 예약 후 예약확인페이지로
+	// 예약하기 프로세스 - 예약 후 예약성공페이지로
 	@PostMapping("/goods/reservation")
 	public String reservation(PurchaseVo vo, int goods_price, HttpServletRequest req) {
 		vo.setPurchase_price(vo.getPurchase_how_many()*goods_price); 
@@ -100,9 +112,13 @@ public class GoodsController {
 	// 예약 성공
 	@RequestMapping(value="/goods/resersvationSuccess", produces="text/plain;charset=UTF-8")
 	public String resersvationSuccess(HttpServletRequest req, String purchase_no, String purchase_name, Model model) {
-		PurchaseVo purchase = new PurchaseVo();
-		purchase.setPurchase_no(purchase_no);
-		purchase.setPurchase_name_eng(purchase_name);
+		HttpSession session = req.getSession();
+		UserVo user = (UserVo)session.getAttribute("user");
+		
+//		PurchaseVo purchase = new PurchaseVo();
+//		purchase.setPurchase_no(purchase_no);
+//		purchase.setPurchase_name_eng(purchase_name);
+		PurchaseVo purchase = purchaseService.selectPurchaseUser(purchase_no);
 		
 		model.addAttribute("purchase", purchase);
 		

@@ -3,11 +3,11 @@
 <mapper namespace="mapper.sql_goods">
 
 	<select id="SELECT_PACKAGES" resultType="kr.co.knockusa.vo.GoodsVo">
-		SELECT * FROM `KTUT_GOODS` WHERE goods_country =#{goods_country} AND goods_side =#{goods_side};
+		SELECT * FROM `KTUT_GOODS` WHERE goods_country =#{goods_country} AND goods_side =#{goods_side} AND `goods_start` > NOW();
 	</select>
 	
 	<select id="SELECT_PACKAGE" resultType="kr.co.knockusa.vo.GoodsVo">
-		SELECT * FROM `KTUT_GOODS` WHERE goods_no =#{goods_no}
+		SELECT * FROM `KTUT_GOODS` WHERE goods_no =#{goods_no};
 	</select>
 	
 	<select id="SELECT_GOODS_DETAIL" resultType="kr.co.knockusa.vo.GoodsDetailVo">
@@ -15,10 +15,10 @@
 	</select>
 	
 	<select id="SELECT_GOODS_MONTHLY_REGION" resultType="kr.co.knockusa.vo.GoodsVo">
-		SELECT * FROM `KTUT_GOODS` WHERE `goods_start` LIKE CONCAT(#{goods_start},'%') AND `goods_region` =#{goods_region} ORDER BY `goods_start` ASC;
+		SELECT * FROM `KTUT_GOODS` WHERE `goods_start` LIKE CONCAT(#{goods_start},'%') AND `goods_region` =#{goods_region}  AND `goods_start` > NOW() ORDER BY `goods_start` ASC;
 	</select>
 	<select id="SELECT_GOODS_MONTHLY" resultType="kr.co.knockusa.vo.GoodsVo">
-		SELECT * FROM `KTUT_GOODS` WHERE `goods_start` LIKE CONCAT(#{goods_start},'%') ORDER BY `goods_start` ASC;
+		SELECT * FROM `KTUT_GOODS` WHERE `goods_start` LIKE CONCAT(#{goods_start},'%')  AND `goods_start` > NOW() ORDER BY `goods_start` ASC;
 	</select>
 	<update id="UPDATE_GOODS_PEOPLE">
 		UPDATE `KTUT_GOODS` SET `goods_current_personnel` = `goods_current_personnel` +#{purchase_how_many} WHERE `goods_no`=#{purchase_goods_no};
@@ -47,19 +47,26 @@
 		`purchase_accompany`=#{purchase_accompany},
 		`purchase_traveler_name_kor_1`=#{purchase_traveler_name_kor_1},
 		`purchase_traveler_name_eng_1`=#{purchase_traveler_name_eng_1},
-		`purchase_traveler_name_gender_1`=#{purchase_traveler_name_gender_1},
-		`purchase_traveler_name_hp_1`=#{purchase_traveler_name_hp_1},
+		`purchase_traveler_gender_1`=#{purchase_traveler_gender_1},
+		`purchase_traveler_hp_1`=#{purchase_traveler_hp_1},
 		`purchase_traveler_name_kor_2`=#{purchase_traveler_name_kor_2},
 		`purchase_traveler_name_eng_2`=#{purchase_traveler_name_eng_2},
-		`purchase_traveler_name_gender_2`=#{purchase_traveler_name_gender_2},
-		`purchase_traveler_name_hp_2`=#{purchase_traveler_name_hp_2},
+		`purchase_traveler_gender_2`=#{purchase_traveler_gender_2},
+		`purchase_traveler_hp_2`=#{purchase_traveler_hp_2},
 		`purchase_traveler_name_kor_3`=#{purchase_traveler_name_kor_3},
 		`purchase_traveler_name_eng_3`=#{purchase_traveler_name_eng_3},
-		`purchase_traveler_name_gender_3`=#{purchase_traveler_name_gender_3},
-		`purchase_traveler_name_hp_3`=#{purchase_traveler_name_hp_3};
+		`purchase_traveler_gender_3`=#{purchase_traveler_gender_3},
+		`purchase_traveler_hp_3`=#{purchase_traveler_hp_3},
+		`purchase_traveler_name_kor_4`=#{purchase_traveler_name_kor_4},
+		`purchase_traveler_name_eng_4`=#{purchase_traveler_name_eng_4},
+		`purchase_traveler_gender_4`=#{purchase_traveler_gender_4},
+		`purchase_traveler_hp_4`=#{purchase_traveler_hp_4};
 	</insert>
+	<select id="SELECT_ALREADY_PURCHASE" resultType="int">
+		SELECT COUNT(*) FROM `KTUT_PURCHASE` WHERE `purchase_goods_no` =#{purchase_goods_no} AND `purchase_id`=#{purchase_id};
+	</select>
 	<delete id="DELETE_PURCHASE">
-		DELETE FROM `KTUT_PURCHASE` WHERE `purchase_id`=#{purchase_id};
+		DELETE FROM `KTUT_PURCHASE` WHERE `purchase_no`=#{purchase_no};
 	</delete>
 	<!-- 상품 조회 -->
 	<select id="SELECT_PURCHASE_NONUSER" resultType="kr.co.knockusa.vo.PurchaseVo">
@@ -79,9 +86,9 @@
 	
 	<!-- home 페이지 -->
 	<select id="SELECT_GOODS_BEST" resultType="kr.co.knockusa.vo.GoodsVo">
-		SELECT * FROM `KTUT_GOODS` ORDER BY `goods_hit` DESC LIMIT 3;
+		SELECT * FROM `KTUT_GOODS` WHERE `goods_start` > NOW() ORDER BY `goods_hit` DESC LIMIT 3;
 	</select>
 	<select id="SELECT_BY_REGION" resultType="kr.co.knockusa.vo.GoodsVo">
-		SELECT * FROM `KTUT_GOODS` WHERE `goods_region` =#{goods_region};
+		SELECT * FROM `KTUT_GOODS` WHERE `goods_region` =#{goods_region} AND `goods_start` > NOW();
 	</select>
 </mapper>

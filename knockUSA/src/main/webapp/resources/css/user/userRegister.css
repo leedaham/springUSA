@@ -202,6 +202,11 @@ main .register2 > .emailBox > select {
     height: 25px;
     margin-left: 5px;
 }
+main .register2 .requireLine {
+    display: inline-block;
+    margin: 0px 15px;
+    font-size: 14px;
+}
 main .register2 > .emailBox > .email1 {width: 140px;}
 main .register2 > .emailBox > .email2 {width: 200px;}
 main .register2 > .addrBox {

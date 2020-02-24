@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="/knockusa/css/user/userRegister.css">
 <script src="/knockusa/js/user/checklistRegister.js"></script>
 <script src="/knockusa/js/user/validation.js"></script>
+<script src="/knockusa/js/korEngVali.js"></script>
     <!-- 콘텐츠 -->
     <main>
         <div>
@@ -23,11 +24,12 @@
         <form action="/knockusa/user/register3" method="POST" class="register2"> 
             <div>
                 <span>성명</span>
-                <input type="text" name="user_name" title="name" placeholder="2자 이상 입력해주세요.">
+                <input type="text" name="user_name" class="nameKor" title="name" minlength="2" required/>
+                <p class="requireLine"><strong>한글</strong>만 입력 가능합니다.</p><br>
             </div>
             <div class="emailBox">
                 <span>이메일</span>
-                <input type="text" class="email1" name="email1" > @ <input type="text" class="email2" name="email2" >
+                <input type="text" class="email1" name="email1" minlength="2"> @ <input type="text" class="email2" name="email2" minlength="3">
                 <select name="email">
                     <option value="direct">직접입력</option>
                     <option value="naver.com">naver.com</option>
@@ -42,7 +44,7 @@
             </div>
             <div>
                 <span>생년월일</span>
-                <input type="date" name="user_birth" title="birth">
+                <input type="date" name="user_birth" title="birth" required>
             </div>
             <div>
                 <span>성별</span>
@@ -53,16 +55,17 @@
             </div>
             <div>
                 <span>아이디</span>
-                <input type="text" name="user_id">
+                <input type="text" name="user_id"pattern="[a-zA-z0-9]{4,15}" maxlength="15" required>
+                <p class="requireLine"><strong>영어와 숫자</strong> 4-15자리를 입력해주세요.</p>
                 <p class="resultId"></p>
             </div>
             <div>
                 <span>비밀번호</span>
-                <input type="password" name="user_pw">
+                <input type="password" name="user_pw" minlength="8" maxlength="16" placeholder="8자 이상 16자 이하">
             </div>
             <div>
                 <span>비밀번호 확인</span>
-                <input type="password" name="user_pw2">
+                <input type="password" name="user_pw2" minlength="8" maxlength="16">
                 <p class="resultPw"></p>
             </div>
             <div class="addrBox">
@@ -78,7 +81,8 @@
             </div>
             <div>
                 <span>핸드폰</span>
-                <input type="text" name="user_hp" title="hp" placeholder="'-'없이 입력해주세요.">
+                <input type="text" name="user_hp" title="hp" pattern="[0-9]{10,11}" maxlength="11" required/>
+                <p class="requireLine">'-' 를 제외한 <strong>숫자</strong> 10-11자리를 입력해주세요.</p>
                 <p class="resultHp"></p>
             </div>
             <div class="telBox">

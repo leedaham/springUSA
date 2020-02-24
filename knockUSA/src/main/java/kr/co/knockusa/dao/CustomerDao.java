@@ -30,6 +30,9 @@ public class CustomerDao {
 	public QnaVo selectQna(QnaVo qna) {
 		return mybatis.selectOne("mapper.sql_article.SELECT_QNA", qna);
 	}
+	public QnaVo selectAnswer(QnaVo qna) {
+		return mybatis.selectOne("mapper.sql_article.SELECT_QNA_ANSWER", qna);
+	}
 	public List<QnaVo> selectQnaListNonUser(QnaVo vo){
 		return mybatis.selectList("mapper.sql_article.SELECT_QNAS_NON_USER", vo);
 	}

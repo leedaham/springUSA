@@ -1,14 +1,14 @@
 $(function(){
-        var submit = $('.reservation > form');
-        submit.submit(function(e){
-            var result = confirm('예약사항을 한번 더 확인해주세요!');
-            if(result){
-                return true;
-            }else{
-                e.preventDefault();
-            }
-        });
+    var submit = $('.reservation form');
+    submit.submit(function(e){
+        var result = confirm('예약사항을 한번 더 확인해주세요! \n이상이 없으시면 확인을 눌러주세요.');
+        if(result){
+            return true;
+        }else{
+            e.preventDefault();
+        }
     });
+});
 
 
 $(function(){
@@ -708,4 +708,203 @@ $(function(){
             Traveler4_hp.val('');  
         }
     });    
+});
+// 성별 중복체크 X
+$(function(){
+	// input에 한해서 엔터키 제한 - 엔터키 때문에 click이벤트 없이 submit됨.
+	$('input').keydown(function() {
+		if (event.keyCode === 13) {
+		event.preventDefault();
+		};
+	});
+	var userMan = $('.requireInfo > .genderbox > input#male');
+	var userWoman = $('.requireInfo > .genderbox > input#female');
+	// 성별 둘 다 체크 불가        
+	userMan.change(function(){
+        userWoman.prop('checked', false);
+	});
+	userWoman.change(function(){
+		userMan.prop('checked', false);
+	});
+	var addMan1 = $('input#male1');
+	var addWoman1 = $('input#female1');
+	var addMan2 = $('input#male2');
+	var addWoman2 = $('input#female2');
+	var addMan3 = $('input#male3');
+	var addWoman3 = $('input#female3');
+	var addMan4 = $('input#male4');
+	var addWoman4 = $('input#female4');
+	// 성별 둘 다 체크 불가        
+	addMan1.change(function(){
+		addWoman1.prop('checked', false);
+	});
+	addWoman1.change(function(){
+		addMan1.prop('checked', false);
+	});
+	addMan2.change(function(){
+		addWoman2.prop('checked', false);
+	});
+	addWoman2.change(function(){
+		addMan2.prop('checked', false);
+	});
+	addMan3.change(function(){
+		addWoman3.prop('checked', false);
+	});
+	addWoman3.change(function(){
+		addMan3.prop('checked', false);
+	});
+	addMan4.change(function(){
+		addWoman4.prop('checked', false);
+	});
+	addWoman4.change(function(){
+		addMan4.prop('checked', false);
+	});
+});
+
+// 추가 인원 required
+$(function(){
+    var btn = $('.resBtn');
+    var accompany = $('select[name=purchase_accompany]');
+    var add = $('input[name=purchase_how_many_add]');
+    var total = $('input[name=purchase_how_many]');
+    accompany.change(function(){
+        if(add.val()==0){
+            $('input[name=purchase_traveler_name_kor_1]').attr("required" , false);
+            $('input[name=purchase_traveler_name_eng_1]').attr("required" , false);
+            $('input[name=purchase_traveler_hp_1]').attr("required" , false);
+            $('input[name=purchase_traveler_name_kor_2]').attr("required" , false);
+            $('input[name=purchase_traveler_name_eng_2]').attr("required" , false);
+            $('input[name=purchase_traveler_hp_2]').attr("required" , false);
+            $('input[name=purchase_traveler_name_kor_3]').attr("required" , false);
+            $('input[name=purchase_traveler_name_eng_3]').attr("required" , false);
+            $('input[name=purchase_traveler_hp_3]').attr("required" , false);
+            $('input[name=purchase_traveler_name_kor_4]').attr("required" , false);
+            $('input[name=purchase_traveler_name_eng_4]').attr("required" , false);
+            $('input[name=purchase_traveler_hp_4]').attr("required" , false);
+        }else if(add.val()==1){
+            $('input[name=purchase_traveler_name_kor_1]').attr("required" , true);
+            $('input[name=purchase_traveler_name_eng_1]').attr("required" , true);
+            $('input[name=purchase_traveler_hp_1]').attr("required" , true);
+            $('input[name=purchase_traveler_name_kor_2]').attr("required" , false);
+            $('input[name=purchase_traveler_name_eng_2]').attr("required" , false);
+            $('input[name=purchase_traveler_hp_2]').attr("required" , false);
+            $('input[name=purchase_traveler_name_kor_3]').attr("required" , false);
+            $('input[name=purchase_traveler_name_eng_3]').attr("required" , false);
+            $('input[name=purchase_traveler_hp_3]').attr("required" , false);
+            $('input[name=purchase_traveler_name_kor_4]').attr("required" , false);
+            $('input[name=purchase_traveler_name_eng_4]').attr("required" , false);
+            $('input[name=purchase_traveler_hp_4]').attr("required" , false);     
+        }
+    });
+    btn.click(function(){
+        if(accompany.val()==0){
+            if(total.val() == 2){
+                $('input[name=purchase_traveler_name_kor_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_1]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_2]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_2]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_2]').attr("required" , false);
+                $('input[name=purchase_traveler_name_kor_3]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_3]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_3]').attr("required" , false);
+                $('input[name=purchase_traveler_name_kor_4]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_4]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_4]').attr("required" , false);
+            }else if(total.val() == 3){
+                $('input[name=purchase_traveler_name_kor_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_1]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_2]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_2]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_2]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_3]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_3]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_3]').attr("required" , false);
+                $('input[name=purchase_traveler_name_kor_4]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_4]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_4]').attr("required" , false);
+            }else if(total.val() == 4){
+                $('input[name=purchase_traveler_name_kor_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_1]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_2]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_2]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_2]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_3]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_3]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_3]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_4]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_4]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_4]').attr("required" , false);
+            }else if(total.val() == 1){
+                $('input[name=purchase_traveler_name_kor_1]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_1]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_1]').attr("required" , false);
+                $('input[name=purchase_traveler_name_kor_2]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_2]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_2]').attr("required" , false);
+                $('input[name=purchase_traveler_name_kor_3]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_3]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_3]').attr("required" , false);
+                $('input[name=purchase_traveler_name_kor_4]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_4]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_4]').attr("required" , false);
+            }
+        }else if(accompany.val()==1){
+            if(total.val() == 1){
+                $('input[name=purchase_traveler_name_kor_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_1]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_2]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_2]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_2]').attr("required" , false);
+                $('input[name=purchase_traveler_name_kor_3]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_3]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_3]').attr("required" , false);
+                $('input[name=purchase_traveler_name_kor_4]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_4]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_4]').attr("required" , false);
+            }else if(total.val() == 2){
+                $('input[name=purchase_traveler_name_kor_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_1]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_2]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_2]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_2]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_3]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_3]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_3]').attr("required" , false);
+                $('input[name=purchase_traveler_name_kor_4]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_4]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_4]').attr("required" , false);
+            }else if(total.val() == 3){
+                $('input[name=purchase_traveler_name_kor_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_1]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_2]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_2]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_2]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_3]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_3]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_3]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_4]').attr("required" , false);
+                $('input[name=purchase_traveler_name_eng_4]').attr("required" , false);
+                $('input[name=purchase_traveler_hp_4]').attr("required" , false);
+            }else if(total.val() == 4){
+                $('input[name=purchase_traveler_name_kor_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_1]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_1]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_2]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_2]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_2]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_3]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_3]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_3]').attr("required" , true);
+                $('input[name=purchase_traveler_name_kor_4]').attr("required" , true);
+                $('input[name=purchase_traveler_name_eng_4]').attr("required" , true);
+                $('input[name=purchase_traveler_hp_4]').attr("required" , true);
+            }
+        }
+    });
 });

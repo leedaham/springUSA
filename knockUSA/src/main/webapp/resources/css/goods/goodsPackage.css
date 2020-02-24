@@ -427,6 +427,13 @@ main .reservation > .reservation_detail .requireInfo p {
     margin-left: 20px;
     font-size: 14px;
 }
+main .reservation > .reservation_detail .requireInfo p.guideLine {
+    width: 165px;
+}
+main .reservation > .reservation_detail .requireInfo p.requireLine > strong {
+    color: #ffa02f;
+    font-size: 14px;
+}
 main .reservation > .reservation_detail .requireInfo label {
     width: 150px;
     text-align: right;
@@ -447,6 +454,7 @@ main .reservation > .reservation_detail .requireInfo > .addBtn {
 }
 main .reservation > .reservation_detail .requireInfo > .add > button{
     margin-left: 721px;
+    margin-top: 15px;
 }
 main .reservation > .reservation_detail .resBtn {
     padding: 5px;
@@ -471,6 +479,11 @@ main .reservation .reservation_detail .requireInfo .genderbox > label {
 main .reservation .reservation_detail .requireInfo .genderbox > input {
     width: 25px;
     text-align: center;
+}
+main .reservation .reservation_detail .btnbox {
+    margin-left: 810px;
+    padding-top: 65px;
+    margin-bottom: 30px;
 }
 input[name=purchase_id]{
     border: 0px;

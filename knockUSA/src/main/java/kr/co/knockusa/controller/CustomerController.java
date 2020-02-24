@@ -125,9 +125,11 @@ public class CustomerController {
 	public String qnaView(Model model, QnaVo vo) {
 		String sort = "alreadyLogin";
 		QnaVo qna = customerService.selectQna(vo);
+		QnaVo answer = customerService.selectAnswer(vo);
 		
 		model.addAttribute("sort", sort);
 		model.addAttribute("qna", qna);
+		model.addAttribute("answer", answer);
 		
 		return "/customer/qnaView";
 	}

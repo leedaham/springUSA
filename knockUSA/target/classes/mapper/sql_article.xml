@@ -155,9 +155,12 @@
 	<select id="SELECT_QNA" resultType="kr.co.knockusa.vo.QnaVo">
 		SELECT * FROM `KTUT_QNA` WHERE `qna_no`=#{qna_no};
 	</select>
+	<select id="SELECT_QNA_ANSWER" resultType="kr.co.knockusa.vo.QnaVo">
+		SELECT * FROM `KTUT_QNA` WHERE `qna_parent`=#{qna_no};
+	</select>
 	<!-- QNA 목록 가져오기(회원) -->
 	<select id="SELECT_QNAS" resultType="kr.co.knockusa.vo.QnaVo">
-		SELECT `qna_parent`, `qna_rdate`, `qna_no` FROM `KTUT_QNA` WHERE `qna_id`=#{user_id};  
+		SELECT `qna_status`, `qna_parent`, `qna_rdate`, `qna_no` FROM `KTUT_QNA` WHERE `qna_id`=#{user_id};  
 	</select>
 	<!-- QNA 입력하기 -->
 	<insert id="INSERT_QNA">
@@ -178,7 +181,7 @@
 	</insert>
 	<!-- QNA 목록 가져오기(비회원) -->
 	<select id="SELECT_QNAS_NON_USER" resultType="kr.co.knockusa.vo.QnaVo">
-		SELECT `qna_parent`, `qna_rdate`, `qna_no` FROM `KTUT_QNA` WHERE `qna_email`=#{qna_email} AND `qna_pw` =#{qna_pw};  
+		SELECT `qna_status`, `qna_parent`, `qna_rdate`, `qna_no` FROM `KTUT_QNA` WHERE `qna_email`=#{qna_email} AND `qna_pw` =#{qna_pw};  
 	</select>
 	
 <!-- Home -->

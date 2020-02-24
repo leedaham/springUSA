@@ -8,3 +8,41 @@ main > div {
 main > div > h1 {
     margin: 15px 70px;
 }
+main .reserList{
+    width: 80%;
+    border: 1px solid #dcdcdc;
+    background-color: #f3f3f3;
+    color: #666;
+    padding: 7px;
+}
+main .reserList > span.label {
+    font-weight: 500;
+}
+main .reserList > span {
+    display: inline-block;
+}
+main .reserList > .reserTit {
+    width: 350px;
+    margin-left: 30px;
+}
+main .reserList > .reserPrice {
+    width: 100px;
+}
+main .reserList > .reserPeople {
+    width: 100px;
+}
+main .reserList > .reserStatus {
+    width: 100px;
+}
+main .reserList > .reserRdate {
+    width: 100px;
+}
+main .reserList > button {
+	padding: 5px;
+    width: 96px;
+    cursor: pointer;
+    border: 1px solid #dcdcdc;
+    background-color: #fff;
+    margin-left: 12px;
+    color: #666;
+}

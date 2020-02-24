@@ -37,7 +37,7 @@
                     <div class="non_member">
                         <h3>비회원 </h3>
                         <span class="row">
-                            <span>Name</span>
+                            <span>Name (한글 성명)</span>
                             <input type="text" name="purchase_name_kor" title="이름">
                         </span>
                         <span class="row">
@@ -45,7 +45,7 @@
                             <input type="text" name="purchase_no" title="비회원예약번호">
                         </span>
                         <div>
-                            <button type="submit"" class="btn btn_login">조회하기</button>
+                            <button type="submit" class="btn btn_login">조회하기</button>
                         </div>
                     </div>
                 </form>

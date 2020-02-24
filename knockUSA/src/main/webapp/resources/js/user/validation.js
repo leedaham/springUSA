@@ -35,26 +35,16 @@ $(document).ready(function() {
         	alert('비밀번호가 일치하지 않습니다.');	
 		}
 		
+		
+		
+
+		
+		
 		// 성별, 주소, 전화번호 체크박스 체크 유무
 		var checkboxNoAddr = $('input:checkbox[name=noAddr]');
 		var checkboxNoTel = $('input:checkbox[name=noTel]');
 		var inputAddr2 = $('input[name=user_addr_detail]');
 		var inputTel3 = $('input[name=tel3]');
-		if(checkboxNoAddr.is(":checked") == false && inputAddr2.val() == ''){
-			e.preventDefault();
-        	alert('주소를 기입하거나 박스에 체크해주세요.');	
-		}else if(checkboxNoTel.is(":checked") == false && inputTel3.val() == ''){
-			e.preventDefault();
-        	alert('전화번호를 기입하거나 박스에 체크해주세요.');	
-		}
-
-		var checkMale = $('input#male');
-		var checkFemale = $('input#female');
-		if(checkMale.is(":checked") == false && checkFemale.is(":checked") == false){
-			e.preventDefault();
-        	alert('성별을 선택 해주세요.');	
-		}
-		
 		// 필수입력 후 다음단계
 		var name = $('input[name=user_name]');
 		var email1 = $('input[name=email1]');
@@ -65,27 +55,41 @@ $(document).ready(function() {
 		var password2 = $('input[name=user_pw2]');
 		var hp = $('input[name=user_hp]');
 
-		if(name.val() == ''){
-			e.preventDefault();
-			alert('이름을 입력하여주세요.');
-		}
+		var checkMale = $('input#male');
+		var checkFemale = $('input#female');
+		
 		if(email1.val() =='' || email2.val() ==''){
 			alert('이메일을 입력하여주세요.');
-		}
-		if(birth.val() ==''){
+		}else if(birth.val() ==''){
 			alert('생년월일을 입력하여주세요.');
-		}
-		if(uid.val() == ''){
-			e.preventDefault();
-			alert('아이디를 입력하여주세요.');
-		}
-		if(password1.val() =='' || password2.val() ==''){
+		}else if(password1.val() =='' || password2.val() ==''){
 			alert('비밀번호를 입력하여주세요.');
-		}
-		if(hp.val() == ''){
+		}else if(checkMale.is(":checked") == false && checkFemale.is(":checked") == false){
 			e.preventDefault();
-			alert('휴대폰 번호를 입력하여주세요.');
+        	alert('성별을 선택 해주세요.');	
+		}else if(checkboxNoAddr.is(":checked") == false && inputAddr2.val() == ''){
+			e.preventDefault();
+        	alert('주소를 기입하거나 박스에 체크해주세요.');	
+		}else if(checkboxNoTel.is(":checked") == false && inputTel3.val() == ''){
+			e.preventDefault();
+        	alert('전화번호를 기입하거나 박스에 체크해주세요.');	
 		}
+		
+		//input required로 대체
+			// if(name.val() == ''){
+			// 	e.preventDefault();
+			// 	alert('이름을 입력하여주세요.');
+			// }
+
+			// if(uid.val() == ''){
+			// 	e.preventDefault();
+			// 	alert('아이디를 입력하여주세요.');
+			// }
+			
+			// if(hp.val() == ''){
+			// 	e.preventDefault();
+			// 	alert('휴대폰 번호를 입력하여주세요.');
+			// }
 
 
     });

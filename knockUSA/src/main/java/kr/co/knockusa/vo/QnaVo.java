@@ -3,6 +3,13 @@ package kr.co.knockusa.vo;
 public class QnaVo {
 	private int qna_no;
 	private int qna_parent;
+	private int qna_status;
+	public int getQna_status() {
+		return qna_status;
+	}
+	public void setQna_status(int qna_status) {
+		this.qna_status = qna_status;
+	}
 	private String qna_name;
 	private String qna_id;
 	private String qna_pw;

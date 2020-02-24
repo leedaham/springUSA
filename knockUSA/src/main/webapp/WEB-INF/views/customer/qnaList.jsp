@@ -11,14 +11,14 @@
             	<input type="hidden" name="qna_no" value="${qnaList.qna_no}">
                 <table>
                     <tr>
-                        <td><button type="submit" class="qnaDateBtn"><strong>${qnaList.qna_rdate}</strong>에 하신 문의입니다.   <span>클릭하시면 상세 페이지로 이동합니다.</span></button></td>
+                        <td><button type="submit" class="qnaDateBtn"><strong>${qnaList.qna_rdate}</strong>에 하신 문의입니다.</button></td>
                         <td>
                         	<c:choose>
-		                        <c:when test="${qnaList.qna_parent == 0}">
+		                        <c:when test="${qnaList.qna_status == 0}">
 		                            <span class="stillQna">문의중</span>
 		                        </c:when>
 		                        <c:otherwise>
-		                            <span class="qnaDone">답변 완료!</span>
+		                            <span class="qnaDone">답변 완료</span>
 		                        </c:otherwise>
 		                    </c:choose>
                         </td>

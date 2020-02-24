@@ -32,6 +32,9 @@ public class CustomerService {
 	public QnaVo selectQna(QnaVo qna) {
 		return dao.selectQna(qna);
 	}
+	public QnaVo selectAnswer(QnaVo qna) {
+		return dao.selectAnswer(qna);
+	}
 	
 		// 비회원
 	public List<QnaVo> selectQnaListNonUser(QnaVo vo){

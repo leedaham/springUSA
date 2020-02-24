@@ -10,7 +10,7 @@
         <div class="resSuccess">
             <div>
             	<img src="/knockusa/img/greenCredit.png">
-                <span> <strong>${purchase.purchase_name_eng}</strong> 님 예약에 성공하셨습니다.</span> <br>
+                <span> <strong>${purchase.purchase_name_kor}</strong> 님 예약에 성공하셨습니다.</span> <br>
                 <span>예약번호는 <strong class="orange">${purchase.purchase_no}</strong> 입니다.</span><br>
                 <span> 예약번호는 예약조회시 꼭 필요하므로, 꼭 기억해주세요.</span>
             </div>
